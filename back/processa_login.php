@@ -1,13 +1,24 @@
 <?php
-include "conexao.php"; // Inclua o arquivo de conexão
+include "conexao.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
     $email = $_POST["email"];
     $senha = $_POST["password"];
+    $usertype = $_POST["usertype"]; // Adicione esta linha para obter o tipo de usuário
 
-    // Consulta SQL para buscar o paciente
-    $sql = "SELECT id, senha FROM pacientes WHERE email = ?";
+    // Consulta SQL para buscar o usuário
+    $sql = "";
+    if ($usertype === "dentista") {
+        $sql = "SELECT id, senha FROM medicos WHERE email = ?";
+    } elseif ($usertype === "paciente") {
+        $sql = "SELECT id, senha FROM pacientes WHERE email = ?";
+    } else {
+        echo "Tipo de usuário inválido.";
+        header("refresh: 3;url=../login.php");
+        exit();
+    }
+
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
 
@@ -17,11 +28,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter o resultado da consulta
     $result = $stmt->get_result();
 
-    // Verificar se o paciente foi encontrado
+    // Verificar se o usuário foi encontrado
     if ($result->num_rows > 0) {
-        // Obter os dados do paciente
+        // Obter os dados do usuário
         $row = $result->fetch_assoc();
-        $id_paciente = $row["id"];
+        $id_usuario = $row["id"];
         $senha_hash = $row["senha"];
 
         // Verificar se a senha fornecida é válida
@@ -29,11 +40,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Iniciar a sessão
             session_start();
 
-            // Armazenar informações do paciente na sessão
-            $_SESSION["id_paciente"] = $id_paciente;
+            // Armazenar informações do usuário na sessão
+            $_SESSION["id_usuario"] = $id_usuario;
 
-            // Redirecionar para a página do paciente após o login bem-sucedido
-            header("Location: ../pagina_paciente.php");
+            // Redirecionar para a página apropriada
+            if ($usertype === "dentista") {
+                header("Location: ../pagina_dentista.php");
+            } elseif ($usertype === "paciente") {
+                header("Location: ../pagina_paciente.php");
+            }
             exit();
         } else {
             // Exibir mensagem de erro se a senha estiver incorreta
@@ -41,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("refresh: 3;url=../login.php");
         }
     } else {
-        // Exibir mensagem de erro se o paciente não for encontrado
+        // Exibir mensagem de erro se o usuário não for encontrado
         echo "Usuário ou senha incorretos.";
         header("refresh: 3;url=../login.php");
     }

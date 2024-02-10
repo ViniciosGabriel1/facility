@@ -1,11 +1,6 @@
 <?php
 include "back/conexao.php";
 
-$currentDate = date('Y-m-d');
-
-// Calcular a data daqui a 3 meses
-$limitDate = date('Y-m-d', strtotime('+3 months'));
-
 // Verificar se foi fornecido um ID de médico na URL
 if (isset($_GET['id_dentista'])) {
     // Obter o ID do médico a partir da URL
@@ -27,6 +22,12 @@ if (isset($_GET['id_dentista'])) {
     header("Location: index.php");
     exit();
 }
+
+// Calcular a data atual
+$currentDate = date('Y-m-d\TH:i');
+
+// Calcular a data daqui a 3 meses
+$limitDate = date('Y-m-d\TH:i', strtotime('+3 months'));
 
 // Fechar a conexão com o banco de dados
 $conn->close();
@@ -63,7 +64,7 @@ $conn->close();
         <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
 
         <label for="data">Escolha uma Data e Hora:</label>
-        <input type="datetime-local" id="data" name="data" min="<?php echo $currentDate-1; ?>" max="<?php echo $limitDate; ?>" required>
+        <input type="datetime-local" id="data" name="data" min="<?php echo $currentDate; ?>" max="<?php echo $limitDate; ?>" required>
 
         <label for="servico">Escolha um Serviço:</label>
         <select id="servico" name="servico" required>
@@ -78,10 +79,12 @@ $conn->close();
         <label for="observacoes">Observações:</label>
         <textarea id="observacoes" name="observacoes" rows="4" placeholder="Adicione observações, se necessário"></textarea>
 
-
-
         <button type="submit">Agendar</button>
+        <br><br><a href="pagina_paciente.php"><button type="button">Voltar para a Página Inicial</button></a>
     </form>
+
+    <!-- Botão para voltar à página inicial -->
+    
 
 </body>
 

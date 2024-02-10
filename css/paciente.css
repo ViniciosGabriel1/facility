@@ -33,7 +33,7 @@ h2 {
     width: calc(30% - 40px); /* Largura ajustada */
     max-width: 300px;
     min-width: 250px;
-    height: 200px;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
