@@ -6,9 +6,9 @@ date_default_timezone_set('America/Sao_Paulo'); // Substitua pelo seu fuso horá
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Verificar se o usuário está autenticado
-    if (isset($_SESSION["id_paciente"])) {
+    if (isset($_SESSION["id_usuario"])) {
         // Obter dados do formulário
-        $id_paciente = $_SESSION["id_paciente"];
+    $id_paciente = $_SESSION["id_usuario"];
         $id_medico = $_POST["id_medico"];
         $data_consulta = $_POST["data"];
         $servico = $_POST["servico"];

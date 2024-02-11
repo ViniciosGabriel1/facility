@@ -1,24 +1,34 @@
 <?php
+
+
 include "conexao.php";
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
-    $email = $_POST["email"];
-    $senha = $_POST["password"];
-    $usertype = $_POST["usertype"]; // Adicione esta linha para obter o tipo de usuário
+    $email = isset($_POST["email"]) ? $_POST["email"] : null;
+    $senha = isset($_POST["password"]) ? $_POST["password"] : null;
+    $usertype = isset($_POST["usertype"]) ? $_POST["usertype"] : null;
 
-    // Consulta SQL para buscar o usuário
-    $sql = "";
-    if ($usertype === "dentista") {
-        $sql = "SELECT id, senha FROM medicos WHERE email = ?";
-    } elseif ($usertype === "paciente") {
-        $sql = "SELECT id, senha FROM pacientes WHERE email = ?";
-    } else {
-        echo "Tipo de usuário inválido.";
+    // Verificar se as variáveis são nulas
+    if ($email === null || $senha === null || $usertype === null) {
+        echo "Parâmetros inválidos.";
         header("refresh: 3;url=../login.php");
         exit();
     }
 
+    // Verificar o tipo de usuário
+    if ($usertype === "dentista") {
+        $table = "medicos";
+    } elseif ($usertype === "paciente") {
+        $table = "pacientes";
+    } else {
+        echo "Tipo de usuário inválido.";
+        exit();
+    }
+
+    // Consulta SQL para buscar o usuário
+    $sql = "SELECT id, senha FROM $table WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
 
@@ -46,23 +56,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Redirecionar para a página apropriada
             if ($usertype === "dentista") {
                 header("Location: ../pagina_dentista.php");
+                exit();
             } elseif ($usertype === "paciente") {
                 header("Location: ../pagina_paciente.php");
+                exit();
             }
-            exit();
         } else {
             // Exibir mensagem de erro se a senha estiver incorreta
             echo "Usuário ou senha incorretos.";
-            header("refresh: 3;url=../login.php");
         }
     } else {
         // Exibir mensagem de erro se o usuário não for encontrado
         echo "Usuário ou senha incorretos.";
-        header("refresh: 3;url=../login.php");
     }
 
     // Fechar a conexão com o banco de dados
     $stmt->close();
     $conn->close();
+} else {
+    echo "Método de requisição inválido.";
+    exit();
 }
-?>
