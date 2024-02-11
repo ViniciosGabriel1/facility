@@ -8,6 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $telefone = $_POST["telefone"];
     $especializacao = $_POST["especializacao"];
     $senha = $_POST["senha"];
+   
 
     // Verificar se o e-mail já existe no banco de dados
     $verificar_email = "SELECT id FROM medicos WHERE email = ?";
@@ -54,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         echo "Médico cadastrado com sucesso!";
-        header("refresh: 10;url=../login.php"); // Redirecionar para a página inicial após o cadastro
+        header("refresh: 3;url=../login.php"); // Redirecionar para a página inicial após o cadastro
     } else {
         echo "Erro ao cadastrar médico. Tente novamente.";
     }

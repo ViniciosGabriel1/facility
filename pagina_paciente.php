@@ -29,39 +29,38 @@
     $conn->close();
     ?>
     <!DOCTYPE html>
-    <html lang="en">
+<html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/paciente.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/paciente.css">
+    <title>Escolha um Dentista</title>
+</head>
 
+<body>
 
-        <title>Escolha um Dentista</title>
-    </head>
+    <h2>Escolha um Dentista</h2>
 
-    <body>
+    <?php
+    if ($result_dentistas->num_rows > 0) {
+        while ($row = $result_dentistas->fetch_assoc()) {
+    ?>
+            <div class="dentista-card">
+                <!-- Ajuste de tamanho da imagem -->
+                <img src="uploads/<?= $row['foto'] ?>" alt="Foto do Médico" style="height: 350px;">
+                <h3>Médico: <?= $row['nome'] ?></h3>
+                <p>Especialização: <?= $row['especializacao'] ?></p>
+                <a href='agendar_consulta.php?id_dentista=<?= $row['id'] ?>'>Marcar Consulta</a>
+            </div>
 
-        <h2>Escolha um Dentista</h2>
-
-        <?php
-        if ($result_dentistas->num_rows > 0) {
-            while ($row = $result_dentistas->fetch_assoc()) {
-        ?>
-                <div class="dentista-card">
-                    <img src="uploads/<?= $row['foto'] ?>" alt="Foto do Médico">
-                    <h3>Médico: <?= $row['nome'] ?></h3>
-                    <p>Especialização: <?= $row['especializacao'] ?></p>
-                    <a href='agendar_consulta.php?id_dentista=<?= $row['id'] ?>'>Marcar Consulta</a>
-                </div>
-
-        <?php
-            }
-        } else {
-            echo "<p>Nenhum dentista cadastrado no momento.</p>";
+    <?php
         }
-        ?>
+    } else {
+        echo "<p>Nenhum dentista cadastrado no momento.</p>";
+    }
+    ?>
 
-    </body>
+</body>
 
-    </html>
+</html>

@@ -18,14 +18,16 @@
         <label for="nome">Nome:</label>
         <input type="text" id="nome" name="nome" required>
 
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" onblur="verificarDisponibilidadeEmail()" required>
+        <div id="mensagemErro"></div>
 
         <label for="senha">Senha:</label>
         <input type="password" id="senha" name="senha" required>
 
-        <label for="confirmar_senha">Confirmar Senha:</label>
-        <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+        <label for="confirma_senha">Confirme a Senha:</label>
+        <input type="password" id="confirma_senha" name="confirma_senha" onblur="verificarCoincidenciaSenhas()" required>
+        <div id="mensagemErroSenha" style="color: red"></div>
 
         <label for="telefone">Telefone:</label>
         <input type="tel" id="telefone" name="telefone" required>
@@ -45,6 +47,9 @@
         <button type="button" onclick="adicionarServico()">Adicionar Serviço</button>
         <br>
         <button type="submit">Cadastrar Médico</button>
+
+        <br><p>Já tem uma conta? <a href="login.php">Faça login</a></p>
+
     </form>
 
     <script>
@@ -53,6 +58,7 @@
             const container = document.getElementById("servicosContainer");
             const novoCampo = document.createElement("div");
             novoCampo.classList.add("servicoContainer");
+            
 
             novoCampo.innerHTML = `
                 <input type="text" name="servicos[]" placeholder="Digite o serviço" class="servicoInput" required>
@@ -68,6 +74,10 @@
             container.removeChild(botao.parentNode);
         }
     </script>
+    
+
+    <script src="js/validaEmail.js"></script>
+    <script src="js/validaSenha.js"></script>
 
 </body>
 

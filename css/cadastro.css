@@ -110,3 +110,11 @@ body {
         padding: 10px;
     }
 }
+
+.disponivel {
+    color: green;
+}
+
+.erro {
+    color: red;
+}

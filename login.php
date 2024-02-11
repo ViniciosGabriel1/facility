@@ -25,7 +25,7 @@
             <br><button type="submit">Entrar</button>
         </form>
 
-        <p class="signup-link">Não tem uma conta? <a href="cadastro_paciente.php">Cadastre-se como Paciente</a> ou <a href="cadastro_medico.php">Cadastre-se como Médico</a></p>
+        <p class="signup-link">Não tem uma conta? <a href="cadastro.php">Cadastre-se como Paciente</a> ou <a href="cadastro_medico.php">Cadastre-se como Médico</a></p>
 
     </div>
 </body>
