@@ -28,27 +28,30 @@
     $id_paciente = $_SESSION["id_usuario"];
 
     // Consulta SQL para obter as informações do paciente
-    $sql = "SELECT nome, telefone, email FROM pacientes WHERE id = ?";
+    $sql = "SELECT nome, telefone, email, foto FROM pacientes WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $id_paciente);
     $stmt->execute();
-    $stmt->bind_result($nome, $telefone, $email);
+    $stmt->bind_result($nome, $telefone, $email, $foto);
 
     // Verificar se o paciente foi encontrado
     if ($stmt->fetch()) {
     ?>
         <div class="info-card">
-            <p><strong>Nome:</strong> <?php echo $nome; ?></p>
-            <p><strong>Telefone:</strong> <?php echo $telefone; ?></p>
-            <p><strong>Email:</strong> <?php echo $email; ?></p>
+            <!-- Exibir a foto do paciente se estiver presente -->
+            <div class="paciente-card">
+                <!-- Ajuste de tamanho da imagem -->
+                <img class = "img"src="uploads_pacientes/<?= $foto ?>" alt="Foto do Paciente" style="height: 350px;">
+                <h3>Paciente: <?= $nome ?></h3>
+                <p>Email: <?= $email ?></p>
+                <p>Telefone: <?= $telefone ?></p>
+                <a href="editar_paciente.php" class="button">Editar Perfil</a>
+            </div>
         </div>
-
-        <!-- Adicione links ou botões para editar as informações se desejar -->
-        <a class= "a" href="editar_perfil_paciente.php">Editar Perfil</a>
 
     <?php
     } else {
-        echo "<p>Não foi possível recuperar as informações do paciente.</p>";
+        echo "<p>Nenhum paciente cadastrado no momento.</p>";
     }
 
     // Fechar a conexão com o banco de dados

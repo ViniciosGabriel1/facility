@@ -4,11 +4,13 @@ body {
     padding: 0;
     background-color: #f8f8f8;
     display: flex;   
-     align-items: center;
+    align-items: center;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
+    overflow-x: hidden;  /* Adicione esta linha para ocultar a barra de rolagem horizontal */
 }
+
 
 h2 {
     text-align: center;
