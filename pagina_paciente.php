@@ -32,11 +32,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/paciente.css">
+
+
         <title>Escolha um Dentista</title>
     </head>
 
     <body>
-
+        <?php include "menu.php"; ?>
         <h2>Escolha um Dentista</h2>
 
         <?php
@@ -57,7 +59,6 @@
             echo "<p>Nenhum dentista cadastrado no momento.</p>";
         }
         ?>
-
     </body>
 
     </html>

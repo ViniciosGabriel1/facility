@@ -1,0 +1,68 @@
+/* Adicione isso ao seu arquivo CSS (menu.css) */
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Inicialmente oculto na esquerda */
+    width: 250px;
+    height: 100%;
+    background-color: #007bff;
+    padding-top: 60px;
+    transition: 0.5s; /* Adiciona uma transição suave para a animação */
+    z-index: 2; /* Defina um índice z para o menu */
+}
+a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul li {
+    padding: 15px;
+    font-size: 20px;
+    color: white;
+    transition: 0.3s;
+}
+
+.menu ul li:hover {
+    background-color: #035ab6;
+}
+
+.menu-toggle {
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 3; /* Certifique-se de que o botão fique sobre o menu */
+}
+
+.bar {
+    width: 35px;
+    height: 5px;
+    background-color: rgb(0, 255, 34);
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.menu-toggle.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-9px, 6px);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-8px, -8px);
+}

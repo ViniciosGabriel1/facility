@@ -1,0 +1,39 @@
+/* Estilos comuns para todos os tamanhos de tela */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.info-card {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.a {
+    display: block;
+    width: 20%; /* Alterado para 20% */
+    margin: auto;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Estilos específicos para telas menores (por exemplo, dispositivos móveis) */
+@media only screen and (max-width: 600px) {
+    .info-card {
+        max-width: 100%;
+    }
+}
