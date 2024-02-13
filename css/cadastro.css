@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    background-color: #f5f5f5;
+    background: linear-gradient(to bottom, #01559B,  #ffffff); /* Adicione essa linha para o degradê */
     color: #333;
 }
 
@@ -99,6 +99,8 @@ body {
 }
 
 .signup-section {
+    padding: 10px;
+    border-radius: 3%;
     width: 100%;
     max-width: 600px;
     margin: auto;

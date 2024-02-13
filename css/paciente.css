@@ -1,9 +1,10 @@
 body {
+
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background: linear-gradient(to bottom, #01559B,  #ffffff); /* Adicione essa linha para o degradê */
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     gap: 20px;
@@ -15,7 +16,7 @@ body {
 
 h2 {
     text-align: center;
-    color: #333;
+    color: #ffffff;
     margin-top: 30px;
     width: 100%;
 }
@@ -28,12 +29,12 @@ h2 {
 }
 
 .dentista-card {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background: linear-gradient(to bottom, #ffffff, #28B6F6); /* Adicione essa linha para o degradê */
+    border: none;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.5s ease-in-out;
     width: calc(30% - 40px);
     max-width: 300px;
     min-width: 250px;
@@ -42,8 +43,10 @@ h2 {
     flex-direction: column;
 }
 
+
 .dentista-card:hover {
-    transform: scale(1.02);
+    transform: scale(1.05);
+    background: linear-gradient(to bottom, #28B6F6,  #ffffff);
 }
 
 .dentista-card h3 {
@@ -66,7 +69,7 @@ a {
     display: block;
     text-align: center;
     padding: 10px;
-    background-color: #3498db;
+    background-color: #01559B   ;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;

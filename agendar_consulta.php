@@ -41,19 +41,7 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/agendamento.css">
     <title>Agendar Consulta</title>
-    <style>
-        /* Seu estilo CSS anterior permanece inalterado */
 
-        /* Adicione estilos adicionais conforme necessário */
-        select {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-    </style>
 </head>
 
 <body>
@@ -80,7 +68,7 @@ $conn->close();
         <textarea id="observacoes" name="observacoes" rows="4" placeholder="Adicione observações, se necessário"></textarea>
 
         <button type="submit">Agendar</button>
-        <br><br><a href="pagina_paciente.php"><button type="button">Voltar para a Página Inicial</button></a>
+        
     </form>
 
     <!-- Botão para voltar à página inicial -->

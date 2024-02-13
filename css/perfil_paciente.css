@@ -1,5 +1,7 @@
 /* Estilos comuns para todos os tamanhos de tela */
 body {
+    background: linear-gradient(to bottom, #01559B,  #ffffff); /* Adicione essa linha para o degradê */
+
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;

@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="login-container">
+        <!-- Adição da imagem centralizada -->
+        <img src="img/logoblue.png" alt="Logo" class="logo">
+
         <h2>Login</h2>
         <form action="back/processa_login.php" method="POST">
             <label for="username">Usuário (E-mail):</label>

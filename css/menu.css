@@ -6,7 +6,7 @@
     left: -250px; /* Inicialmente oculto na esquerda */
     width: 250px;
     height: 100%;
-    background-color: #007bff;
+    background-color: #28B6F6;
     padding-top: 60px;
     transition: 0.5s; /* Adiciona uma transição suave para a animação */
     z-index: 2; /* Defina um índice z para o menu */
@@ -22,6 +22,10 @@ a {
     transition: background-color 0.3s ease-in-out;
 }
 
+a:hover {
+    background-color: #2980b9; /* Cor desejada ao passar o mouse */
+}
+
 .menu ul {
     list-style-type: none;
     padding: 0;
@@ -32,12 +36,9 @@ a {
     padding: 15px;
     font-size: 20px;
     color: white;
-    transition: 0.3s;
+    transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
 }
 
-.menu ul li:hover {
-    background-color: #035ab6;
-}
 
 .menu-toggle {
     position: fixed;
@@ -50,7 +51,7 @@ a {
 .bar {
     width: 35px;
     height: 5px;
-    background-color: rgb(0, 255, 34);
+    background-color: rgb(255, 255, 255);
     margin: 6px 0;
     transition: 0.4s;
 }
