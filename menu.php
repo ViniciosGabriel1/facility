@@ -21,7 +21,7 @@
     <div class="menu">
         <ul>
             <li><a href="pagina_paciente.php"><i class="fas fa-home"></i> Página Inicial</a></li>
-            <li><a href="#"><i class="fas fa-search"></i> Procurar Médico</a></li>
+            <li><a href="procura_medico.php"><i class="fas fa-search"></i> Procurar Médico</a></li>
             <li><a href="historico_consulta.php"><i class="fas fa-check"></i> Consultas</a></li>
             <li><a href="perfil_paciente.php"><i class="fas fa-user"></i> Perfil</a></li>
             <li><a href="#"><i class="fas fa-cogs"></i> Configurações</a></li>
