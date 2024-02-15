@@ -25,7 +25,7 @@
             <li><a href="historico_consulta.php"><i class="fas fa-check"></i> Consultas</a></li>
             <li><a href="perfil_paciente.php"><i class="fas fa-user"></i> Perfil</a></li>
             <li><a href="#"><i class="fas fa-cogs"></i> Configurações</a></li>
-            <li><a href="#" style="color: red"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="logout.php" style="color: red"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
 
     </div>

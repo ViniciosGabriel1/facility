@@ -1,0 +1,54 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #01559B, #ffffff) no-repeat;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.consultas-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.consultas-do-dia,
+.consultas-outros-dias {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.consulta {
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+}
+
+.consultas-outros-dias {
+    max-width: 600px;
+}
+
+.consultas-outros-dias p {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .consultas-container {
+        flex-direction: column;
+    }
+    
+    .consultas-do-dia,
+    .consultas-outros-dias {
+        margin-bottom: 20px;
+    }
+}
