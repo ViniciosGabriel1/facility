@@ -2,11 +2,6 @@
 
     session_start();
 
-    // Armazenar o ID do usuário na variável de sessão
-
-    include "back/conexao.php";
-
-
     // Verificar se o usuário está autenticado (possui uma sessão ativa)
     if (!isset($_SESSION["id_usuario"])) {
         // Redirecionar para a página de login se não estiver autenticado
@@ -14,6 +9,7 @@
         exit();
     }
 
+    include "../back/conexao.php";
     // O ID do paciente está disponível em $_SESSION["id_paciente"]
     $id_paciente = $_SESSION["id_usuario"];
 
@@ -31,14 +27,14 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/paciente.css">
+        <link rel="stylesheet" href="../css/paciente.css">
 
 
         <title>Escolha um Dentista</title>
     </head>
 
     <body>
-        <?php include "menu.php"; ?>
+        <?php include "../paciente/menu.php"; ?>
         <h2>Escolha um Dentista</h2>
 
         <?php
@@ -47,7 +43,7 @@
         ?>
                 <div class="dentista-card">
                     <!-- Ajuste de tamanho da imagem -->
-                    <img src="uploads/<?= $row['foto'] ?>" alt="Foto do Médico" style="height: 350px;">
+                    <img src="../uploads/<?= $row['foto'] ?>" alt="Foto do Médico" style="height: 350px;">
                     <h3>Médico: <?= $row['nome'] ?></h3>
                     <p>Especialização: <?= $row['especializacao'] ?></p>
                     <a href='agendar_consulta.php?id_dentista=<?= $row['id'] ?>'>Marcar Consulta</a>

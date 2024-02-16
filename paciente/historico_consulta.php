@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/historico_consultas.css">
+    <link rel="stylesheet" href="../css/historico_consultas.css">
     <title>Histórico de Consultas</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
         <h2>Histórico de Consultas</h2>
         <?php
         session_start();
-        include "back/conexao.php";
+        include "../back/conexao.php";
         // Verificar se o paciente está autenticado
         if (!isset($_SESSION["id_usuario"])) {
             // Redirecionar para a página de login se não estiver autenticado

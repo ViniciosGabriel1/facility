@@ -7,7 +7,7 @@ if (!isset($_SESSION['id_usuario'])) {
     exit();
 }
 
-include "back/conexao.php";
+include "../back/conexao.php";
 
 // Obter o ID do médico da sessão
 $id_medico = $_SESSION['id_usuario'];
@@ -37,13 +37,13 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/medico.css">
+    <link rel="stylesheet" href="../css/medico.css">
     <title>Página do Médico</title>
 </head>
 
 <body>
 
-    <?php include "menu_dentista.php"; ?>
+    <?php include "../dentista/menu_dentista.php"; ?>
 
     <h2>Suas Consultas Agendadas</h2>
 

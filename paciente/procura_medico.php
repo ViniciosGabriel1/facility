@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/procura_medico.css">
+    <link rel="stylesheet" href="../css/procura_medico.css">
     <title>Pesquisar Médicos</title>
 </head>
 
@@ -15,7 +15,7 @@
     $numDoctors = 0; // Defina a variável inicialmente para evitar o aviso
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        include "back/conexao.php";
+        include "../back/conexao.php";
 
         // Preparar a consulta SQL
         $sql = "SELECT id, nome, especializacao, foto, telefone FROM medicos WHERE LOWER(nome) LIKE ? OR LOWER(especializacao) LIKE ?";
@@ -46,7 +46,7 @@
             while ($row = $result->fetch_assoc()) {
             ?>
                 <div class="result-card">
-                    <img src="uploads/<?= $row['foto'] ?>" alt="Foto do Médico" style="height: 350px;">
+                    <img src="../uploads/<?= $row['foto'] ?>" alt="Foto do Médico" style="height: 350px;">
                     <h3><?= $row["nome"] ?></h3>
                     <p>Especialização: <?= $row["especializacao"] ?></p>
                     <p>Telefone: <?= $row["telefone"] ?></p>

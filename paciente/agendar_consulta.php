@@ -1,5 +1,5 @@
 <?php
-include "back/conexao.php";
+include "../back/conexao.php";
 
 // Verificar se foi fornecido um ID de médico na URL
 if (isset($_GET['id_dentista'])) {
@@ -39,7 +39,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/agendamento.css">
+    <link rel="stylesheet" href="../css/agendamento.css">
     <title>Agendar Consulta</title>
 
 </head>
@@ -48,7 +48,7 @@ $conn->close();
 
     <h2>Agendar Consulta</h2>
     <?php include "menu.php"; ?>
-    <form action="back/processar_agendamento.php" method="post">
+    <form action="../back/processar_agendamento.php" method="post">
         <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
 
         <label for="data">Escolha uma Data e Hora:</label>

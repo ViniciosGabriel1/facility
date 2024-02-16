@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt_agendamento->execute()) {
             echo "Consulta agendada com sucesso!";
-            header("refresh: 3;url=../pagina_paciente.php");
+            header("refresh: 3;url=../paciente/pagina_paciente.php");
         } else {
             echo "Erro ao agendar consulta. Tente novamente.";
         }

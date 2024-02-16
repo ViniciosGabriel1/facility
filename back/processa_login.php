@@ -55,10 +55,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirecionar para a página apropriada
             if ($usertype === "dentista") {
-                header("Location: ../pagina_dentista.php");
+                header("Location: ../dentista/pagina_dentista.php");
                 exit();
             } elseif ($usertype === "paciente") {
-                header("Location: ../pagina_paciente.php");
+                header("Location: ../paciente/pagina_paciente.php");
                 exit();
             }
         } else {

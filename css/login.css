@@ -1,176 +1,204 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+a {
+    font-family: sans-serif;
+    text-decoration: none;
+  }
+  
+  .header {
+    /* #28B6F65c Cor pik */
+    background: #28B6F65c;
+    padding-inline: 16px;
+  }
+  
+  .nav {
+    max-width: 1280px;
+    height: 70px;
+    margin-inline: auto;
+  
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
+  }
+  
+  .logo {
+    font-size: 48px;
+  }
+  
+  .nav-list {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    pointer-events: all; /* Adicione esta linha */
 }
 
-/* Adicione estas regras CSS para posicionar o h1 no lado superior esquerdo */
+  
+  .nav-list a {
+    font-size: 18px;
+    color: #fff;
+    padding-block: 16px;
+  }
+  
+  .hamburger {
+    display: none;
+    border: none;
+    background: none;
+    border-top: 3px solid #fff;
+    cursor: pointer;
+  }
+  
+  .hamburger::after,
+  .hamburger::before {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    margin-top: 5px;
+    position: relative;
+    transition: 0.3s;
+  }
+  
+  @media (max-width: 750px) {
+    .hamburger {
+      display: block;
+      z-index: 1;
+    }
+  
+    .nav-list {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #a5c;
+      clip-path: circle(100px at 90% -15%);
+      transition: 1s ease-out;
+  
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      gap: 0;
+  
+      pointer-events: none;
+    }
+  
+    .nav-list a {
+      font-size: 24px;
+      opacity: 0;
+    }
+  
+    .nav-list li:nth-child(1) a {
+      transition: 0.5s 0.2s;
+    }
+  
+    .nav-list li:nth-child(2) a {
+      transition: 0.5s 0.4s;
+    }
+  
+    .nav-list li:nth-child(3) a {
+      transition: 0.5s 0.6s;
+    }
+  
+    /* Estilos ativos */
+  
+    .nav.active .nav-list {
+      clip-path: circle(1500px at 90% -15%);
+      pointer-events: all;
+      z-index: 999; /* Adicione esta linha */
+  }
+  
+  
+    .nav.active .nav-list a {
+      opacity: 1;
+    }
+  
+    .nav.active .hamburger {
+      position: fixed;
+      top: 26px;
+      right: 16px;
+      border-top-color: transparent;
+    }
+  
+    .nav.active .hamburger::before {
+      transform: rotate(135deg);
+    }
+  
+    .nav.active .hamburger::after {
+      transform: rotate(-135deg);
+      top: -7px;
+    }
+  }
 
-h1 {
+h2, h1 {
     float: left;
-	width: 220px; height: auto;
+    width: auto;
     display: flex;
     margin: 0;
-    /* padding: 20px; */
     color: #ffffff;
     flex-direction: column-reverse;
 }
 
-
-
-header .logo  {
-    float: left;
-    width: 220px;
-    height: auto;
-    z-index: 1;
-}
-
-.container{
-    position: relative;
-    width: 1200px;
-    margin: 0 auto 0 auto;
-    padding: 0;
-}
-
-
-.topbar{
-    position: fixed;
-    left: 0; top: 0;
-    width: 100%;
-    padding: 12px 0;
-    background: blueviolet;
-    z-index: 99;
-}
-.topbar h3{
-    text-align:center;
-    color:#fff;
-    font-size:15px;
-    font-family:'Poppins';
-    font-weight: 600;
-}
-
-
-
-
-header{
+.bannertext {
     position: absolute;
-    width: 100%; 
-    margin: 0 0 0 0;
-    left: 0; top: 0;
-    z-index: 0;
-    transition:0.4s;-webkit-transition:0.4s;
-}
-header.fixed{
-    position: fixed;
-    padding: 25px 0 25px 0;
-    background: blueviolet;
-    box-shadow:0 0 15px rgba(0,0,0,0.2);
-    -webkit-box-shadow:0 0 15px rgba(0,0,0,0.2);
-}
-header .logo img{
-    float: left;
-    width: 220px; height: auto;
-}
-nav{
-    width: 100%;
-    float: right;
-    margin-top: 0vw;
-}
-nav ul{
-    float: right;
-}
-nav ul li{
-    float: left;
-    list-style: none;
-    margin-right: 30px;
-}
-nav ul li:last-of-type{
-    margin-right: 0;
-}
-nav ul li a{
-    float: left;
-    text-align:left;
-    color:#fff;
-    font-size:13px;
-    text-transform: uppercase;
-    font-weight: 500;
-    padding: 12px 0;
-    border-radius:4px;
-    transition:0.3s;
-    -webkit-transition:0.3s;
-    text-decoration: none;
-    position: relative;
-}
-nav ul li a::after{
-    position: absolute;
-    width: 0%;
-    height: 3px;
-    background: blueviolet;
-    left: 0; right: 0; bottom: 0;
-    margin: 0 auto;
-    content: '';
-    transition:0.3s; -webkit-transition:0.3s;
-}
-header.fixed nav ul li a::after{
-    background: #fff;
-}
-nav ul li.active a::after,
-nav ul li:hover a:after{
-    width: 100%;
-}
-
-.login-container {
-    float: right;
-    text-align: center;
-    max-width: 400px;
-    margin: auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-
-#form {
-    max-width: 300px;
-    margin: 0 auto;
-}
-
-.login-button {
-    margin-top: 10px;
-}
-.bannertext{
-    float: left;
-    width: 50%;
-    margin: 0 auto 0 auto;
-    position: relative;
+    margin-left: 15%;
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Corrige o posicionamento vertical */
     z-index: 2;
 }
 
-.bannertext h2{
+.bannertext h2 {
     text-align: center;
-    color:#fff;
-    font-size: 55px; line-height: 100%;
+    color: #fff;
+    font-size: 30px;
+    line-height: 150%;
     font-weight: 600;
-    margin: 0 0 50px 0;
+    margin: 0 0 20px 0;
 }
 
-
-
-.logo {
-    width: 100px; /* Defina a largura desejada para o seu logotipo */
-    margin-bottom: 20px;
+.videoouter {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0; top: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    z-index: -2;
 }
+.videoouter video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    left: 0; top: 0;
+    object-fit: cover;
+}
+/* Adicione isso ao seu CSS */
 
-
+/* Adicione isso ao seu CSS para posicionar o formulário à direita */
 
 form {
     display: flex;
     flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+    align-self: center; /* Centraliza o formulário verticalmente */
+    margin-top: 12%; /* Adiciona uma margem superior para posicionar o formulário no meio */
+}
+
+/* Nova regra para posicionar o formulário à direita */
+@media screen and (min-width: 800px) {
+    form {
+        margin-left: auto; /* Move o formulário para a extremidade direita */
+        margin-right: 200px; /* Adiciona um espaçamento entre o formulário e o conteúdo da página */
+    }
 }
 
 label {
@@ -179,6 +207,13 @@ label {
 }
 
 input {
+    padding: 10px;
+    margin-bottom: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+select {
     padding: 10px;
     margin-bottom: 16px;
     border: 1px solid #ddd;
@@ -199,44 +234,28 @@ button:hover {
     background-color: #0056b3;
 }
 
-a {
+
+
+form .signup-link a {
     color: #007bff;
     text-decoration: none;
 }
 
-a:hover {
+form .signup-link a:hover {
     text-decoration: underline;
 }
 
-/* Adicione estilos para o link "Cadastre-se" */
-.signup-link {
-    margin-top: 12px;
-    text-align: center;
+@media screen and (max-width: 800px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    #headnav ul {
+        display: none;
+    }
+
+    #headnav.show-menu ul {
+        display: block;
+    }
 }
 
-.signup-link a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.signup-link a:hover {
-    text-decoration: underline;
-}
-.videoouter{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0; top: 0; 
-    margin: 0 0 0 0;
-    padding: 0 0 0 0;
-    overflow: hidden;
-    z-index: -2;
-}
-.videoouter video{
-    position: absolute;
-    width: 100%;
-    height: 100%; 
-    margin: 0 0 0 0;
-    left:0; top:0;
-    object-fit: cover;
-}
