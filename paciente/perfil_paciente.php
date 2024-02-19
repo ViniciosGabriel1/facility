@@ -24,6 +24,11 @@
         exit();
     }
 
+    $id_paciente = $_SESSION["id_usuario"];
+    echo "ID do Paciente: $id_paciente";
+
+
+
     // Obter o ID do paciente
     $id_paciente = $_SESSION["id_usuario"];
 
@@ -41,7 +46,7 @@
             <!-- Exibir a foto do paciente se estiver presente -->
             <div class="paciente-card">
                 <!-- Ajuste de tamanho da imagem -->
-                <img class = "img"src="../uploads_pacientes/<?= $foto ?>" alt="Foto do Paciente" style="height: 350px;">
+                <img class="img" src="../uploads_pacientes/<?= $foto ?>" alt="Foto do Paciente" style="height: 350px;">
                 <h3>Paciente: <?= $nome ?></h3>
                 <p>Email: <?= $email ?></p>
                 <p>Telefone: <?= $telefone ?></p>

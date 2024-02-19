@@ -9,7 +9,15 @@ h2 {
     color: #333;
     text-align: center;
 }
-
+p{
+    padding: 9px;
+}
+.consulta .sec{
+    background-color: #ffffff;
+    height: 90%;
+    margin-right: 10px; 
+    border-radius: 20px;
+}
 .consultas-container {
     display: flex;
     justify-content: space-around;
@@ -18,20 +26,79 @@ h2 {
 
 .consultas-do-dia,
 .consultas-outros-dias {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background: linear-gradient(to bottom, #ffffff, #28B6F6);
+    border: none;
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
+    transition: transform 0.5s ease-in-out;
+    width: 60%;
+    height: auto; /* Alterado de 150px para auto para acomodar conteúdo variável */
+    margin-bottom: 20px; /* Adicionado espaço inferior entre as seções */
+    display: flex;
+    flex-direction: column; /* Adicionado para organizar os elementos verticalmente */
+    align-items: center; /* Centraliza os elementos horizontalmente */
+}
+
+.consultas-do-dia img,
+.consultas-outros-dias img {
+    padding: 20px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
 }
 
 .consulta {
-    border-bottom: 1px solid #ddd;
+    padding: 10px;
     margin-bottom: 15px;
-    padding-bottom: 15px;
+    width: 100%; /* Ocupa toda a largura do container pai */
+    box-sizing: border-box; /* Evita que a borda aumente o tamanho total */
+    position: relative;
 }
+.botoes-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 5%;
+}
+
+.concluir-btn, .cancelar-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cancelar-btn {
+    background-color: #f44336;
+}
+
+@media screen and (min-width: 600px) {
+
+
+    
+    .botoes-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .concluir-btn, .cancelar-btn {
+        margin: 0 10px;
+    }
+
+
+}
+
+
 
 .consultas-outros-dias {
     max-width: 600px;
