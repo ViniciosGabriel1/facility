@@ -7,7 +7,6 @@ body {
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     gap: 20px;
-    padding: 20px;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
@@ -90,4 +89,93 @@ a:hover {
     .dentista-card {
         width: calc(100% - 40px);
     }
+
+    
 }
+
+#banner {
+    background-image: url('../img/banner2.jpg');
+    background-size: cover; /* Para cobrir toda a tela com a imagem */
+    background-position: center; /* Para centralizar a imagem */
+    color: #fff; /* Cor do texto */
+    text-align: center; /* Alinhar o conteúdo no centro */
+    width: 100%; /* Largura do banner será igual à largura da janela de visualização (viewport width) */
+    height: 100vh; /* Altura do banner será igual à altura da janela de visualização (viewport height) */
+    display: flex;
+    justify-content: center; /* Alinha o conteúdo verticalmente */
+    align-items: center; /* Alinha o conteúdo horizontalmente */
+    flex-direction: column;
+    animation-name: fadeIn; /* Nome da animação */
+    animation-duration: 1s; /* Duração da animação */
+    animation-timing-function: ease-in-out; /* Função de temporização da animação */
+    animation-fill-mode: both; /* Aplica o estado final da animação ao elemento */
+}
+
+/* Definindo a animação de fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Inicia com opacidade 0 (invisível) */
+    }
+    to {
+        opacity: 1; /* Termina com opacidade 1 (totalmente visível) */
+    }
+}
+.container {
+    display: flex;
+    flex-direction: column; /* Empilha os elementos verticalmente */
+    align-items: center; /* Alinha os elementos horizontalmente */
+    justify-content: center; /* Alinha os elementos verticalmente */
+    text-align: center; /* Alinha o texto no centro */
+}
+
+.procura {
+    order: -1; /* Define a ordem do elemento h2 acima do elemento a */
+}
+
+:root {
+    --arrow-bg: rgba(255, 255, 255, 0.3);
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+    --option-bg: white;
+    --select-bg: rgba(255, 255, 255, 0.2);
+  }
+select {
+    /* Reset */
+    appearance: none;
+    border: 0;
+    outline: 0;
+    font: inherit;
+    /* Personalize */
+    width: 20rem;
+    padding: 1rem 4rem 1rem 1rem;
+    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    color: white;
+    border-radius: 0.25em;
+    box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    /* Remove IE arrow */
+    &::-ms-expand {
+      display: none;
+    }
+    /* Remove focus outline */
+    &:focus {
+      outline: none;
+    }
+    /* <option> colors */
+    option {
+      color: inherit;
+      background-color: var(--option-bg);
+    }
+  }
+
+  .select-box option {
+    font-size: 16px;
+    color: #333;
+    background-color: var(--option-bg);
+}
+
+/* Estilo do foco das opções do select */
+.select-box option:focus {
+    outline: none;
+    background-color: #f0f0f0;
+}
+  

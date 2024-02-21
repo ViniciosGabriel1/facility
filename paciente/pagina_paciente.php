@@ -35,6 +35,17 @@
 
     <body>
         <?php include "../paciente/menu.php"; ?>
+
+        <section id="banner">
+            <div class="conteiner">
+                <h2 class="procura">Que Tipo de Profissional Procura?</h2>
+            </div>
+            <select class="select-box" onchange="location = this.value;">
+                <option value="#one">Clínico Geral</option>
+                <option value="#two">Dentista</option>
+                <option value="#three">Buco Maxilo</option>
+            </select>
+        </section>
         <h2>Escolha um Dentista</h2>
 
         <?php

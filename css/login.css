@@ -137,27 +137,43 @@ h2, h1 {
     float: left;
     width: auto;
     display: flex;
-    margin: 0;
+    
     color: #ffffff;
     flex-direction: column-reverse;
 }
 
 .bannertext {
-    position: absolute;
-    margin-left: 15%;
-    top: 50%; /* Centraliza verticalmente */
-    transform: translateY(-50%); /* Corrige o posicionamento vertical */
-    z-index: 2;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  line-height: 100%;
+  font-weight: 600;
+  margin: 20px 0;
 }
 
 .bannertext h2 {
-    text-align: center;
-    color: #fff;
-    font-size: 30px;
-    line-height: 150%;
-    font-weight: 600;
-    margin: 0 0 20px 0;
+  padding-bottom: 10%;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  line-height: 130%;
+  font-weight: 600;
 }
+
+@media screen and (max-width: 768px) {
+  /* Estilos para telas com largura máxima de 600 pixels (dispositivos móveis) */
+  .bannertext h2 {
+      width: 100%;
+      text-align: center;
+      color: #fff;
+      font-size: 24px; /* Tamanho de fonte reduzido para telas menores */
+      line-height: 130%; /* Espaçamento entre linhas ajustado */
+      font-weight: 600;
+       /* Margem ajustada para posicionar o h2 no topo da tela */
+  }
+}
+
 
 .videoouter {
     position: absolute;
@@ -182,6 +198,10 @@ h2, h1 {
 /* Adicione isso ao seu CSS para posicionar o formulário à direita */
 
 form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    /* padding-right: 10px; */
     display: flex;
     flex-direction: column;
     background-color: #fff;
@@ -189,16 +209,19 @@ form {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 300px;
-    align-self: center; /* Centraliza o formulário verticalmente */
-    margin-top: 12%; /* Adiciona uma margem superior para posicionar o formulário no meio */
+    margin-top: 12%;
+    width: 100%;
+     /* Adiciona uma margem superior para posicionar o formulário no meio */
 }
 
 /* Nova regra para posicionar o formulário à direita */
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 600px) {
     form {
+        width: 100%;
         margin-left: auto; /* Move o formulário para a extremidade direita */
         margin-right: 200px; /* Adiciona um espaçamento entre o formulário e o conteúdo da página */
-    }
+      flex-direction: column;
+      }
 }
 
 label {
