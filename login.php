@@ -49,8 +49,9 @@
 
                     <label for="usertype">Você é um:</label>
                     <select id="usertype" name="usertype" required>
+                    <option value="paciente">Paciente</option>
                         <option value="dentista">Dentista</option>
-                        <option value="paciente">Paciente</option>
+                        
                     </select>
 
                     <br><button type="submit" class="login-button">Entrar</button>

@@ -37,10 +37,14 @@
     </head>
 
     <body>
+        
+       
         <?php include "../paciente/menu.php"; ?>
 
         <section id="banner">
+        <h1 class="fac">FacilityOdonto</h1>
             <div class="conteiner">
+            
                 <h2 class="procura">Que Tipo de Profissional Procura?</h2>
             </div>
             <select class="select-box" onchange="location = this.value;">
