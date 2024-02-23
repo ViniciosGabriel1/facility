@@ -44,7 +44,8 @@ $conn->close();
 <body>
 
     <?php include "../dentista/menu_dentista.php"; ?>
-
+    
+    <h1 class="fac">FacilityOdonto</h1>
     <h2>Suas Consultas Agendadas</h2>
 
     <div class="consultas-container">

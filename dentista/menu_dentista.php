@@ -22,6 +22,7 @@
         <ul>
             <li><a href="pagina_dentista.php"><i class="fas fa-home"></i> Página Inicial</a></li>
             <li><a href="perfil_dentista.php"><i class="fas fa-user"></i> Perfil</a></li>
+            <li><a href="add_loc.php"><i class="fas fa-user"></i> Adicionar Localização</a></li>
             <li><a href="#"><i class="fas fa-cogs"></i> Configurações</a></li>
             <li><a href="../back/logout.php" style="color: red"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
