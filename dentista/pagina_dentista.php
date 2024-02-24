@@ -53,7 +53,6 @@ $conn->close();
             <h3>Consultas Agendadas para Hoje</h3>
             <?php
             // Exibir consultas agendadas para hoje
-            // Exibir consultas agendadas para hoje
             while ($row = $result_consultas->fetch_assoc()) {
                 $data_consulta = new DateTime($row['data_consulta']);
                 $hoje = new DateTime();

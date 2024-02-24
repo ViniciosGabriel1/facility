@@ -57,7 +57,7 @@ h2 {
 }
 
 .dentista-card h3 {
-    color: #333;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
@@ -69,7 +69,7 @@ h2 {
 }
 
 .dentista-card p {
-    color: #666;
+    color: #ffffff;
 }
 
 a {
@@ -249,7 +249,7 @@ select {
     top: -200px;
 }
 .ver-mais-btn:hover {
-    background-color: #45a049; /* Cor de fundo quando o mouse passa por cima */
+    background-color: #25D366;
 }
 
 /* Estilo para dispositivos desktop */
@@ -290,6 +290,24 @@ select {
         text-align: center;
     }
 }
+
+/* Estilo para o botão do WhatsApp */
+.whatsapp-btn {
+    display: inline-block;
+    background-color: #25D366;
+    color: #fff;
+    padding: 10px 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Estilo para o ícone do WhatsApp */
+.whatsapp-btn img {
+    vertical-align: middle;
+    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
+}
+
 
 
 
