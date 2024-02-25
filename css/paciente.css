@@ -308,6 +308,85 @@ select {
     margin-right: 10px; /* Espaçamento entre o ícone e o texto */
 }
 
+/* Estilo do modal */
+.modal {
+    display: none; /* Ocultar o modal por padrão */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+}
+
+/* Conteúdo do modal */
+.modal-content {
+    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em,linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
+    margin: 10% auto; /* Centralizar verticalmente e alinhar com a parte superior */
+    padding: 20px;
+    border: none;
+    width: 80%; /* Largura do modal */
+    max-width: 600px; /* Largura máxima do modal */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Botão de fechar */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Estilo do conteúdo dentro do modal */
+#medico-details, p{
+    text-align: center;
+    color: white;
+}
+
+#medico-foto {
+    align-items: center;
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+#medico-nome,
+#medico-especializacao {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Animação de entrada do modal */
+.modal-content {
+    animation: modal-show 0.3s ease-out;
+}
+
+@keyframes modal-show {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 
 
 

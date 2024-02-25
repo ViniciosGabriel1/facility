@@ -8,7 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
     $nome = $_POST["nome"];
     $email = $_POST["email"];
-    $telefone = $_POST["telefone"];
+    // Adicionar o código do país ao número de telefone
+    $telefone = "+55" . $_POST["telefone"];
     $especializacao = $_POST["especializacao"];
     $senha = $_POST["senha"];
    
