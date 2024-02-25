@@ -3,7 +3,7 @@ session_start();
 
 // Verificar se o médico está autenticado
 if (!isset($_SESSION['id_usuario'])) {
-    header("Location: login_medico.php");
+    header("Location: login.php");
     exit(); // Encerrar o script para evitar que o código continue sendo executado
 }
 
@@ -18,15 +18,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter os dados do formulário
     $link_localizacao = $_POST['link_localizacao'];
 
-    // Preparar a consulta SQL para inserir a localização da clínica
-    $sql = "INSERT INTO localizacao_clinica (id_medico, link_localizacao) VALUES (?, ?)";
+    // Preparar a consulta SQL para atualizar a localização da clínica
+    $sql = "UPDATE medicos SET link_localizacao = ? WHERE id_medico = ?";
 
     // Preparar a instrução SQL usando PDO
     $stmt = $conn->prepare($sql);
 
     // Executar a consulta
     try {
-        $stmt->execute([$id_medico, $link_localizacao]);
+        $stmt->execute([$link_localizacao, $id_medico]);
         echo "Localização da clínica adicionada com sucesso!";
     } catch (PDOException $e) {
         echo "Erro ao adicionar localização da clínica: " . $e->getMessage();

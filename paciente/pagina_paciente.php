@@ -14,7 +14,7 @@ include "../back/conexao.php";
 $id_paciente = $_SESSION["id_usuario"];
 
 // Consulta SQL para obter a lista de dentistas
-$sql_dentistas = "SELECT id, nome, especializacao, telefone, foto, formacao FROM medicos";
+$sql_dentistas = "SELECT id, nome, especializacao, telefone, foto, formacao, link_localizacao FROM medicos";
 $result_dentistas = $conn->query($sql_dentistas);
 
 // Fechar a conexão com o banco de dados
@@ -48,42 +48,36 @@ $conn->close();
     </section>
     <h2>Escolha um Dentista</h2>
     <?php
-if ($result_dentistas->num_rows > 0) {
-    while ($row = $result_dentistas->fetch_assoc()) {
-?>
-        <div class="dentista-card" data-especializacao="<?= $row['especializacao'] ?>">
-            <img src="../uploads/<?= $row['foto'] ?>" alt="Foto do Médico" style="height: 350px;">
-            <h3>Doutor <?= $row['nome'] ?></h3>
-            <p>Especialização: <?= $row['especializacao'] ?></p>
-            <p>Formação: <?= $row['formacao'] ?></p>
+    if ($result_dentistas->num_rows > 0) {
+        while ($row = $result_dentistas->fetch_assoc()) {
+    ?>
+            <div class="dentista-card" data-especializacao="<?= $row['especializacao'] ?>">
+                <img src="../uploads/<?= $row['foto'] ?>" alt="Foto do Médico" style="height: 350px;">
+                <h3>Doutor <?= $row['nome'] ?></h3>
+                <p>Especialização: <?= $row['especializacao'] ?></p>
 
-            <a href='agendar_consulta.php?id_dentista=<?= $row['id'] ?>'>Marcar Consulta</a>
-            <button class="ver-mais-btn" 
-    data-id-medico="<?= $row['id'] ?>"
-    data-foto="../uploads/<?= $row['foto'] ?>"
-    data-nome="<?= $row['nome'] ?>"
-    data-especializacao="<?= $row['especializacao'] ?>"
-    data-formacao="<?= $row['formacao'] ?>"
-    onclick="abrirModal(<?= $row['id'] ?>)">Ver Mais
-</button>
+                <a href='agendar_consulta.php?id_dentista=<?= $row['id'] ?>'>Marcar Consulta</a>
+                <button class="ver-mais-btn" data-id-medico="<?= $row['id'] ?>" data-foto="../uploads/<?= $row['foto'] ?>" data-nome="<?= $row['nome'] ?>" data-especializacao="<?= $row['especializacao'] ?>" data-formacao="<?= $row['formacao'] ?>" data-link-localizacao="<?= $row['link_localizacao'] ?>">Ver Mais
+                </button>
 
-            <a class="whatsapp-btn" href="https://wa.me/<?= $row['telefone'] ?>" target="_blank">Entrar em contato pelo WhatsApp
-                <img src="../img/whatsapp.png" alt="WhatsApp" style="height: 30px;">
-            </a>
-        </div>
-<?php
+                <a class="whatsapp-btn" href="https://wa.me/<?= $row['telefone'] ?>" target="_blank">Entrar em contato pelo WhatsApp
+                    <img src="../img/whatsapp.png" alt="WhatsApp" style="height: 30px;">
+                </a>
+            </div>
+    <?php
+        }
+    } else {
+        echo "<p>Nenhum dentista cadastrado no momento.</p>";
     }
-} else {
-    echo "<p>Nenhum dentista cadastrado no momento.</p>";
-}
-?>
+    ?>
 
-<script>
-    function mostrarMaisDetalhes(idMedico) {
-        window.location.href = 'detalhes_medico.php?id_medico=' + idMedico;
-    }
-</script>
+    <script>
+        function mostrarMaisDetalhes(idMedico) {
+            window.location.href = 'detalhes_medico.php?id_medico=' + idMedico;
+        }
+    </script>
 
+    <!-- Estrutura do modal -->
     <!-- Estrutura do modal -->
     <div id="modal" class="modal">
         <div class="modal-content">
@@ -93,19 +87,19 @@ if ($result_dentistas->num_rows > 0) {
             </div>
             <div class="modal-body">
                 <div class="medico-info">
-                    <img id="medico-foto" src="caminho/para/foto.jpg" alt="Foto do Médico">
+                    <img id="medico-foto" src="" alt="Foto do Médico">
                     <div class="medico-details">
                         <p><strong><i class="fas fa-user"></i> Nome:</strong> <span id="medico-nome">Nome do Médico</span></p>
                         <p><strong><i class="fas fa-user-graduate"></i> Especialização:</strong> <span id="medico-especializacao">Especialização</span></p>
                         <p><strong><i class="fas fa-graduation-cap"></i> Formação Acadêmica:</strong> <span id="medico-formacao">Graduação em Medicina</span></p>
-                        <p><strong><i class="fas fa-map-marker-alt"></i> Localização da Clínica:</strong> <span id="medico-localizacao">Endereço da Clínica</span></p>
-
-                        <a href='agendar_consulta.php?id_dentista=<?= $row['id'] ?>'>Marcar Consulta</a>
+                        <!-- Link para o Google Maps -->
+                        <a href="#" id="medico-maps" target="_blank"><i class="fas fa-map-marker-alt"></i>
+                            Ver no Google Maps <i class="fas fa-map-marker-alt"></i>
+                        </a>
 
                         <!-- Outras informações relevantes podem ser adicionadas aqui -->
                     </div>
                 </div>
-
             </div>
             <div class="modal-footer">
                 <!-- Botões adicionais ou links de ação podem ser colocados aqui -->
@@ -113,7 +107,8 @@ if ($result_dentistas->num_rows > 0) {
         </div>
     </div>
 
-    <script>
+    
+        <script>
         $(document).ready(function() {
             $('#filtro-especializacao').change(function() {
                 var especializacaoSelecionada = $(this).val();
@@ -129,46 +124,25 @@ if ($result_dentistas->num_rows > 0) {
                 });
             });
         });
+        $(document).ready(function() {
+            // Função para exibir os detalhes do médico ao clicar em Ver Mais
+            $('.ver-mais-btn').click(function() {
+                var formacao = $(this).data('formacao');
+                var nome = $(this).data('nome');
+                var especializacao = $(this).data('especializacao');
+                var linkLocalizacao = $(this).data('link-localizacao');
 
-        // Script para exibir o link de localização da clínica no modal
-        $('.ver-mais-btn').click(function() {
-            var formacao = $(this).data('formacao');
-            var nome = $(this).data('nome');
-            var especializacao = $(this).data('especializacao');
+                // Preencher os campos do modal com as informações do médico
+                $('#medico-formacao').text(formacao);
+                $('#medico-nome').text(nome);
+                $('#medico-especializacao').text(especializacao);
 
-            $('#medico-formacao').text(formacao);
-            $('#medico-nome').text(nome);
-            $('#medico-especializacao').text(especializacao);
-
-            var idDentista = $(this).closest('.dentista-card').data('id-dentista');
-
-            // Consulta AJAX para obter o link de localização da clínica
-            $.ajax({
-                url: '../back/buscar_localizacao.php',
-                method: 'POST',
-                data: { idDentista: idDentista },
-                success: function(response) {
-                    if (response) {
-                        $('#medico-localizacao').text(response);
-                    } else {
-                        $('#medico-localizacao').text('Localização não encontrada');
-                    }
-                }
+                // Adicionar o link do Google Maps
+                $('#medico-maps').attr('href', 'https://www.google.com/maps/search/?api=1&query=' + encodeURI(linkLocalizacao));
             });
-
-            $('#modal').show();
-        });
-
-        $('.close').click(function() {
-            $('#modal').hide();
-        });
-
-        $(window).click(function(e) {
-            if (e.target == $('#modal')[0]) {
-                $('#modal').hide();
-            }
         });
     </script>
+
 </body>
 
 </html>
