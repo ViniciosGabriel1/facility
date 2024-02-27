@@ -44,14 +44,14 @@
             <!-- Conteúdo dinâmico será adicionado aqui -->
         </div>
 <br>
-        <button type="button" onclick="adicionarServico()">Adicionar Serviço</button>
+        <!-- <button type="button" onclick="adicionarServico()">Adicionar Serviço</button> -->
         <br>
         <button type="submit">Cadastrar Médico</button>
 
         <br><p>Já tem uma conta? <a href="login.php">Faça login</a></p>
 
     </form>
-
+ <!--
     <script>
         // Função para adicionar dinamicamente campos de serviço
         function adicionarServico() {
@@ -75,7 +75,7 @@
         }
     </script>
     
-
+-->
     <script src="js/validaEmail.js"></script>
     <script src="js/validaSenha.js"></script>
 

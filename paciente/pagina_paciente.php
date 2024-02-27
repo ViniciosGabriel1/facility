@@ -14,7 +14,7 @@ include "../back/conexao.php";
 $id_paciente = $_SESSION["id_usuario"];
 
 // Consulta SQL para obter a lista de dentistas
-$sql_dentistas = "SELECT id, nome, especializacao, telefone, foto, formacao, link_localizacao FROM medicos";
+$sql_dentistas = "SELECT id, nome, especializacao, telefone, foto, link_localizacao FROM medicos";
 $result_dentistas = $conn->query($sql_dentistas);
 
 // Fechar a conexão com o banco de dados

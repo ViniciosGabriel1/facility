@@ -101,7 +101,7 @@ a:hover {
     
 }
 #banner {
-    background-image: url(../img/banner2.jpg);
+    background-image: url(../img/dente8.jpg);
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -255,6 +255,7 @@ select {
 /* Estilo para dispositivos desktop */
 
 .fac {
+    margin-top: 0%;
     padding: 1%;
     background: #28B6F65c;
     width: 100%;

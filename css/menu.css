@@ -41,7 +41,8 @@ a:hover {
 
 
 .menu-toggle {
-    padding-top: 10px;
+    margin-top: -10px;
+    /* padding-top: 10px; */
     position: fixed;
     left: 20px;
     top: 20px;
@@ -96,10 +97,10 @@ a:hover {
 /* Estilo para dispositivos móveis */
 @media (max-width: 767px) {
     .fac {
-        padding: 10px;
+        
         position: fixed;
-        padding-left: 15%;
-        padding-right: 10px;
+        /* padding-left: 25%; */
+        padding-right: 100px;
         color: white;
         display: flex;
         justify-content: center;
@@ -107,3 +108,23 @@ a:hover {
         text-align: center;
     }
 }
+
+.submenu {
+    display: none;
+    opacity: 0; /* Inicialmente invisível */
+    transition: opacity 0.9s ease; /* Transição suave de 0.3 segundos */
+}
+
+.submenu.active {
+    display: block;
+    opacity: 1; /* Torna o submenu visível quando ativo */
+}
+
+
+
+/* Adicione as transições de sua preferência */
+
+
+
+
+
