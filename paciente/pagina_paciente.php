@@ -57,8 +57,8 @@ $conn->close();
                 <p>Especialização: <?= $row['especializacao'] ?></p>
 
                 <a href='agendar_consulta.php?id_dentista=<?= $row['id'] ?>'>Marcar Consulta</a>
-                <button class="ver-mais-btn" data-id-medico="<?= $row['id'] ?>" data-foto="../uploads/<?= $row['foto'] ?>" data-nome="<?= $row['nome'] ?>" data-especializacao="<?= $row['especializacao'] ?>" data-formacao="<?= $row['formacao'] ?>" data-link-localizacao="<?= $row['link_localizacao'] ?>">Ver Mais
-                </button>
+                <button class="ver-mais-btn" onclick="window.location.href = '../paciente/ver_medico.php?id_medico=<?= $row['id'] ?>';" data-foto="../uploads/<?= $row['foto'] ?>" data-nome="<?= $row['nome'] ?>" data-especializacao="<?= $row['especializacao'] ?>"  data-link-localizacao="<?= $row['link_localizacao'] ?>">Ver Mais</button>
+
 
                 <a class="whatsapp-btn" href="https://wa.me/<?= $row['telefone'] ?>" target="_blank">Entrar em contato pelo WhatsApp
                     <img src="../img/whatsapp.png" alt="WhatsApp" style="height: 30px;">
@@ -70,43 +70,6 @@ $conn->close();
         echo "<p>Nenhum dentista cadastrado no momento.</p>";
     }
     ?>
-
-    <script>
-        function mostrarMaisDetalhes(idMedico) {
-            window.location.href = 'detalhes_medico.php?id_medico=' + idMedico;
-        }
-    </script>
-
-    <!-- Estrutura do modal -->
-    <!-- Estrutura do modal -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="modal-header">
-                <h2><i class="fas fa-user-md"></i> Informações do Médico</h2>
-            </div>
-            <div class="modal-body">
-                <div class="medico-info">
-                    <img id="medico-foto" src="" alt="Foto do Médico">
-                    <div class="medico-details">
-                        <p><strong><i class="fas fa-user"></i> Nome:</strong> <span id="medico-nome">Nome do Médico</span></p>
-                        <p><strong><i class="fas fa-user-graduate"></i> Especialização:</strong> <span id="medico-especializacao">Especialização</span></p>
-                        <p><strong><i class="fas fa-graduation-cap"></i> Formação Acadêmica:</strong> <span id="medico-formacao">Graduação em Medicina</span></p>
-                        <!-- Link para o Google Maps -->
-                        <a href="#" id="medico-maps" target="_blank"><i class="fas fa-map-marker-alt"></i>
-                            Ver no Google Maps <i class="fas fa-map-marker-alt"></i>
-                        </a>
-
-                        <!-- Outras informações relevantes podem ser adicionadas aqui -->
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <!-- Botões adicionais ou links de ação podem ser colocados aqui -->
-            </div>
-        </div>
-    </div>
-
     
         <script>
         $(document).ready(function() {

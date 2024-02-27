@@ -2,16 +2,20 @@
 // Inclua o arquivo de conexão com o banco de dados
 include_once "../back/conexao.php";
 
+$id_medico = $_GET['id_medico'];
+
+
+
 // Consulta para obter os serviços oferecidos pelo médico
-$sql_servicos = "SELECT * FROM servicos WHERE id_medico = 23"; // Supondo que o ID do médico seja 1
+$sql_servicos = "SELECT * FROM servicos WHERE id_medico = $id_medico"; // Supondo que o ID do médico seja 1
 $resultado_servicos = $conn->query($sql_servicos);
 
 // Consulta para obter as formações acadêmicas do médico
-$sql_formacoes = "SELECT * FROM formacoes WHERE id_medico = 23"; // Supondo que o ID do médico seja 1
+$sql_formacoes = "SELECT * FROM formacoes WHERE id_medico = $id_medico"; // Supondo que o ID do médico seja 1
 $resultado_formacoes = $conn->query($sql_formacoes);
 
 // Consulta SQL para obter as informações do médico
-$sql_medico = "SELECT nome, email, telefone,foto FROM medicos WHERE id = 23"; // Supondo que o ID do médico seja 1
+$sql_medico = "SELECT nome, email, telefone,foto FROM medicos WHERE id = $id_medico"; // Supondo que o ID do médico seja 1
 $resultado_medico = $conn->query($sql_medico);
 
 // Verifique se há resultados
@@ -38,6 +42,7 @@ if ($resultado_medico->num_rows > 0) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="../css/menu_perfil.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
@@ -68,6 +73,8 @@ if ($resultado_medico->num_rows > 0) {
 </head>
 
 <body class="w3-light-grey">
+<?php include "../paciente/menu.php"; ?>
+
 
   <!-- Page Container -->
   <div class="w3-content w3-margin-top" style="max-width:1400px;">
@@ -141,15 +148,9 @@ if ($resultado_medico->num_rows > 0) {
   </div>
 
   <footer class="w3-container w3-teal w3-center w3-margin-top">
-    <p>FacilityOdonto.</p>
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
 
-  </footer>
+  <p>Powered by <a href="https://www.linkedin.com/in/vin%C3%ADciosgabriel-dev12/" target="_blank">Vinicinho</a></p>
+</footer> 
 
 </body>
 
