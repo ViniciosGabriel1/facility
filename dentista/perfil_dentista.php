@@ -80,6 +80,12 @@ if ($resultado_medico->num_rows > 0) {
   color:#007bff !important;
 }
 
+.w3-white, .w3-hover-white:hover {
+    padding: 10px;
+    color: #000 !important;
+    background-color: #fff !important;
+}
+
 
 
 .fac {

@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adicionar Serviços</title>
-    <link rel="stylesheet" href="../css/menu.css">
+    
     <link rel="stylesheet" href="../css/servico.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style>
+    .fac {
+    /* padding-top: 20px; */
+    margin-top: 1px;
+    font-size: 30px;
+    margin-top: -15%;
+    position: fixed;
+    /* padding-left: 25%; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .fac {
+    padding: 10px;
+    position: fixed;
+    padding-left: 30%;
+    /* padding-right: 20px; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+}
+</style>
+
 </head>
 <body>
 <?php include "../dentista/menu_dentista.php"; ?>
