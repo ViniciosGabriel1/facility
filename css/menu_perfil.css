@@ -1,4 +1,3 @@
-/* Adicione isso ao seu arquivo CSS (menu.css) */
 
 .menu {
     position: fixed;
@@ -73,9 +72,9 @@ a:hover {
 
 
 .fac {
+    margin-top: -12px;
     /* margin: -50px; */
-    margin-top: -30px;
-    padding: 1%;
+    padding: 0.5%;
     background: #28B6F65c;
     width: 100%;
     padding-right: 10%;
@@ -85,9 +84,17 @@ a:hover {
     align-items: center;
     text-align: center;
     position: fixed;
+    z-index: 1;
 }
 
+
+h1{
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
 .fac h1 {
+    
     position: absolute; /* Adiciona posição absoluta ao h1 */
     top: 0; /* Coloca o h1 no topo do contêiner pai (.fac) */
     left: 0; /* Coloca o h1 no canto superior esquerdo do contêiner pai (.fac) */
@@ -98,18 +105,20 @@ a:hover {
 }
 /* Estilo para dispositivos móveis */
 @media (max-width: 767px){
-.fac {
-    position: fixed;
-    padding-left: 35%;
-    padding-right: 100px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 1;
-    margin-top: -16px;
-}
+    .fac {
+        
+        position: fixed;
+        padding-left: 35%;
+        padding-right: 100px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        z-index: 1;
+        margin-top: -16px;
+        padding: 9px;
+    }
 }
 
 /* Adicionei apenas para testar */

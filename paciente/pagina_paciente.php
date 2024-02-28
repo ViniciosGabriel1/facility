@@ -31,6 +31,8 @@ $conn->close();
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/verMais.js"></script>
     <title>Escolha um Dentista</title>
+
+
 </head>
 
 <body>
@@ -57,7 +59,7 @@ $conn->close();
                 <p>Especialização: <?= $row['especializacao'] ?></p>
 
                 <a href='agendar_consulta.php?id_dentista=<?= $row['id'] ?>'>Marcar Consulta</a>
-                <button class="ver-mais-btn" onclick="window.location.href = '../paciente/ver_medico.php?id_medico=<?= $row['id'] ?>';" data-foto="../uploads/<?= $row['foto'] ?>" data-nome="<?= $row['nome'] ?>" data-especializacao="<?= $row['especializacao'] ?>"  data-link-localizacao="<?= $row['link_localizacao'] ?>">Ver Mais</button>
+                <button class="ver-mais-btn" onclick="window.location.href = '../paciente/ver_medico.php?id_medico=<?= $row['id'] ?>';" data-foto="../uploads/<?= $row['foto'] ?>" data-nome="<?= $row['nome'] ?>" data-especializacao="<?= $row['especializacao'] ?>" data-link-localizacao="<?= $row['link_localizacao'] ?>">Ver Mais</button>
 
 
                 <a class="whatsapp-btn" href="https://wa.me/<?= $row['telefone'] ?>" target="_blank">Entrar em contato pelo WhatsApp
@@ -70,8 +72,8 @@ $conn->close();
         echo "<p>Nenhum dentista cadastrado no momento.</p>";
     }
     ?>
-    
-        <script>
+
+    <script>
         $(document).ready(function() {
             $('#filtro-especializacao').change(function() {
                 var especializacaoSelecionada = $(this).val();

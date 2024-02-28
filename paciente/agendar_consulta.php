@@ -45,9 +45,9 @@ $conn->close();
 </head>
 
 <body>
-
+<?php include "menu.php"; ?>
     <h2>Agendar Consulta</h2>
-    <?php include "menu.php"; ?>
+    
     <form action="../back/processar_agendamento.php" method="post">
         <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
 

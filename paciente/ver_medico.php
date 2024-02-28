@@ -42,7 +42,6 @@ if ($resultado_medico->num_rows > 0) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="../css/menu_perfil.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <style>
@@ -54,7 +53,7 @@ if ($resultado_medico->num_rows > 0) {
     h4,
     h5,
     h6 {
-      font-family: "Roboto", sans-serif
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .w3-teal, .w3-hover-teal:hover {
@@ -69,15 +68,19 @@ if ($resultado_medico->num_rows > 0) {
 .w3-text-black, .w3-hover-text-black:hover {
     color: #fff !important;
 }
+
+.w3-text-black, .w3-hover-text-black:hover {
+  color:#007bff !important;
+}
   </style>
 </head>
 
 <body class="w3-light-grey">
-<?php include "../paciente/menu.php"; ?>
+<?php include "../paciente/menu_perfil.php"; ?>
 
 
   <!-- Page Container -->
-  <div class="w3-content w3-margin-top" style="max-width:1400px;">
+  <div class="w3-content w3-margin-top" style="max-width:1500px;">
 
     <!-- The Grid -->
     <div class="w3-row-padding">
@@ -89,7 +92,7 @@ if ($resultado_medico->num_rows > 0) {
     <div class="w3-display-container">
         <img src="<?php echo $foto; ?>" style="width:100%" alt="Médico">
         <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2><?php echo $nome; ?></h2>
+            <h2>Dr.  <?php echo $nome; ?></h2>
             
         </div>
     </div>
