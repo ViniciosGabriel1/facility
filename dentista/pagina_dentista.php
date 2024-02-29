@@ -37,6 +37,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/medico.css">
     <title>Página do Médico</title>
 
@@ -44,7 +45,7 @@ $conn->close();
 
 <body>
 
-    <?php include "../dentista/menu_dentista.php"; ?>
+   <?php include "../menu_paciente.php"; ?> 
     
   
     <h2>Suas Consultas Agendadas</h2>

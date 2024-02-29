@@ -39,13 +39,15 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/agendamento.css">
     <title>Agendar Consulta</title>
 
 </head>
 
 <body>
-<?php include "menu.php"; ?>
+<?php include "menu_paciente.php"; ?>
+
     <h2>Agendar Consulta</h2>
     
     <form action="../back/processar_agendamento.php" method="post">

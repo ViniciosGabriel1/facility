@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/procura_medico.css">
     <title>Pesquisar Médicos</title>
 </head>
@@ -11,7 +12,7 @@
 <body>
 
     <?php
-    include "menu.php";
+    include "menu_paciente.php";
     $numDoctors = 0; // Defina a variável inicialmente para evitar o aviso
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {

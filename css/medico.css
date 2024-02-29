@@ -9,9 +9,9 @@ h2 {
     color: #333;
     text-align: center;
 }
-p{
+/* p{
     padding: 9px;
-}
+} */
 .consulta .sec{
     background-color: #ffffff;
     height: 90%;
@@ -47,6 +47,23 @@ p{
     height: auto;
     margin-bottom: 10px;
 }
+
+/* Estilos para telas maiores que 768px */
+@media (min-width: 768px) {
+    .consultas-do-dia,
+    .consultas-outros-dias {
+        width: 40%; /* Reduz a largura das seções para 40% da largura da tela */
+    }
+}
+
+/* Estilos para telas menores que 768px */
+@media (max-width: 768px) {
+    .consultas-do-dia,
+    .consultas-outros-dias {
+        width: 80%; /* Reduz a largura das seções para 80% da largura da tela */
+    }
+}
+
 
 .consulta {
     padding: 10px;

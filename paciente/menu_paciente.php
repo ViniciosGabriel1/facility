@@ -9,24 +9,24 @@
 </head>
 <body>
     <header>
-        <div class="logo">FacilityOdonto</div>
+        <div class="logo"><strong>FacilityOdonto</strong></div>
         <input type="checkbox" id="nav_check" hidden>
         <nav>
             <ul>
                 <li>
-                    <a href="pagina_paciente.php" class="active">Home</a>
+                    <a href="pagina_paciente.php" class="active"><strong>Home</strong></a>
                 </li>
                 <li>
-                    <a href="procura_medico.php">Procurar Médico</a>
+                    <a href="procura_medico.php"><strong>Procurar Médico</strong></a>
                 </li>
                 <li>
-                    <a href="historico_consulta.php">Consultas</a>
+                    <a href="historico_consulta.php"><strong>Consultas</strong></a>
                 </li>
                 <li>
-                    <a href="">Services</a>
+                    <a href="perfil_paciente.php"><strong>Perfil</strong></a>
                 </li>
                 <li>
-                    <a href="../back/logout.php">Logout</a>
+                    <a href="../back/logout.php"><strong>Logout</strong></a>
                 </li>
             </ul>
         </nav>

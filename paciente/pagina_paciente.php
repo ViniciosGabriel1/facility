@@ -27,6 +27,7 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/paciente.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/verMais.js"></script>
@@ -36,7 +37,7 @@ $conn->close();
 </head>
 
 <body>
-    <?php include "../paciente/menu.php"; ?>
+    <?php include "menu_paciente.php"; ?>
     <section id="banner">
         <div class="conteiner">
             <h2 class="procura">Que Tipo de Profissional Procura?</h2>

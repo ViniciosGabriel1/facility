@@ -1,16 +1,14 @@
 /* Estilos comuns para todos os tamanhos de tela */
 body {
-    background: linear-gradient(to bottom, #01559B,  #ffffff); /* Adicione essa linha para o degradê */
-
+    background: linear-gradient(to bottom, #01559B, #ffffff);
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
     display: flex;
-    align-items: center;
-    justify-content: center;
     min-height: 100vh;
-    flex-direction: column; /* Adicionado para garantir que o conteúdo esteja em coluna */
+    flex-direction: column;
+    align-items: center;
 }
 
 h2 {

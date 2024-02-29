@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/historico_consultas.css">
     <title>Histórico de Consultas</title>
 </head>
 <body>
-    <?php include "menu.php"; ?>
+    <?php include "menu_paciente.php"; ?>
     <div class="historico-container">
         <h2>Histórico de Consultas</h2>
         <?php

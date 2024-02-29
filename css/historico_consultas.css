@@ -1,15 +1,14 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    background: linear-gradient(to bottom, #01559B,  #ffffff); /* Adicione essa linha para o degradê */
+    /* line-height: 1.6; */
+    background: linear-gradient(to bottom, #01559B, #ffffff);
     margin: 0;
     padding: 0;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    /* height: 100vh; */
 }
-
 .historico-container {
     /* max-width: 800px; */
     margin: 20px;
