@@ -15,7 +15,7 @@
     <header class="header">
         <div class="nav" id="headnav">
             <h1 class="logo">FacilityOdonto</h1>
-            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            
             <ul class="nav-list">
                 <li class="active"><a href="#home">Home</a></li>
                 <li><a href="#about">Sobre Sistema</a></li>

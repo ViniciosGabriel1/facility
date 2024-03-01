@@ -1,8 +1,13 @@
-body {
+*{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #01559B, #ffffff) no-repeat;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 h2 {

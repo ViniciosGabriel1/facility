@@ -2,6 +2,8 @@ html {
     
     margin: 0;
     padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 body {
@@ -9,7 +11,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #01559B, #ffffff);
+    background: dodgerblue;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     gap: 40px;
@@ -76,16 +78,13 @@ a {
     display: block;
     text-align: center;
     padding: 10px;
-    background-color: #01559B   ;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
 }
 
-a:hover {
-    background-color: #2980b9;
-}
+
 
 @media screen and (max-width: 768px) {
     .dentista-card {
@@ -101,6 +100,7 @@ a:hover {
     
 }
 #banner {
+    margin-top: -40px;
     background-image: url(../img/dente8.jpg);
     background-size: cover;
     background-position: center;
