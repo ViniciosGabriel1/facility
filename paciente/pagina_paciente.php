@@ -31,6 +31,7 @@ $conn->close();
     <link rel="stylesheet" href="../css/paciente.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/verMais.js"></script>
+    
     <title>Escolha um Dentista</title>
 
 
@@ -39,8 +40,9 @@ $conn->close();
 <body>
     <?php include "menu_paciente.php"; ?>
     <section id="banner">
+        
         <div class="conteiner">
-            <h2 class="procura">Que Tipo de Profissional Procura?</h2>
+         <div id="changing-text">Que Tipo de Profissional Procura?</div><br><br>
         </div>
         <select id="filtro-especializacao" class="select-box">
             <option value="todos">Todos</option>
@@ -108,6 +110,7 @@ $conn->close();
             });
         });
     </script>
+    <script src="../js/trocaCor.js"></script>
 
 </body>
 

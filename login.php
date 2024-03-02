@@ -41,13 +41,13 @@
 
                 <form action="back/processa_login.php" method="POST">
 
-                    <label for="username">Usuário (E-mail):</label>
+                    <label for="username"><strong>Usuário (E-mail):</strong></label>
                     <input type="text" id="username" name="email" required>
 
-                    <label for="password">Senha:</label>
+                    <label for="password"><strong>Senha:</strong></label>
                     <input type="password" id="password" name="password" required autocomplete="off">
 
-                    <label for="usertype">Você é um:</label>
+                    <label for="usertype"><strong>Você é um:</strong></label>
                     <select id="usertype" name="usertype" required>
                     <option value="paciente">Paciente</option>
                         <option value="dentista">Dentista</option>

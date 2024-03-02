@@ -1,5 +1,5 @@
 html {
-    
+    height: auto;
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -11,7 +11,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: dodgerblue;
+    background: hsl(199deg 86% 78% / 73%);
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
     gap: 40px;
@@ -25,7 +25,7 @@ body {
 
 h2 {
     text-align: center;
-    color: #ffffff;
+    color: hsla(0, 0%, 100%, 0.73);
     margin-top: 30px;
     width: 100%;
 }
@@ -101,7 +101,7 @@ a {
 }
 #banner {
     margin-top: -40px;
-    background-image: url(../img/dente8.jpg);
+    background-image: url(../img/dente11.jpg);
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -150,10 +150,10 @@ h1 {
 }
 
 :root {
-    --arrow-bg: #28B6F65c;
+    --arrow-bg: hsl(199deg 86% 78% / 73%);
     --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
     --option-bg: rgba(255, 255, 255, 0.172);
-    --select-bg: #28B6F65c;
+    --select-bg: hsl(199deg 86% 78% / 73%); 
 
   }
 select {
@@ -389,6 +389,11 @@ select {
 #medico-maps {
     background: linear-gradient(to right, #28B6F6,  #ffffff);
     height: 20px; /* Ajuste a altura conforme necessário */
+}
+
+#changing-text {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 

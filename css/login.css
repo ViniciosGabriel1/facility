@@ -1,145 +1,148 @@
 body {
-    margin: 0;
-    padding: 0;
-  }
-  
+  margin: 0;
+  padding: 0;
+}
+
 a {
-    font-family: sans-serif;
-    text-decoration: none;
-  }
-  
-  .header {
-    /* #28B6F65c Cor pik */
-    background: #28B6F65c;
-    padding-inline: 16px;
-  }
-  
-  .nav {
-    max-width: 1280px;
-    height: 70px;
-    margin-inline: auto;
-  
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo {
-    font-size: 34px;
-}
-  
-  .nav-list {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-    pointer-events: all; /* Adicione esta linha */
+  font-family: sans-serif;
+  text-decoration: none;
 }
 
-  
-  .nav-list a {
-    font-size: 18px;
-    color: #fff;
-    padding-block: 16px;
-  }
-  
+.header {
+  /* #28B6F65c Cor pik */
+  background-color: hsl(199deg 86% 78%);
+  padding-inline: 16px;
+}
+
+.nav {
+  max-width: 1280px;
+  height: 70px;
+  margin-inline: auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 34px;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  pointer-events: all;
+  /* Adicione esta linha */
+}
+
+
+.nav-list a {
+  font-size: 18px;
+  color: #fff;
+  padding-block: 16px;
+}
+
+.hamburger {
+  display: none;
+  border: none;
+  background: none;
+  border-top: 3px solid #fff;
+  cursor: pointer;
+}
+
+.hamburger::after,
+.hamburger::before {
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  margin-top: 5px;
+  position: relative;
+  transition: 0.3s;
+}
+
+@media (max-width: 750px) {
   .hamburger {
-    display: none;
-    border: none;
-    background: none;
-    border-top: 3px solid #fff;
-    cursor: pointer;
-  }
-  
-  .hamburger::after,
-  .hamburger::before {
-    content: " ";
     display: block;
-    width: 30px;
-    height: 3px;
-    background: #fff;
-    margin-top: 5px;
-    position: relative;
-    transition: 0.3s;
-  }
-  
-  @media (max-width: 750px) {
-    .hamburger {
-      display: block;
-      z-index: 1;
-    }
-  
-    .nav-list {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #a5c;
-      clip-path: circle(100px at 90% -15%);
-      transition: 1s ease-out;
-  
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      gap: 0;
-  
-      pointer-events: none;
-    }
-  
-    .nav-list a {
-      font-size: 20px;
-      opacity: 0;
-    }
-  
-    .nav-list li:nth-child(1) a {
-      transition: 0.5s 0.2s;
-    }
-  
-    .nav-list li:nth-child(2) a {
-      transition: 0.5s 0.4s;
-    }
-  
-    .nav-list li:nth-child(3) a {
-      transition: 0.5s 0.6s;
-    }
-  
-    /* Estilos ativos */
-  
-    .nav.active .nav-list {
-      clip-path: circle(1500px at 90% -15%);
-      pointer-events: all;
-      z-index: 999; /* Adicione esta linha */
-  }
-  
-  
-    .nav.active .nav-list a {
-      opacity: 1;
-    }
-  
-    .nav.active .hamburger {
-      position: fixed;
-      top: 26px;
-      right: 16px;
-      border-top-color: transparent;
-    }
-  
-    .nav.active .hamburger::before {
-      transform: rotate(135deg);
-    }
-  
-    .nav.active .hamburger::after {
-      transform: rotate(-135deg);
-      top: -7px;
-    }
+    z-index: 1;
   }
 
-h2, h1 {
-    float: left;
-    width: auto;
-    display: flex;
-    
-    color: #ffffff;
-    flex-direction: column-reverse;
+  .nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #a5c;
+    clip-path: circle(100px at 90% -15%);
+    transition: 1s ease-out;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+
+    pointer-events: none;
+  }
+
+  .nav-list a {
+    font-size: 20px;
+    opacity: 0;
+  }
+
+  .nav-list li:nth-child(1) a {
+    transition: 0.5s 0.2s;
+  }
+
+  .nav-list li:nth-child(2) a {
+    transition: 0.5s 0.4s;
+  }
+
+  .nav-list li:nth-child(3) a {
+    transition: 0.5s 0.6s;
+  }
+
+  /* Estilos ativos */
+
+  .nav.active .nav-list {
+    clip-path: circle(1500px at 90% -15%);
+    pointer-events: all;
+    z-index: 999;
+    /* Adicione esta linha */
+  }
+
+
+  .nav.active .nav-list a {
+    opacity: 1;
+  }
+
+  .nav.active .hamburger {
+    position: fixed;
+    top: 26px;
+    right: 16px;
+    border-top-color: transparent;
+  }
+
+  .nav.active .hamburger::before {
+    transform: rotate(135deg);
+  }
+
+  .nav.active .hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+}
+
+h2,
+h1 {
+  float: left;
+  width: auto;
+  display: flex;
+
+  color: #ffffff;
+  flex-direction: column-reverse;
 }
 
 .bannertext {
@@ -150,6 +153,7 @@ h2, h1 {
   font-weight: 600;
   margin: 20px 0;
 }
+
 .bannertext h2 {
   padding: 17%;
   padding-bottom: 10%;
@@ -162,6 +166,7 @@ h2, h1 {
 }
 
 @media screen and (max-width: 768px) {
+
   /* Estilos para telas com largura máxima de 600 pixels (dispositivos móveis) */
   .bannertext h2 {
     padding: 5%;
@@ -171,121 +176,125 @@ h2, h1 {
     font-size: 18px;
     line-height: 130%;
     font-weight: 600;
-}
+  }
 }
 
 
 .videoouter {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0; top: 0;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    z-index: -2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: -2;
 }
+
 .videoouter video {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    left: 0; top: 0;
-    object-fit: cover;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  left: 0;
+  top: 0;
+  object-fit: cover;
 }
+
 /* Adicione isso ao seu CSS */
 
 /* Adicione isso ao seu CSS para posicionar o formulário à direita */
 
 form {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    /* padding-right: 10px; */
-    display: flex;
-    flex-direction: column;
-    background-color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  /* padding-right: 10px; */
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(199deg 86% 78%);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
-    margin-top: 12%;
-    width: 100%;
-     /* Adiciona uma margem superior para posicionar o formulário no meio */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin-top: 12%;
+  width: 100%;
+  /* Adiciona uma margem superior para posicionar o formulário no meio */
 }
 
 /* Nova regra para posicionar o formulário à direita */
 @media screen and (min-width: 600px) {
-    form {
-        width: 100%;
-        margin-left: auto; /* Move o formulário para a extremidade direita */
-        margin-right: 200px; /* Adiciona um espaçamento entre o formulário e o conteúdo da página */
-      flex-direction: column;
-      }
+  form {
+    width: 100%;
+    margin-left: auto;
+    /* Move o formulário para a extremidade direita */
+    margin-right: 200px;
+    /* Adiciona um espaçamento entre o formulário e o conteúdo da página */
+    flex-direction: column;
+  }
 }
 
 label {
   font-size: 12px;
   margin-bottom: 8px;
-  color: #333;
+  color: #ffffff;
 }
 
 input {
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 select {
-    padding: 10px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  background-color: #007bff;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #0056b3;
+  background-color: #0056b3;
 }
 
 
 
 form .signup-link a {
-    color: #007bff;
-    text-decoration: none;
+  color: #007bff;
+  text-decoration: none;
 }
 
 form .signup-link a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 800px) {
-    .menu-toggle {
-        display: block;
-    }
+  .menu-toggle {
+    display: block;
+  }
 
-    #headnav ul {
-        display: none;
-    }
+  #headnav ul {
+    display: none;
+  }
 
-    #headnav.show-menu ul {
-        display: block;
-    }
+  #headnav.show-menu ul {
+    display: block;
+  }
 }
 
 p {
   font-size: 12px;
   font-family: 'Poppins', sans-serif;
 }
-
-
