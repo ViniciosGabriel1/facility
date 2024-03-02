@@ -1,5 +1,5 @@
 * {
-    margin: 0;
+
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-decoration: none;
@@ -7,7 +7,8 @@
     box-sizing: border-box;
 }
 
-body,html {
+body,
+html {
     height: 100%;
     background: dodgerblue;
 }
@@ -27,11 +28,13 @@ header .logo {
     color: white;
     font-size: 30px;
     text-transform: uppercase;
-    order: 1; /* Define a ordem dos elementos no flex container */
+    order: 1;
+    /* Define a ordem dos elementos no flex container */
 }
 
 header nav {
-    order: 2; /* Define a ordem dos elementos no flex container */
+    order: 2;
+    /* Define a ordem dos elementos no flex container */
 }
 
 header nav ul {
@@ -39,7 +42,7 @@ header nav ul {
 }
 
 header nav ul li a {
-    
+
     display: inline-block;
     color: #ffffff;
     padding: 5px 0;
@@ -83,7 +86,7 @@ header nav ul li a.active {
         left: -100%;
         top: 50px;
         width: 100%;
-        background-color: #28B6F65c;
+        background-color: #28b6f6c2;
         padding: 30px;
         transition: 0.3s;
         z-index: 100;
@@ -98,7 +101,92 @@ header nav ul li a.active {
     }
 
     header nav ul li a {
+
         margin: 5px 0;
         color: white;
     }
+
+    header nav ul li a:hover,
+    header nav ul li a.active {
+        border-bottom-color: rgb(255, 255, 255);
+    }
+
+    header nav ul li label:hover,
+    header nav ul li label.active {
+        border-bottom-color: rgb(255, 255, 255);
+
+    }
+
+
+
+}
+
+/* Mantenha as regras CSS existentes */
+
+.submenu-content {
+    margin-left: -3px;
+    margin-top: -2px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+    z-index: 1;
+    border-radius: 5px;
+    /* Adiciona borda arredondada */
+}
+
+.submenu-content li {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.submenu-content a {
+    display: block;
+    /* Faz os links ocuparem toda a largura do submenu */
+    padding: 5px 0;
+    /* Espaçamento interno */
+    color: #28b6f6c2;
+    /* Cor do texto do submenu */
+    font-weight: bold;
+    transition: color 0.2s;
+    /* Transição suave */
+}
+
+.submenu-content a:hover {
+    color: #007bff;
+    /* Cor do texto do submenu ao passar o mouse */
+}
+
+.submenu input[type="checkbox"] {
+    display: none;
+
+}
+
+.submenu label {
+    display: inline-block;
+    color: #ffffff;
+    padding: 5px 0;
+    border: 3px solid transparent;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.submenu label:hover {
+    color: #fff;
+    /* Cor do texto ao passar o mouse */
+}
+
+.submenu input[type="checkbox"]:checked~.submenu-content {
+    display: block;
+}
+
+label:hover,
+label.active {
+    border-bottom-color: dodgerblue;
+
 }

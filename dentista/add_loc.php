@@ -65,7 +65,7 @@
 </head>
 
 <body>
-    <?php include "../dentista/menu_dentista.php"; ?>
+    <?php include "menu_dentista.php"; ?>
 
     <h2>Adicionar Localização da Clínica</h2>
     <form action="../back/processar_localizacao.php" method="post">

@@ -10,8 +10,8 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h2 {
-    color: #333;
+h2, h3 {
+    color: #ffffff;
     text-align: center;
 }
 /* p{
