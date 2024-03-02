@@ -1,0 +1,120 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    /* Cor de fundo de fallback */
+}
+
+.container {
+    width: 40%;
+    /* display: flex; */
+    max-width: 900px;
+    /* Ajuste conforme necessário */
+    margin: 50px auto;
+    padding: 20px;
+    background-color: hsl(199deg 86% 78%);
+    /* Fundo semi-transparente para conteúdo */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+}
+
+.form-container {
+    flex: 1;
+    /* Ocupa todo o espaço disponível */
+    padding: 20px;
+    /* Adiciona espaço interno */
+}
+
+.form-container h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.label {
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+textarea {
+    height: 150px;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #007bff;
+}
+
+
+.container-wrapper {
+    margin-left: 10%;
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-image {
+    width: 30%;
+}
+
+
+
+.pergunta {
+    margin-top: 3%;
+    text-align: center;
+    align-items: center;
+    color: white;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .container-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .background-image {
+        margin-right: 10%;
+        left: 100px;
+        width: 80%;
+        margin-bottom: 10px;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 100%;
+        margin-right: 10%;
+        /* padding: 10px; */
+        /* max-width: 900px; */
+        /* padding: 20px; */
+        background-color: hsl(199deg 86% 78%);
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+}
+
+h2, label{
+    color: rgb(255, 255, 255);
+}

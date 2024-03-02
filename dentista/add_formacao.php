@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/servico1.css">
     <title>Adicionar Formação</title>
+    <link rel="stylesheet" href="../css/formacao.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-
 </head>
-
 <body>
-
-
     <?php include "menu_dentista.php"; ?>
+    <h1 class="pergunta">Formação ainda incompleta?</h1>
+    <div class="container-wrapper">
+    <!-- Início da imagem -->
+    <img src="../img/formacao.svg" alt="Descrição da imagem" class="background-image">
+    <!-- Fim da imagem -->
 
     <div class="container">
         <h2>Adicionar Formação</h2>
@@ -35,8 +34,8 @@
         </form>
         <div id="mensagem"></div>
     </div>
+    </div>
 
-    <script src="../js/formacao.js"></script> <!-- Importe seu arquivo de script JavaScript aqui -->
+    <script src="../js/formacao.js"></script>
 </body>
-
 </html>
