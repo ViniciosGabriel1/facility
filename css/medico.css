@@ -1,144 +1,95 @@
-*{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+/* Estilos padrão */
 
-
-body {
-    
+/* Reset de estilos e fontes padrão */
+* {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
 }
 
+/* Fonte padrão e cor de fundo do corpo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+}
+
+/* Estilo para cabeçalhos */
 h2, h3 {
     color: #ffffff;
     text-align: center;
+    margin-top: 20px;
 }
-/* p{
-    padding: 9px;
-} */
-.consulta .sec{
-    background-color: #ffffff;
-    height: 90%;
-    margin-right: 10px; 
+
+/* Estilo para consultas */
+.consulta {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 80%; /* Largura relativa */
+    max-width: 900px; /* Largura máxima */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo para a imagem do paciente */
+.consulta img {
+    display: block;
+    margin: 0 auto 10px; /* Centraliza a imagem */
+    max-width: 100%;
     border-radius: 20px;
 }
-.consultas-container {
-    display: flex;
-    justify-content: space-around;
-    margin: 20px;
-}
 
-.consultas-do-dia,
-.consultas-outros-dias {
-    background: linear-gradient(to bottom, #ffffff, #28B6F6);
-    border: none;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease-in-out;
-    width: 60%;
-    height: auto; /* Alterado de 150px para auto para acomodar conteúdo variável */
-    margin-bottom: 20px; /* Adicionado espaço inferior entre as seções */
-    display: flex;
-    flex-direction: column; /* Adicionado para organizar os elementos verticalmente */
-    align-items: center; /* Centraliza os elementos horizontalmente */
-}
-
-.consultas-do-dia img,
-.consultas-outros-dias img {
-    padding: 20px;
-    max-width: 100%;
-    height: auto;
+/* Estilo para texto dentro de .consulta */
+.consulta p {
     margin-bottom: 10px;
 }
 
-/* Estilos para telas maiores que 768px */
-@media (min-width: 768px) {
-    .consultas-do-dia,
-    .consultas-outros-dias {
-        width: 40%; /* Reduz a largura das seções para 40% da largura da tela */
-    }
-}
-
-/* Estilos para telas menores que 768px */
-@media (max-width: 768px) {
-    .consultas-do-dia,
-    .consultas-outros-dias {
-        width: 80%; /* Reduz a largura das seções para 80% da largura da tela */
-    }
-}
-
-
-.consulta {
-    padding: 10px;
-    margin-bottom: 15px;
-    width: 100%; /* Ocupa toda a largura do container pai */
-    box-sizing: border-box; /* Evita que a borda aumente o tamanho total */
-    position: relative;
-}
+/* Estilo para os botões */
 .botoes-container {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 20px 5%;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .concluir-btn, .cancelar-btn {
-    background-color: #4CAF50;
-    color: white;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    padding: 15px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
-    display: block;
+    display: inline-block;
     font-size: 16px;
-    margin: 10px 0;
+    margin: 0 10px;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.cancelar-btn {
-    background-color: #f44336;
+.concluir-btn:hover, .cancelar-btn:hover {
+    background-color: #0056b3;
 }
 
-@media screen and (min-width: 600px) {
+/* Estilos para tamanhos de tela maiores que 768px */
+@media (min-width: 768px) {
+    .consulta {
+        margin-top: 40px;
+    }
+}
 
-
-    
-    .botoes-container {
-        flex-direction: row;
-        justify-content: center;
+/* Ajustes para botões em telas menores */
+@media (max-width: 768px) {
+    .consulta {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        margin-top: 30px;
     }
 
     .concluir-btn, .cancelar-btn {
-        margin: 0 10px;
-    }
-
-
-}
-
-
-
-.consultas-outros-dias {
-    max-width: 600px;
-}
-
-.consultas-outros-dias p {
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-@media (max-width: 768px) {
-    .consultas-container {
-        flex-direction: column;
-    }
-    
-    .consultas-do-dia,
-    .consultas-outros-dias {
-        margin-bottom: 20px;
+        display: block;
+        width: 100%;
+        margin: 10px 0;
     }
 }
-

@@ -29,10 +29,6 @@
     echo "ID do Paciente: $id_paciente";
 
 
-
-    // Obter o ID do paciente
-    $id_paciente = $_SESSION["id_usuario"];
-
     // Consulta SQL para obter as informações do paciente
     $sql = "SELECT nome, telefone, email, foto FROM pacientes WHERE id = ?";
     $stmt = $conn->prepare($sql);

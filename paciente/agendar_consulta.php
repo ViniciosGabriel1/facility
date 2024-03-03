@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../back/conexao.php";
 
 // Verificar se foi fornecido um ID de médico na URL
@@ -20,6 +21,15 @@ if (isset($_GET['id_dentista'])) {
 } else {
     echo "Id não encontrado !!!";
     // Redirecionar de volta à página inicial se não houver ID de médico
+    exit();
+}
+
+
+
+
+// Verificar se o médico está autenticado
+if (!isset($_SESSION['id_usuario'])) {
+    http_response_code(403); // Proibido
     exit();
 }
 
