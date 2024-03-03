@@ -1,18 +1,14 @@
 $(document).ready(function() {
     // Inicializar o Swiper
     var swiper = new Swiper('.mySwiper', {
-        slidesPerView: 3,
-        spaceBetween: 30,
+        slidesPerView: 'auto', // Defina 'auto' para permitir que o Swiper ajuste dinamicamente o número de slides visíveis
+        spaceBetween: 70, // Adicione um espaçamento entre os slides
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
-        breakpoints: {
-            768: {
-                slidesPerView: 3
-            }
-        }
     });
+    
 
     // Função para atualizar o carrossel com base no filtro
     function updateCarousel() {
@@ -26,20 +22,28 @@ $(document).ready(function() {
             if (especializacaoSelecionada === 'todos' || especializacaoSelecionada === especializacaoMedico) {
                 numMedicos++;
                 $(this).show();
-            }
-             else {
+            } else {
                 $(this).hide();
             }
         });
 
         // Ajustar o número de slides visíveis com base na quantidade de médicos
+        console.log("Número de médicos antes do ajuste: " + numMedicos);
         swiper.params.slidesPerView = Math.min(numMedicos, 3);
-        swiper.updateSlides();
-        swiper.slideTo(0); // Retornar o carrossel à posição inicial
+        swiper.update(); // Atualizar o swiper para refletir as mudanças
+
+        // Retornar o carrossel à posição inicial
+        console.log("Retornando o carrossel à posição inicial");
+        swiper.slideTo(-1);
 
         // Configurar o carrossel para permitir ou não a navegação
-        swiper.allowSlidePrev = numMedicos > 3;
-        swiper.allowSlideNext = numMedicos > 3;
+        if (numMedicos <= 3) {
+            swiper.allowSlidePrev = false;
+            swiper.allowSlideNext = false;
+        } else {
+            swiper.allowSlidePrev = true;
+            swiper.allowSlideNext = true;
+        }
 
         console.log("Número de médicos atualizado: " + numMedicos);
     }

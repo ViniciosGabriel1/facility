@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #000;
+  background: dodgerblue;
 }
 section {
   position: relative;
@@ -35,13 +35,17 @@ section {
   height: 100%;
   object-fit: cover;
   border-radius: 50%;
-  border: 3px solid #000;
+  border: 3px solid #ffffff;
 }
 .card {
   position: relative;
-  background: #000;
-  border: 3px solid #0ef;
+  background: #fff;
+  border: 3px solid #fff;
   border-radius: 20px;
+  margin-right: 10px;
+  width: calc(33.33% - 20px);
+  max-width: 300px;
+  flex: 1 0 auto;
 }
 .card::before {
   
@@ -59,6 +63,8 @@ section {
 
 }
 .card .card-content {
+  border-radius: 17px;
+  background: dodgerblue;
   position: relative;
   display: flex;
   align-items: center;
@@ -117,7 +123,7 @@ section {
   background: #0ef;
   border: none;
   outline: none;
-  color: #000;
+  color: #ffffff;
   font-weight: 600;
   padding: 8px 22px;
   border-radius: 20px;
@@ -126,7 +132,7 @@ section {
   transition: .3s;
 }
 .card .button button:hover {
-  background: #fff;
+  background: hsl(199deg 86% 78% / 73%);
 }
 .swiper-pagination-bullet {
   height: 7px;
@@ -137,4 +143,40 @@ section {
 .swiper-button-next,
 .swiper-button-prev {
   color: #0ef;
+}
+
+
+.swiper {
+  width: 100%;
+  padding: 0 20px; /* Adicione um espaçamento horizontal para os slides */
+}
+
+.swiper-slide {
+  width: auto; /* Defina a largura dos slides para se ajustarem automaticamente */
+  margin-right: 20px; /* Adicione uma margem direita para separar os slides */
+  flex: 0 0 auto; /* Permita que os slides tenham largura variável */
+}
+
+
+.card {
+  position: relative;
+  background: #000;
+  border: 3px solid rgb(255, 255, 255);
+  border-radius: 20px;
+  margin-right: 10px; /* Adicione uma margem direita para separar os slides */
+  width: calc(33.33% - 20px); /* Defina a largura dos slides */
+  max-width: 300px;
+  flex: 1 0 auto;
+}
+
+@media only screen and (max-width: 768px) {
+  .card {
+      width: calc(50% - 20px); /* Alterar para 50% da largura do container */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .card {
+      width: calc(100% - 20px); /* Alterar para 100% da largura do container */
+  }
 }

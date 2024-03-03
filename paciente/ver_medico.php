@@ -2,7 +2,7 @@
 // Inclua o arquivo de conexão com o banco de dados
 include_once "../back/conexao.php";
 
-$id_medico = $_GET['id_medico'];
+$id_medico = $_GET['id_dentista'];
 
 
 

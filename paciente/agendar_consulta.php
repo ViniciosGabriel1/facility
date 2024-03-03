@@ -18,8 +18,8 @@ if (isset($_GET['id_dentista'])) {
     // Fechar a declaração
     $stmt_servicos->close();
 } else {
+    echo "Id não encontrado !!!";
     // Redirecionar de volta à página inicial se não houver ID de médico
-    header("Location: index.php");
     exit();
 }
 
