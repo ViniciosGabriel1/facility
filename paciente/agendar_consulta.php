@@ -50,6 +50,7 @@ $conn->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/servico1.css">
     <link rel="stylesheet" href="../css/agendamento.css">
     <title>Agendar Consulta</title>
 
@@ -57,14 +58,24 @@ $conn->close();
 
 <body>
 <?php include "menu_paciente.php"; ?>
+<h1 class="pergunta">Quanto mais rápido melhor.</h1>
+    <div class="container-wrapper">
+    <!-- Início da imagem -->
+    <img src="../img/agenda.svg" alt="Descrição da imagem" class="background-image">
+    <!-- Fim da imagem -->
 
-    <h2>Agendar Consulta</h2>
+    <div class="container">
+
+    <h2>Agende Aqui</h2>
     
-    <form action="../back/processar_agendamento.php" method="post">
+    <form id="form-formacao" action="../back/processar_agendamento.php" method="post">
+    <div class="form-group">
         <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
 
         <label for="data">Escolha uma Data e Hora:</label>
         <input type="datetime-local" id="data" name="data" min="<?php echo $currentDate; ?>" max="<?php echo $limitDate; ?>" required>
+        </div>
+        <div class="form-group">
 
         <label for="servico">Escolha um Serviço:</label>
         <select id="servico" name="servico" required>
@@ -75,10 +86,12 @@ $conn->close();
             }
             ?>
         </select>
+        </div>
+        <div class="form-group">
 
         <label for="observacoes">Observações:</label>
         <textarea id="observacoes" name="observacoes" rows="4" placeholder="Adicione observações, se necessário"></textarea>
-
+        </div>
         <button type="submit">Agendar</button>
         
     </form>

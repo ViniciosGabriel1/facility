@@ -18,7 +18,8 @@ h2, h3 {
     color: #ffffff;
     text-align: center;
     margin-top: 20px;
-}
+    padding: 40px
+}   
 
 /* Estilo para consultas */
 .consulta {
@@ -91,5 +92,54 @@ h2, h3 {
         display: block;
         width: 100%;
         margin: 10px 0;
+    }
+}
+
+/* Estilo para os botões de avançar e retroceder */
+#retroceder-data, #avancar-data {
+    /* margin-right: 60%; */
+    margin-left: 22%;
+    background-color: hsl(199deg 86% 78%);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /* margin: 20px auto; */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Estilo quando o mouse está sobre os botões de avançar e retroceder */
+#retroceder-data:hover,
+#avancar-data:hover {
+    background-color: #0056b3;
+}
+
+#data-selecionada {
+    margin-left: 18%;
+    /* display: block; */
+    text-align: center;
+    /* margin-top: 20px; */
+    font-size: 18px;
+    color: #ffffff;
+
+
+}
+@media (max-width: 768px) {
+
+    
+    #retroceder-data, #avancar-data {
+        margin-left: 7%;
+        /* margin-right: 10%; */
+    }
+
+    #data-selecionada {
+        padding-left: 15px;
+        margin-left: 0;
+        margin-top: 20px;
     }
 }

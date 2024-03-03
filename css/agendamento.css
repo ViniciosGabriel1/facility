@@ -1,86 +1,65 @@
-/* agendamento.css */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* line-height: 1.6; */
-    background: linear-gradient(to bottom, #01559B, #ffffff);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: space-between; */
-    height: 100vh;
     margin: 0;
+    padding: 0;
+    background-color: dodgerblue;
 }
 
-h2 {
-    margin-top: 10%;
-    color: #ffffff;
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-@media screen and (max-width: 600px) {
-    h2 {
-        margin-top: 35%; /* Reduzindo a margem para telas menores */
-        color: #ffffff; /* Alterando a cor do texto para telas menores */
-    }
-}
-
-
-form {
-    width: 80%;
-    max-width: 600px;
-    margin-top: -100px;
-    background-color: #fff;
+.container {
+    background-color: hsl(199deg 86% 78%);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.background-image {
+    margin-right: 20px;
+}
+
+.perquisa {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
 }
 
 label {
-    margin-bottom: 5px;
-    color: #333;
+    font-weight: bold;
+    display: block;
 }
 
-input,
+input[type="datetime-local"],
 select,
 textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
 }
 
 textarea {
-    resize: vertical;
+    height: 120px;
 }
 
-button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: dodgerblue;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
-}
-
-/* Adicione mais estilos conforme necessário para estilizar o formulário */
-
-.fac {
-    padding-top: 30px;
-    /* margin-top: 1px; */
-    font-size: 30px;
-    margin-top: -5%;
-    position: fixed;
-    padding-left: 25%;
-    /* padding-right: 100px; */
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+button[type="submit"]:hover {
+    background-color: #007bff;
 }

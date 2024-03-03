@@ -83,34 +83,11 @@ if ($resultado_medico->num_rows > 0) {
   color:#007bff !important;
 }
 
-@media only screen and (max-width: 767px) {
-  header {
-    background-color: #28b6f6e8;
-    width: 100%;
-    height: 70px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 50px;
-}
-}
-
-header {
-    background-color: #28b6f6e8;
-    width: 100%;
-    height: 79px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 50px;
-}
-
   </style>
 </head>
 
 <body class="w3-light-grey">
-<?php     include "menu_paciente.php";
- ?>
+<?php     include "menu_paciente.php";?>
 
 
   <!-- Page Container -->

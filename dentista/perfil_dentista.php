@@ -48,6 +48,7 @@ if ($resultado_medico->num_rows > 0) {
   <title>Portfólio de Dentista</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -68,8 +69,6 @@ if ($resultado_medico->num_rows > 0) {
     background-color: #28B6F65c !important;
 }
 
-
-
 .w3-text-teal, .w3-hover-text-teal:hover {
     color:#007bff !important;
 }
@@ -89,12 +88,11 @@ if ($resultado_medico->num_rows > 0) {
 }
 
 
-
   </style>
 </head>
 
 <body class="w3-light-grey">
-<?php include "../dentista/menu_dentista.php"; ?>
+<?php include "menu_dentista.php"; ?>
 
 
   <!-- Page Container -->
@@ -116,7 +114,7 @@ if ($resultado_medico->num_rows > 0) {
     </div>
     <div class="w3-container">
         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $email; ?></p>
-        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $telefone; ?></p>
+        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><a href="https://api.whatsapp.com/send?phone=<?php echo $telefone; ?>">Enviar mensagem pelo WhatsApp</a></p>
         <hr>
         
         <!-- Frase sobre os serviços odontológicos -->
