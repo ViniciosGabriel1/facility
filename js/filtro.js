@@ -22,26 +22,24 @@ $(document).ready(function() {
         // Verificar cada slide do carrossel e contar os médicos correspondentes à especialização selecionada
         $('.swiper-slide').each(function() {
             var especializacaoMedico = $(this).find('.profession').text();
-
+            
             if (especializacaoSelecionada === 'todos' || especializacaoSelecionada === especializacaoMedico) {
                 numMedicos++;
                 $(this).show();
-            } else {
+            }
+             else {
                 $(this).hide();
             }
         });
 
-        // Configurar o carrossel para permitir ou não a navegação
-        if (numMedicos >= 3) {
-            swiper.allowSlidePrev = true;
-            swiper.allowSlideNext = true;
-        } else {
-            swiper.allowSlidePrev = false;
-            swiper.allowSlideNext = false;
-        }
+        // Ajustar o número de slides visíveis com base na quantidade de médicos
+        swiper.params.slidesPerView = Math.min(numMedicos, 3);
+        swiper.updateSlides();
+        swiper.slideTo(0); // Retornar o carrossel à posição inicial
 
-        // Retornar o carrossel à posição inicial
-        swiper.slideTo(0);
+        // Configurar o carrossel para permitir ou não a navegação
+        swiper.allowSlidePrev = numMedicos > 3;
+        swiper.allowSlideNext = numMedicos > 3;
 
         console.log("Número de médicos atualizado: " + numMedicos);
     }
@@ -50,7 +48,6 @@ $(document).ready(function() {
     $('#filtro-especializacao').change(function() {
         console.log("Filtro alterado: " + $(this).val());
         updateCarousel();
-        // Recarregar a página quando uma nova opção for selecionada
     });
 
     // Atualizar o carrossel na inicialização da página
