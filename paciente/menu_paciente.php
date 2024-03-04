@@ -10,8 +10,7 @@
 </head>
 <body>
     <header>
-        <div class="logo"><strong>FacilityOdonto</strong></div>
-        <input type="checkbox" id="nav_check" hidden>
+    <a href="pagina_paciente.php"><div class="logo"><strong>FacilityOdonto</strong></div></a><input type="checkbox" id="nav_check" hidden>
         <nav>
             <ul>
                 <li>

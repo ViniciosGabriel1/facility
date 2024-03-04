@@ -23,7 +23,7 @@ h2, h3 {
 
 /* Estilo para consultas */
 .consulta {
-    background-color: #fff;
+    background-color: hsl(199deg 86% 78% / 74%);
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -44,6 +44,7 @@ h2, h3 {
 /* Estilo para texto dentro de .consulta */
 .consulta p {
     margin-bottom: 10px;
+    color: white;
 }
 
 /* Estilo para os botões */
@@ -143,3 +144,13 @@ h2, h3 {
         margin-top: 20px;
     }
 }
+
+.servico-info {
+    max-height: 100px; /* Defina a altura máxima desejada para as observações */
+    overflow: hidden;
+}
+
+.servico-info p {
+    margin-bottom: 5px; /* Adicione algum espaço entre os parágrafos */
+}
+

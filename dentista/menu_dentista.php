@@ -15,7 +15,7 @@
 
 <body>
     <header>
-        <div class="logo"><strong>FacilityOdonto</strong></div>
+    <a href="pagina_dentista.php"><div class="logo"><strong>FacilityOdonto</strong></div></a>
         <input type="checkbox" id="nav_check" hidden>
         <nav>
             <ul>

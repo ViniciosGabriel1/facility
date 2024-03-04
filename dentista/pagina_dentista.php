@@ -13,7 +13,7 @@
 <body>
     <?php include "menu_dentista.php"; ?>
 
-    <h2>Suas Consultas Agendadas</h2>
+    <h2><i class="fa fa-calendar"></i> Suas Consultas Agendadas</h2>
 
     <!-- Botões para avançar e retroceder datas -->
     <div class="date-navigation">
@@ -47,10 +47,11 @@
                             // Construir HTML para cada consulta
                             consultasHtml += '<div class="consulta">';
                             consultasHtml += '<img src="../uploads/' + consulta.foto_paciente + '" alt="Paciente sem Foto" style="height: 150px; float: left; margin-right: 10px; border-radius: 20px;">';
-                            consultasHtml += '<p>Data: ' + consulta.data_consulta + '</p>';
-                            consultasHtml += '<p>Serviço: ' + consulta.servico + '</p>';
-                            consultasHtml += '<p>Observações: ' + consulta.observacoes + '</p>';
-                            consultasHtml += '<p>Paciente: ' + consulta.nome_paciente + '</p>';
+                            consultasHtml += '<p><strong>Paciente:</strong> ' + consulta.nome_paciente + '</p>';
+                            consultasHtml += '<p class="info"><strong>Data:</strong> ' + new Date(consulta.data_consulta).toLocaleString('pt-BR') + '</p>';
+                            consultasHtml += '<p><strong>Serviço:</strong> ' + consulta.servico + '</p>';
+                            consultasHtml += '<p><strong>Observações:</strong> ' + consulta.observacoes + '</p>';
+                           
                             consultasHtml += '<div class="botoes-container">';
                             consultasHtml += '<button class="concluir-btn">Concluir</button>';
                             consultasHtml += '<button class="cancelar-btn">Cancelar</button>';

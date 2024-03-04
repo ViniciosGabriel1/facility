@@ -114,7 +114,7 @@ if ($resultado_medico->num_rows > 0) {
     </div>
     <div class="w3-container">
         <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $email; ?></p>
-        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><a href="https://api.whatsapp.com/send?phone=<?php echo $telefone; ?>">Enviar mensagem pelo WhatsApp</a></p>
+        <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i><?php echo $telefone; ?></p>
         <hr>
         
         <!-- Frase sobre os serviços odontológicos -->
