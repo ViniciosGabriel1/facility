@@ -23,11 +23,11 @@
         // Obter o ID do paciente
         $id_paciente = $_SESSION["id_usuario"];
         // Consulta SQL para obter o histórico de consultas do paciente
-        $sql = "SELECT id, data_consulta, id_medico FROM consultas WHERE id_paciente = ? ORDER BY data_consulta DESC";
+        $sql = "SELECT id, data_consulta, id_medico, servico, observacoes, status FROM consultas WHERE id_paciente = ? and status = 'Concluída'ORDER BY data_consulta DESC";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $id_paciente);
         $stmt->execute();
-        $stmt->bind_result($id_consulta, $data_consulta, $id_medico);
+        $stmt->bind_result($id_consulta, $data_consulta, $id_medico, $servico, $observacoes, $status);
         // Armazenar o resultado da consulta principal
         $stmt->store_result();
         // Verificar se há consultas no histórico
@@ -46,6 +46,12 @@
                     <div class="consulta-card">
                         <p class="consulta-info"><strong>Data da Consulta:</strong> <?php echo $data_consulta; ?></p>
                         <p class="consulta-info"><strong>Médico:</strong> <?php echo $nome_medico; ?></p>
+                        <p class="consulta-info"><strong>Serviço:</strong> <?php echo $servico; ?></p>
+
+                        <p class="consulta-info"><strong>Observações:</strong> <?php echo $observacoes; ?></p>
+                        <p class="consulta-info"><strong>Status:</strong> <?php echo $status; ?></p>
+
+
                         <!-- Adicione outros detalhes da consulta conforme necessário -->
                     </div>
                     <?php

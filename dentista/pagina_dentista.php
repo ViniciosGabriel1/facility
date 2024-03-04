@@ -46,17 +46,25 @@
                         $.each(response, function(index, consulta) {
                             // Construir HTML para cada consulta
                             consultasHtml += '<div class="consulta">';
+                            consultasHtml += '<div class="consulta-info">';
+                            consultasHtml += '<p class="consulta-id"><strong>ID:</strong> ' + consulta.id + '</p>';
                             consultasHtml += '<img src="../uploads/' + consulta.foto_paciente + '" alt="Paciente sem Foto" style="height: 150px; float: left; margin-right: 10px; border-radius: 20px;">';
                             consultasHtml += '<p><strong>Paciente:</strong> ' + consulta.nome_paciente + '</p>';
                             consultasHtml += '<p class="info"><strong>Data:</strong> ' + new Date(consulta.data_consulta).toLocaleString('pt-BR') + '</p>';
                             consultasHtml += '<p><strong>Serviço:</strong> ' + consulta.servico + '</p>';
                             consultasHtml += '<p><strong>Observações:</strong> ' + consulta.observacoes + '</p>';
-                           
+                            consultasHtml += '<p><strong>Status:</strong> ' + consulta.status + '</p>';
+
+                            consultasHtml += '</div>'; // fechamento da div "consulta-info"
                             consultasHtml += '<div class="botoes-container">';
-                            consultasHtml += '<button class="concluir-btn">Concluir</button>';
-                            consultasHtml += '<button class="cancelar-btn">Cancelar</button>';
-                            consultasHtml += '</div>';
-                            consultasHtml += '</div>';
+                            consultasHtml += '<form class="status-form" action="../back/processa_status.php" method="post">';
+                            consultasHtml += '<input type="hidden" name="id_consulta" value="' + consulta.id + '">';
+                            consultasHtml += '<button type="submit" class="concluir-btn" name="acao" value="concluir">Concluir</button>';
+                            consultasHtml += '<button type="submit" class="cancelar-btn" name="acao" value="cancelar">Cancelar</button>';
+                            consultasHtml += '</form>';
+                            consultasHtml += '</div>'; // fechamento da div "botoes-container"
+                            consultasHtml += '</div>'; // fechamento da div "consulta"
+
                         });
                         // Adicionar as consultas ao elemento HTML
                         $('#consultas-do-dia').html(consultasHtml);
@@ -93,14 +101,11 @@
             atualizarConsultas(dataFormatada);
         });
 
-
-
         // Chamada inicial para carregar as consultas do dia atual
         var dataAtual = new Date().toISOString().split('T')[0]; // Formatar a data atual
         $('#data-selecionada').text(dataAtual); // Exibir a data atual
         atualizarConsultas(dataAtual);
 
-        
     </script>
 
 </body>

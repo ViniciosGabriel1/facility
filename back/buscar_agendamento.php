@@ -16,7 +16,7 @@ $id_medico = $_SESSION['id_usuario'];
 $currentDate = isset($_GET['data']) ? $_GET['data'] : date('Y-m-d');
 
 // Consulta SQL para obter as consultas marcadas para o médico em uma data específica
-$sql_consultas = "SELECT consultas.id, consultas.data_consulta, consultas.servico, consultas.observacoes, pacientes.nome AS nome_paciente, pacientes.foto AS foto_paciente 
+$sql_consultas = "SELECT consultas.id, consultas.data_consulta, consultas.servico,consultas.status, consultas.observacoes, pacientes.nome AS nome_paciente, pacientes.foto AS foto_paciente 
                   FROM consultas 
                   INNER JOIN pacientes ON consultas.id_paciente = pacientes.id 
                   WHERE consultas.id_medico = ? AND DATE(consultas.data_consulta) = ?
