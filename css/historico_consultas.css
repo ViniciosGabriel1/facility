@@ -1,26 +1,35 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: dodgerblue; /* Mantive a cor de fundo original */
 }
 
-.historico-container {
+.container {
     max-width: 800px;
     margin: 20px auto;
     padding: 20px;
-    background-color: hsl(199deg 86% 78% / 83%); /* Cor de fundo para o container */
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h2, p {
-    color: #ffffff;
+h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: #333;
+}
+
+h3 {
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    align-items: center;
 }
 
 .consulta-card {
+    margin-left: 25%;
+    width: 50%;
+    background-color: hsl(199deg 86% 78%);
     border: 1px solid #ddd;
     border-radius: 8px;
     padding: 15px;
@@ -30,21 +39,24 @@ h2, p {
 
 .consulta-info {
     margin: 0;
+    color: #ffffff;
 }
 
 .consulta-info strong {
     font-weight: bold;
+    color: dodgerblue;
 }
 
-/* Estilos para diferentes status */
-.agendada { color: blue; }
-.concluída { color: green; }
-.cancelada { color: red; }
-.reagendada { color: orange; }
+.consulta-info span {
+    font-weight: bold;
+}
 
-/* Estilos para os botões */
+.consulta-botoes {
+    margin-top: 10px;
+}
+
 .btn-cancelar, .btn-reagendar {
-    background-color: #f44336; /* Cor vermelha para botão de cancelar */
+    background-color: #f44336; /* Vermelho */
     color: white;
     padding: 5px 10px;
     border: none;
@@ -54,13 +66,41 @@ h2, p {
 }
 
 .btn-reagendar {
-    background-color: #ff9800; /* Cor laranja para botão de reagendar */
+    background-color: #ff9800; /* Laranja */
 }
 
-.consulta-card-pendente {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 15px;
-    margin-bottom: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Estilos para diferentes status */
+.agendada { color: blue; }
+.concluída { color: rgb(14, 212, 14); }
+.cancelada { color: red; }
+.reagendada { color: orange; }
+
+/* Mídia queries para tornar o layout responsivo */
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 16px;
+    }
+
+    
+    .consulta-card {
+        margin: 30px;
+        width: 80%;
+        padding: 10px;
+    }
+
+    .consulta-info {
+        font-size: 14px;
+    }
+
+    .consulta-botoes {
+        font-size: 14px;
+    }
 }
