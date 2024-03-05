@@ -2,11 +2,14 @@ $(document).ready(function() {
     // Função para atualizar o carrossel com base no filtro de especialização
     function updateCarousel() {
         var especializacaoSelecionada = $('#filtro-especializacao').val();
+        console.log(especializacaoSelecionada);
         var numMedicos = 0;
-
+        console.log($(this).find('.profession').text());
         // Iterar sobre cada slide do carrossel
         $('.swiper-slide').each(function() {
+            
             var especializacaoMedico = $(this).find('.profession').text();
+            console.log(especializacaoMedico);
             
             // Verificar se a especialização do médico corresponde à opção selecionada ou se é 'todos'
             if (especializacaoSelecionada === 'todos' || especializacaoSelecionada === especializacaoMedico) {
@@ -16,29 +19,35 @@ $(document).ready(function() {
                 $(this).hide(); // Ocultar o slide
             }
         });
-
-        // Atualizar o número de slides visíveis com base na quantidade de médicos
-        swiper.params.slidesPerView = Math.min(numMedicos, 3);
-        swiper.update(); // Atualizar o swiper para refletir as mudanças
-
-        // Retornar o carrossel à posição inicial
-        swiper.slideTo(0);
-
-        // Configurar o carrossel para permitir ou não a navegação
-        if (numMedicos <= 3) {
-            swiper.allowSlidePrev = false;
-            swiper.allowSlideNext = false;
-        } else {
-            swiper.allowSlidePrev = true;
-            swiper.allowSlideNext = true;
-        }
     }
 
     // Atualizar o carrossel quando o filtro de especialização for alterado
     $('#filtro-especializacao').change(function() {
         updateCarousel();
+        
     });
 
-    // Atualizar o carrossel na inicialização da página
-    updateCarousel();
+    document.addEventListener("DOMContentLoaded", function() {
+        var link = document.getElementById('scroll-link');
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Evita o comportamento padrão do link
+
+            // Obtém o elemento alvo pelo ID
+            var target = document.getElementById(this.getAttribute('href').substring(1));
+
+            // Verifica se o elemento alvo existe
+            if (target) {
+                // Calcula a posição do elemento alvo em relação ao topo da página
+                var targetPosition = target.getBoundingClientRect().top + window.scrollY;
+
+                // Anima a rolagem suave até o elemento alvo
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+
 });

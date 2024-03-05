@@ -1,4 +1,5 @@
 html {
+    scroll-behavior: smooth;
     height: auto;
     margin: 0;
     padding: 0;
@@ -7,6 +8,7 @@ html {
 }
 
 body {
+    scroll-behavior: smooth;
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -82,6 +84,15 @@ a {
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
+}
+#scroll-link {
+    border-radius: 25px;
+    align-items: center;
+    /* padding-left: 30px; */
+    /* margin-right: 1px; */
+    margin-top: 450%;
+    background-color: hsl(199deg 86% 78%);
+    color: white;
 }
 
 
@@ -197,204 +208,6 @@ select {
     background-color: #f0f0f0;
 }
 
-/* Estilo para o modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-  }
-  
-  .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-  }
-  
-  .close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-  }
-  
-  .close:hover,
-  .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-  }
- 
-  
-  .ver-mais-btn {
-    /* margin-right: 10px; */
-    /* padding-right: 10px; */
-    left: 60%;
-    width: 35%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    position: relative;
-    top: -200px;
-}
-.ver-mais-btn:hover {
-    background-color: #25D366;
-}
-
-/* Estilo para dispositivos desktop */
-
-.fac {
-    margin-top: 0%;
-    padding: 1%;
-    background: #28B6F65c;
-    width: 100%;
-    padding-right: 10%;
-    color: white;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    position: fixed;
-}
-
-.fac h1 {
-    position: absolute; /* Adiciona posição absoluta ao h1 */
-    top: 0; /* Coloca o h1 no topo do contêiner pai (.fac) */
-    left: 0; /* Coloca o h1 no canto superior esquerdo do contêiner pai (.fac) */
-    width: 100%; /* Define a largura do h1 como 100% do contêiner pai (.fac) */
-    margin: 0; /* Remove margens do h1 */
-    padding: 10px; /* Adiciona preenchimento ao h1 conforme necessário */
-    z-index: 1000; /* Define a ordem de empilhamento do h1 */
-}
-/* Estilo para dispositivos móveis */
-@media (max-width: 767px) {
-    .fac {
-        padding: 10px;
-        position: fixed;
-        padding-left: 15%;
-        padding-right: 10px;
-        color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-    }
-}
-
-/* Estilo para o botão do WhatsApp */
-.whatsapp-btn {
-    display: inline-block;
-    background-color: #25D366;
-    color: #fff;
-    padding: 10px 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Estilo para o ícone do WhatsApp */
-.whatsapp-btn img {
-    vertical-align: middle;
-    margin-right: 10px; /* Espaçamento entre o ícone e o texto */
-}
-
-/* Estilo do modal */
-.modal {
-    display: none; /* Ocultar o modal por padrão */
-    position: fixed;
-    z-index: 9999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
-}
-
-/* Conteúdo do modal */
-.modal-content {
-    background: var(--arrow-icon) no-repeat right 0.8em center / 1.4em, linear-gradient(to left, var(--arrow-bg) 3em, var(--select-bg) 3em);
-    margin: 6% auto;
-    padding: 20px;
-    border: none;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-/* Botão de fechar */
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Estilo do conteúdo dentro do modal */
-#medico-details, p{
-    text-align: center;
-    color: white;
-}
-
-#medico-foto {
-    margin-left: 25%;
-    align-items: center;
-    width: 50%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-
-#medico-nome,
-#medico-especializacao {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/* Animação de entrada do modal */
-.modal-content {
-    animation: modal-show 0.3s ease-out;
-}
-
-@keyframes modal-show {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-#medico-maps {
-    background: linear-gradient(to right, #28B6F6,  #ffffff);
-    height: 20px; /* Ajuste a altura conforme necessário */
-}
-
-#changing-text {
-    font-size: 24px;
-    font-weight: bold;
-}
 
 
 
