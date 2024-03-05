@@ -27,7 +27,6 @@ header .logo {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     font-size: 30px;
-    text-transform: uppercase;
     order: 1;
     /* Define a ordem dos elementos no flex container */
 }

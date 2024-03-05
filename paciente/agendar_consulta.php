@@ -54,6 +54,12 @@ $conn->close();
     <link rel="stylesheet" href="../css/agendamento.css">
     <title>Agendar Consulta</title>
 
+    <style>
+        #closeButton {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -67,13 +73,14 @@ $conn->close();
     <div class="container">
 
     <h2>Agende Aqui</h2>
-    
+    <span id="instrucao" class="instrucao" style="display: none;">Clique fora do calendário para fechar.</span>
+
     <form id="form-formacao" action="../back/processar_agendamento.php" method="post">
     <div class="form-group">
         <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
-
         <label for="data">Escolha uma Data e Hora:</label>
         <input type="datetime-local" id="data" name="data" min="<?php echo $currentDate; ?>" max="<?php echo $limitDate; ?>" required>
+        
         </div>
         <div class="form-group">
 
@@ -96,9 +103,28 @@ $conn->close();
         
     </form>
 
-    <!-- Botão para voltar à página inicial -->
     
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var inputField = document.getElementById('data');
+    var instrucao = document.getElementById('instrucao');
 
+    inputField.addEventListener('click', function() {
+        instrucao.style.display = 'block';
+    });
+
+    // Adiciona um ouvinte de evento para cliques em qualquer lugar da página
+    document.addEventListener('click', function(event) {
+        // Verifica se o clique não foi dentro do inputField
+        if (event.target !== inputField) {
+            // Oculta o texto de instruções
+            instrucao.style.display = 'none';
+        }
+    });
+});
+
+
+</script>
 </body>
 
 </html>

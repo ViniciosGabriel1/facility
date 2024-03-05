@@ -62,3 +62,37 @@ button[type="submit"] {
 button[type="submit"]:hover {
     background-color: #007bff;
 }
+
+#instrucao {
+    margin-top: -80px;
+    display: none;
+    position: absolute;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    color: dodgerblue;
+    z-index: 1000; /* Para garantir que a mensagem fique acima de outros elementos */
+    font-weight: bold;
+    width: 200px; /* Largura inicial da mensagem */
+
+}
+
+#instrucao::before {
+    color: red;
+    content: "Instruções:";
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+    /* Estilos para dispositivos móveis */
+    #instrucao {
+        margin-left: 22px;
+        font-size: 12px; /* Tamanho da fonte menor para dispositivos móveis */
+    }
+}
+

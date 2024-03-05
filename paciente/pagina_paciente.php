@@ -40,20 +40,24 @@ $conn->close();
     <?php include "menu_paciente.php"; ?>
     <section id="banner">
         <div class="container">
-            <div id="changing-text">Que Tipo de Profissional Procura?</div><br><br>
-            
-
-        </div>
+            <div id="changing-text"><strong>Nos ajude a encontrar o profissional certo para você!</strong></div><br><br>
+        
         <select id="filtro-especializacao" class="select-box">
             <option value="todos">Todos</option>
             <option value="Clínico Geral">Clínico Geral</option>
             <option value="Dentista">Dentista</option>
             <option value="Buco Maxilo">Buco Maxilo</option>
         </select>
-    </section>
-    <h1><a href="#carrossel" id="scroll-link">Avançar</a></h1>
 
-    <h2>Escolha um Dentista</h2>
+        <h1><button id="scroll-button" type="button">Buscar</button></h1>
+        </div>
+
+       
+
+    </section>
+    
+
+    <h2>Veja os dentistas disponíveis para você</h2>
     <section class="swiper-container carousel-container">
         <div id="carrossel">
         <?php
@@ -82,29 +86,31 @@ $conn->close();
 
    <script>
     
-        document.addEventListener("DOMContentLoaded", function() {
-            var link = document.getElementById('scroll-link');
-            link.addEventListener('click', function(e) {
-                 // Evita o comportamento padrão do link
+    document.addEventListener("DOMContentLoaded", function() {
+    var button = document.getElementById('scroll-button');
+    button.addEventListener('click', function(e) {
+        // Evita o comportamento padrão do botão
+        e.preventDefault();
 
-                // Obtém o elemento alvo pelo ID
-                var target = document.getElementById(this.getAttribute('href').substring(1));
+        // Obtém o elemento alvo pelo ID
+        var target = document.getElementById('carrossel');
 
-                // Verifica se o elemento alvo existe
-                if (target) {
-                    // Calcula a posição do elemento alvo em relação ao topo da página
-                    var targetPosition = target.getBoundingClientRect().top + window.scrollY;
+        // Verifica se o elemento alvo existe
+        if (target) {
+            // Calcula a posição do elemento alvo em relação ao topo da página
+            var targetPosition = target.getBoundingClientRect().top + window.scrollY;
 
-                    // Anima a rolagem suave até o elemento alvo
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }else{
-                    console.log(target + "Não existe")
-                }
+            // Anima a rolagem suave até o elemento alvo
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
             });
-        });
+        } else {
+            console.log(target + "Não existe")
+        }
+    });
+});
+
    
    </script>
 </body>

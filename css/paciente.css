@@ -26,8 +26,10 @@ body {
 
 
 h2 {
+    font-size: 18px;
+    padding-top: 13px;
     text-align: center;
-    color: hsla(0, 0%, 100%, 0.73);
+    color: white;
     margin-top: 30px;
     width: 100%;
 }
@@ -85,15 +87,37 @@ a {
     border-radius: 5px;
     transition: background-color 0.3s ease-in-out;
 }
-#scroll-link {
+#scroll-button {
+    margin-top: 590px;
     border-radius: 25px;
     align-items: center;
-    /* padding-left: 30px; */
-    /* margin-right: 1px; */
-    margin-top: 450%;
-    background-color: hsl(199deg 86% 78%);
+    background-color: hsl(199deg 86% 78% / 73%);
     color: white;
+    border: none;
+    padding: 15px 30px; /* Aumente o padding para aumentar o tamanho do botão */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 0;
 }
+
+#scroll-button:hover {
+    background-color: dodgerblue    ;
+}
+
+
+
+@media (min-width: 375px) {
+    #scroll-button {
+        /* padding: 8vw 16vw; */
+        margin-top: 400px;
+    }}
+@media (max-width: 768px) {
+    #scroll-button {
+        /* padding: 8vw 16vw; */
+        margin-top: 470px;
+    }}
+
+
 
 
 
@@ -112,7 +136,7 @@ a {
 }
 #banner {
     margin-top: -40px;
-    background-image: url(../img/dente11.jpg);
+    background-image: url(../img/dente8.jpg);
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -149,6 +173,8 @@ h1 {
     }
 }
 .container {
+    margin-bottom: 130px;
+
     display: flex;
     flex-direction: column; /* Empilha os elementos verticalmente */
     align-items: center; /* Alinha os elementos horizontalmente */
@@ -167,7 +193,7 @@ h1 {
     --select-bg: hsl(199deg 86% 78% / 73%); 
 
   }
-select {
+select {z-index: 1000;
     /* Reset */
     appearance: none;
     border: 0;
