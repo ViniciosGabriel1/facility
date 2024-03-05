@@ -88,7 +88,7 @@ a {
     transition: background-color 0.3s ease-in-out;
 }
 #scroll-button {
-    margin-top: 590px;
+    margin-top: 690px;
     border-radius: 25px;
     align-items: center;
     background-color: hsl(199deg 86% 78% / 73%);
@@ -106,9 +106,9 @@ a {
 
 
 
-@media (min-width: 375px) {
+@media (max-width: 375px) {
     #scroll-button {
-        /* padding: 8vw 16vw; */
+        /* padding: 8vw 16vw; */    
         margin-top: 400px;
     }}
 @media (max-width: 768px) {
