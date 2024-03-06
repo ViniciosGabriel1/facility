@@ -152,15 +152,21 @@ h2, h3 {
 .servico-info p {
     margin-bottom: 5px; /* Adicione algum espaço entre os parágrafos */
 }
-
+.concluir-btn{
+    background-color: green;
+}
 .concluida {
     color: green; /* Cor para consultas concluídas */
 }
-
-.reagendada {
+.reagendar-btn{
+    background-color: orange;
+}
+ .reagendada {
     color: orange; /* Cor para consultas reagendadas */
 }
-
+.cancelar-btn{
+    background-color: red;
+}
 .cancelada {
     color: red; /* Cor para consultas canceladas */
 }
