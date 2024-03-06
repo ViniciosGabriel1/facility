@@ -53,7 +53,7 @@ h2, h3 {
     margin-top: 20px;
 }
 
-.concluir-btn, .cancelar-btn {
+.concluir-btn, .cancelar-btn, .reagendar-btn {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -68,7 +68,7 @@ h2, h3 {
     transition: background-color 0.3s ease;
 }
 
-.concluir-btn:hover, .cancelar-btn:hover {
+.concluir-btn:hover, .cancelar-btn:hover, .reagendar-btn:hover {
     background-color: #0056b3;
 }
 
@@ -86,10 +86,9 @@ h2, h3 {
         margin-left: auto;
         margin-right: auto;
         margin-bottom: 20px;
-        margin-top: 30px;
     }
 
-    .concluir-btn, .cancelar-btn {
+    .concluir-btn, .cancelar-btn, .reagendar-btn {
         display: block;
         width: 100%;
         margin: 10px 0;
@@ -153,4 +152,21 @@ h2, h3 {
 .servico-info p {
     margin-bottom: 5px; /* Adicione algum espaço entre os parágrafos */
 }
+
+.concluida {
+    color: green; /* Cor para consultas concluídas */
+}
+
+.reagendada {
+    color: orange; /* Cor para consultas reagendadas */
+}
+
+.cancelada {
+    color: red; /* Cor para consultas canceladas */
+}
+
+.consulta-status .agendada {
+    color: blue; /* Cor para consultas agendadas */
+}
+
 
