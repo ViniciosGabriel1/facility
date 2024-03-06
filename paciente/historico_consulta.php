@@ -57,23 +57,39 @@ if ($stmt->num_rows > 0) {
             // Exibir as consultas pendentes
             if ($status == 'Agendada' || $status == 'Reagendada') {
                 ?>
-                <div class="consulta-card">
-                <p class="consulta-info"><strong>Data da Consulta:</strong> <?php echo date('d/m/Y H:i', strtotime($data_consulta)); ?></p>
-                    <p class="consulta-info"><strong>Médico:</strong> <?php echo $nome_medico; ?></p>
-                    <p class="consulta-info"><strong>Serviço:</strong> <?php echo $servico; ?></p>
-                    <p class="consulta-info"><strong>Observações:</strong> <?php echo $observacoes; ?></p>
-                    <p class="consulta-info"><strong>Status:</strong> 
-                        <span class="<?php echo strtolower($status); ?>"><?php echo $status; ?></span>
-                    </p>
-                    <div class="consulta-botoes">
-                        <?php if ($status == 'Agendada' || $status == 'Reagendada') { ?>
-                            <div class="whats"><p class="consulta-info"><a  target="_blank" style="color: green;" href="https://api.whatsapp.com/send?phone=<?php echo $telefone_medico; ?> ">Enviar mensagem pelo WhatsApp</a><i style="color: green;" class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i></p></div>
+               <div class="consulta-card">
+    <p class="consulta-info">
+        <strong><i class="fa fa-calendar fa-fw"></i> Data da Consulta:</strong> <?php echo date('d/m/Y H:i', strtotime($data_consulta)); ?>
+    </p>
+    <p class="consulta-info">
+        <strong><i class="fa fa-user-md fa-fw"></i> Médico:</strong> <?php echo $nome_medico; ?>
+    </p>
+    <p class="consulta-info">
+        <strong><i class="fa fa-stethoscope fa-fw"></i> Serviço:</strong> <?php echo $servico; ?>
+    </p>
+    <p class="consulta-info">
+        <strong><i class="fa fa-commenting fa-fw"></i> Observações:<br></strong> <?php echo $observacoes; ?>
+    </p>
+    <p class="consulta-info">
+        <strong><i class="fa fa-info-circle fa-fw"></i> Status:</strong> 
+        <span class="<?php echo strtolower($status); ?>"><?php echo $status; ?></span>
+    </p>
+    <div class="consulta-botoes">
+        <?php if ($status == 'Agendada' || $status == 'Reagendada') { ?>
+            <div class="whats">
+                <p class="consulta-info">
+                    <a target="_blank" style="color: green;" href="https://api.whatsapp.com/send?phone=<?php echo $telefone_medico; ?>">
+                        <i class="fa fa-whatsapp fa-fw" style="color: green;"></i> Enviar mensagem pelo WhatsApp
+                    </a>
+                </p>
+            </div>
+            <br>
+            <button class="btn-cancelar"><i class="fa fa-times-circle fa-fw" style="color: red;"></i> Cancelar</button>
+            <button class="btn-reagendar"><i class="fa fa-calendar-plus-o fa-fw" style="color: blue;"></i> Reagendar</button>
+        <?php } ?>
+    </div>
+</div>
 
-                            <br><button class="btn-cancelar">Cancelar</button>
-                            <button class="btn-reagendar">Reagendar</button>
-                        <?php } ?>
-                    </div>
-                </div>
                 <?php
             } else {
                 // Exibir as consultas concluídas
