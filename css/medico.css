@@ -156,10 +156,10 @@ h2, h3 {
     margin-bottom: 5px; /* Adicione algum espaço entre os parágrafos */
 }
 .concluir-btn{
-    background-color: green;
+    background-color: #16bb16;
 }
 .concluida {
-    color: green; /* Cor para consultas concluídas */
+    color: #16bb16; /* Cor para consultas concluídas */
 }
 .reagendar-btn{
 
@@ -175,7 +175,7 @@ h2, h3 {
     color: red; /* Cor para consultas canceladas */
 }
 
-.consulta-status .agendada {
+.agendada {
     color: blue; /* Cor para consultas agendadas */
 }
 

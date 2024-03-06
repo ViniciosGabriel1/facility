@@ -7,8 +7,7 @@ date_default_timezone_set('America/Sao_Paulo');
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION["id_usuario"])) {
         // Limpeza e validação dos dados do formulário
-        echo $id_paciente = $_POST["id_usuario"];
-        $id_paciente = $_POST["id_usuario"];
+        $id_paciente = $_SESSION["id_usuario"];
         $id_medico = $_POST["id_medico"];
         $data_consulta = $_POST["data"];
         $servico = $_POST["servico"];
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Formate a data e hora para o formato desejado (se necessário)
 
         // Preparar e executar a inserção do agendamento
-        $inserir_agendamento = "INSERT INTO consultas (id_paciente, id_medico, data_consulta, servico, observacoes, 'status') VALUES (?, ?, ?, ?, ?, ?)";
+        $inserir_agendamento = "INSERT INTO consultas (id_paciente, id_medico, data_consulta, servico, observacoes, status) VALUES (?, ?, ?, ?, ?, ?)";
         $stmt_agendamento = $conn->prepare($inserir_agendamento);
         $status = 'Agendada'; // Defina o status inicial
         $stmt_agendamento->bind_param("iissss", $id_paciente, $id_medico, $data_consulta, $servico, $observacoes, $status);
