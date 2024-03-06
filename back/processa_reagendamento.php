@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt_agendamento->execute()) {
             echo "Consulta Reagendada com sucesso!";
-            header("refresh: 3;url=paciente/pagina_paciente.php");
+            header("refresh: 3;url=../dentista/pagina_dentista.php");
             exit();
         } else {
             echo "Erro ao reagendar consulta. Tente novamente.";

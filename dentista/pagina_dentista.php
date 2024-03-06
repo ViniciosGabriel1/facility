@@ -17,12 +17,13 @@
 
     <h2><i class="fa fa-calendar"></i> Suas Consultas Agendadas</h2>
 
-    <!-- Botões para avançar e retroceder datas -->
-    <div class="date-navigation">
-        <button id="retroceder-data">Retroceder</button>
-        <span id="data-selecionada"></span>
-        <button id="avancar-data">Avançar</button>
-    </div>
+<!-- Botões para avançar e retroceder datas -->
+<div class="date-navigation">
+    <button id="retroceder-data"><i class="fas fa-chevron-left"></i></button>
+    <span id="data-selecionada"></span>
+    <button id="avancar-data"><i class="fas fa-chevron-right"></i></button>
+</div>
+
 
     <!-- Container para as consultas do dia -->
     <div class="consultas-container">
@@ -97,7 +98,7 @@
                             consultasHtml += '<div class="botoes-container">';
                             consultasHtml += '<form class="status-form" action="../back/processa_status.php" method="post">';
                             consultasHtml += '<input type="hidden" name="id_consulta" value="' + consulta.id + '">';
-                            consultasHtml += '<button type="button" class="reagendar-btn" onclick="redirecionarParaReagendar(' + consulta.id + ', ' + consulta.id_paciente + ')">Reagendar</button>';
+                            consultasHtml += '<button type="button" class="reagendar-btn" onclick="redirecionarParaReagendar(' + consulta.id + ', ' + consulta.id_paciente + ')">Reagendar <i class="fas fa-calendar-alt"></i> </button>';
                             consultasHtml += '<button type="submit" class="concluir-btn" name="acao" value="concluir">Concluir <i class="fas fa-check"></i></button>';
                             consultasHtml += '<button type="submit" class="cancelar-btn" name="acao" value="cancelar">Cancelar <i class="fas fa-times"></i></button>';
                             consultasHtml += '</form>';
@@ -152,7 +153,7 @@
 
         function redirecionarParaReagendar(idConsulta,idPaciente) {
             // Redirecionar o navegador para a página reagendar.php, passando o ID da consulta como parâmetro
-            window.location.href = '../reagendar.php?idConsulta=' + idConsulta + '&idPaciente=' + idPaciente;
+            window.location.href = '../dentista/reagendar_dentista.php?idConsulta=' + idConsulta + '&idPaciente=' + idPaciente;
         }
     </script>
 

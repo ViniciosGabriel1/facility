@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "back/conexao.php";
+include "../back/conexao.php";
 
 
 $id_medico = $_SESSION['id_usuario'];
@@ -66,9 +66,9 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/servico1.css">
-    <link rel="stylesheet" href="css/agendamento.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/servico1.css">
+    <link rel="stylesheet" href="../css/agendamento.css">
     <title>Agendar Consulta</title>
 
     <style>
@@ -80,13 +80,13 @@ $conn->close();
 </head>
 
 <body>
-<?php include "paciente/menu_paciente.php"; 
+<?php include "../dentista/menu_dentista.php"; 
 
 ?>
 <h1 class="pergunta">Imprevisto de última hora?</h1>
     <div class="container-wrapper">
     <!-- Início da imagem -->
-    <img src="img/agenda.svg" alt="Descrição da imagem" class="background-image">
+    <img src="../img/agenda.svg" alt="Descrição da imagem" class="background-image">
     <!-- Fim da imagem -->
 
     <div class="container">
@@ -95,7 +95,7 @@ $conn->close();
     <span id="instrucao" class="instrucao" style="display: none;">Clique fora do calendário para fechar.</span>
 
     <!-- Dentro do seu formulário HTML -->
-<form id="form-formacao" action="back/processa_reagendamento.php" method="post">
+<form id="form-formacao" action="../back/processa_reagendamento.php" method="post">
     <div class="form-group">
     <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
     <input type="hidden" name="id_paciente" value="<?php echo $id_paciente; ?>">
