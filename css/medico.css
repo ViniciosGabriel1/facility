@@ -141,7 +141,7 @@ h2, h3 {
     .date-navigation {
         display: flex;
         /* padding-left: 5%; */
-        /* margin-left: 6.5%; */
+        margin-right: 6.5%;
         align-content: stretch;
         justify-content: space-evenly;
     }

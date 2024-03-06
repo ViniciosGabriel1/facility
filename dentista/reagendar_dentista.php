@@ -99,6 +99,7 @@ $conn->close();
     <div class="form-group">
     <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
     <input type="hidden" name="id_paciente" value="<?php echo $id_paciente; ?>">
+    <input type="hidden" name="id_consulta" value="<?php echo $id_consulta; ?>">
 
         <!-- Campo de Data e Hora -->
         <label for="data">Escolha uma Data e Hora:</label>
