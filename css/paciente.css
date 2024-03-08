@@ -106,19 +106,16 @@ a {
 
 
 
-@media (max-width: 375px) {
+@media (max-width: 450px) {
     #scroll-button {
         /* padding: 8vw 16vw; */    
-        margin-top: 400px;
+        margin-top: 380px;
     }}
-@media (max-width: 768px) {
+@media (min-width: 850px) {
     #scroll-button {
         /* padding: 8vw 16vw; */
-        margin-top: 470px;
+        margin-top: 440px;
     }}
-
-
-
 
 
 @media screen and (max-width: 768px) {

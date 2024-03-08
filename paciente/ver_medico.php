@@ -83,6 +83,11 @@ if ($resultado_medico->num_rows > 0) {
   color:#007bff !important;
 }
 
+.w3-light-grey, .w3-hover-light-grey:hover, .w3-light-gray, .w3-hover-light-gray:hover {
+    color: #000 !important;
+    background-color: dodgerblue !important;
+}
+
   </style>
 </head>
 

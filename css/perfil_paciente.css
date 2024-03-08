@@ -1,10 +1,9 @@
 /* Estilos comuns para todos os tamanhos de tela */
 body {
-    background: linear-gradient(to bottom, #01559B, #ffffff);
+    background-color: dodgerblue;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
     display: flex;
     min-height: 100vh;
     flex-direction: column;

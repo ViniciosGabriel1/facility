@@ -10,7 +10,7 @@
 /* Fonte padrão e cor de fundo do corpo */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f5f5f5;
+    background-color: dodgerblue;
 }
 
 /* Estilo para cabeçalhos */
@@ -125,6 +125,8 @@ h2, h3 {
 }
 @media (max-width: 768px) {
 
+
+
     
     #retroceder-data, #avancar-data {
         margin-left: 7%;
@@ -186,5 +188,7 @@ h2, h3 {
     align-content: stretch;
     justify-content: space-evenly;
 }
+
+
 
 

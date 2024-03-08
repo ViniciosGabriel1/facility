@@ -13,96 +13,64 @@ a {
 
 h2,
 h1 {
-  float: left;
-  width: auto;
+  padding-top: 30px;
+  text-align: center;
+  margin: auto;
+  /* margin-top: 80px; */
+  /* width: auto; */
   display: flex;
-
   color: #ffffff;
   flex-direction: column-reverse;
 }
 
-.bannertext {
-  text-align: center;
-  color: #fff;
-  font-size: 30px;
-  line-height: 100%;
-  font-weight: 600;
-  margin: 20px 0;
-}
-
-.bannertext h2 {
-  margin-left: 20%;
-  /* padding: 10%; */
-  padding-top: 15%;
-  text-align: center;
-  color: #fff;
-  font-size: 24px;
-  line-height: 130%;
-  font-weight: 600;
-  max-width: 600px;
-}
-
-@media screen and (max-width: 768px) {
-
-  /* Estilos para telas com largura máxima de 600 pixels (dispositivos móveis) */
-  .bannertext h2 {
-    padding: 5%;
-    /* width: 100%; */
-    text-align: center;
-    color: #fff;
-    font-size: 18px;
-    line-height: 130%;
-    font-weight: 600;
-  }
-}
-
-
-.videoouter {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  z-index: -2;
-}
-
-.videoouter video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  left: 0;
-  top: 0;
-  object-fit: cover;
-}
-
-/* Adicione isso ao seu CSS */
-
-/* Adicione isso ao seu CSS para posicionar o formulário à direita */
 
 form {
-  margin-left: auto;
-  margin-right: auto;
+  margin-right: 17%;
   width: 100%;
-  padding-right: 10px; 
+  padding-right: 10px;
   display: flex;
   flex-direction: column;
   background-color: hsl(199deg 86% 78%);
-    padding: 20px;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 300px;
   margin-top: 12%;
   width: 100%;
-  /* Adiciona uma margem superior para posicionar o formulário no meio */
 }
 
+@media screen and (max-width: 800px) {
+
+  
+form {
+  margin-right: 17%;
+  width: 100%;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(199deg 86% 78%);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+   margin-top: 12%; 
+  width: 100%;
+}
+
+  .img {
+    width:0;
+    height: auto;
+}
+  }
+
+
 /* Nova regra para posicionar o formulário à direita */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 600px) and (max-width: 1050px) {
   form {
+    /* margin-left: 100px; */
+    /* margin-right: 20%; */
+    margin-top: 4%;
+    /* margin: auto; */
     width: 100%;
     /* margin-left: 65%; */
     flex-direction: column;
@@ -111,23 +79,24 @@ form {
 
 
 
-.bannertext h2 {
-  margin-left: 20px;
-  margin-top: 20%;
-  padding: 1%;
-  /* padding-bottom: 0%; */
-  text-align: center;
-  color: #fff;
-  /* font-size: 24px; */
-  line-height: 130%;
-  font-weight: 600;
-  max-width: 600px;
-}
 
-.hero {
-  margin-top: -100px;
-  /* height: 100%; */
+  .img {
+    width: 400px;
+    height: auto;
 }
+  
+
+  h2,
+  h1 {
+    /* margin-left: 20%; */
+    margin-top: 7%;
+    /* float: left; */
+    /* width: auto; */
+    display: flex;
+    color: #ffffff;
+    /* flex-direction: column-reverse; */
+  }
+
 }
 
 
@@ -196,7 +165,13 @@ p {
   font-family: 'Poppins', sans-serif;
 }
 
-.hero {
-  margin-top: -50px;
-  /* height: 100%; */
+
+#show {
+  padding-left: 70px;
+    display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
+
+
+
