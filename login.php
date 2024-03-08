@@ -11,25 +11,13 @@
 </head>
 
 <body>
-
-    <header class="header">
-        <div class="nav" id="headnav">
-            <h1 class="logo">FacilityOdonto</h1>
-            
-            <ul class="nav-list">
-                <li class="active"><a href="#home">Home</a></li>
-                <li><a href="#about">Sobre Sistema</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </div>
-    </header>
+<?php include "menu_login.php";?>
 
     <div class="hero">
         <div class="bannertext">
-            <h2><span> e tratamento odontológico completo.</span> Obtenha seu exame </h2>
-        </div>
-    </div>
 
+            <br><h2><span><strong>e tratamento odontológico completo.</strong> </span> Obtenha seu exame </h2>
+        </div>
     
         <!-- Adição da imagem centralizada -->
 
@@ -58,14 +46,7 @@
                     <p class="signup-link">Não tem uma conta? <a href="cadastro.php">Cadastre-se como Paciente</a> ou <a href="cadastro_medico.php">Cadastre-se como Médico</a></p>
                 </form>
             
-        
-   
-
-    <script>
-        function toggleMenu() {
-            document.getElementById('headnav').classList.toggle('show-menu');
-        }
-    </script>
+                </div>
 
 
 

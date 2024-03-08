@@ -1,6 +1,7 @@
 body {
   margin: 0;
   padding: 0;
+  /* height: 100%; */
 }
 
 a {
@@ -8,132 +9,7 @@ a {
   text-decoration: none;
 }
 
-.header {
-  /* #28B6F65c Cor pik */
-  background-color: hsl(199deg 86% 78%);
-  padding-inline: 16px;
-}
 
-.nav {
-  max-width: 1280px;
-  height: 70px;
-  margin-inline: auto;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 34px;
-}
-
-.nav-list {
-  display: flex;
-  gap: 32px;
-  list-style: none;
-  pointer-events: all;
-  /* Adicione esta linha */
-}
-
-
-.nav-list a {
-  font-size: 18px;
-  color: #fff;
-  padding-block: 16px;
-}
-
-.hamburger {
-  display: none;
-  border: none;
-  background: none;
-  border-top: 3px solid #fff;
-  cursor: pointer;
-}
-
-.hamburger::after,
-.hamburger::before {
-  content: " ";
-  display: block;
-  width: 30px;
-  height: 3px;
-  background: #fff;
-  margin-top: 5px;
-  position: relative;
-  transition: 0.3s;
-}
-
-@media (max-width: 750px) {
-  .hamburger {
-    display: block;
-    z-index: 1;
-  }
-
-  .nav-list {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: #a5c;
-    clip-path: circle(100px at 90% -15%);
-    transition: 1s ease-out;
-
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    gap: 0;
-
-    pointer-events: none;
-  }
-
-  .nav-list a {
-    font-size: 20px;
-    opacity: 0;
-  }
-
-  .nav-list li:nth-child(1) a {
-    transition: 0.5s 0.2s;
-  }
-
-  .nav-list li:nth-child(2) a {
-    transition: 0.5s 0.4s;
-  }
-
-  .nav-list li:nth-child(3) a {
-    transition: 0.5s 0.6s;
-  }
-
-  /* Estilos ativos */
-
-  .nav.active .nav-list {
-    clip-path: circle(1500px at 90% -15%);
-    pointer-events: all;
-    z-index: 999;
-    /* Adicione esta linha */
-  }
-
-
-  .nav.active .nav-list a {
-    opacity: 1;
-  }
-
-  .nav.active .hamburger {
-    position: fixed;
-    top: 26px;
-    right: 16px;
-    border-top-color: transparent;
-  }
-
-  .nav.active .hamburger::before {
-    transform: rotate(135deg);
-  }
-
-  .nav.active .hamburger::after {
-    transform: rotate(-135deg);
-    top: -7px;
-  }
-}
 
 h2,
 h1 {
@@ -155,8 +31,9 @@ h1 {
 }
 
 .bannertext h2 {
-  padding: 17%;
-  padding-bottom: 10%;
+  margin-left: 20%;
+  /* padding: 10%; */
+  padding-top: 15%;
   text-align: center;
   color: #fff;
   font-size: 24px;
@@ -210,7 +87,7 @@ form {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-  /* padding-right: 10px; */
+  padding-right: 10px; 
   display: flex;
   flex-direction: column;
   background-color: hsl(199deg 86% 78%);
@@ -224,16 +101,36 @@ form {
 }
 
 /* Nova regra para posicionar o formulário à direita */
-@media screen and (min-width: 600px) {
+@media screen and (max-width: 1024px) {
   form {
     width: 100%;
-    margin-left: auto;
-    /* Move o formulário para a extremidade direita */
-    margin-right: 200px;
-    /* Adiciona um espaçamento entre o formulário e o conteúdo da página */
+    /* margin-left: 65%; */
     flex-direction: column;
-  }
+    /* padding-left: 100px; */
 }
+
+
+
+.bannertext h2 {
+  margin-left: 20px;
+  margin-top: 20%;
+  padding: 1%;
+  /* padding-bottom: 0%; */
+  text-align: center;
+  color: #fff;
+  /* font-size: 24px; */
+  line-height: 130%;
+  font-weight: 600;
+  max-width: 600px;
+}
+
+.hero {
+  margin-top: -100px;
+  /* height: 100%; */
+}
+}
+
+
 
 label {
   font-size: 12px;
@@ -297,4 +194,9 @@ form .signup-link a:hover {
 p {
   font-size: 12px;
   font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+  margin-top: -50px;
+  /* height: 100%; */
 }
