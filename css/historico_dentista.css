@@ -1,0 +1,69 @@
+/* Reset de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos básicos para o body */
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background-color: dodgerblue;
+}
+
+.info{
+    color: dodgerblue;
+}
+
+/* Estilos para o título */
+.titulo {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* Estilos para o contêiner principal */
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    /* max-width: 800px; */
+    width: 60%;
+    display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    gap: 20px;
+    align-items: start;
+}
+
+/* Estilos para os cards de consulta */
+.card {
+    margin-bottom: 12px;
+    /* margin-right: 20px;
+    margin-left: 20px; */
+    background-color: hsl(199deg 86% 78% / 72%);
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+/* Estilos para o cabeçalho do card */
+.card h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Estilos para os detalhes do card */
+.card p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.concluída{
+    color: rgb(5, 151, 5);
+}
