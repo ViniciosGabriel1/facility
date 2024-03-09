@@ -8,7 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<?php include "index.php";?>
+<?php include "menu_login.php";?>
 <section class="signup-section">
     <h2>Cadastro</h2>
     <form id="cadastroForm" action="back/processa_cadastro.php" method="post">

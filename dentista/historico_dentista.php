@@ -53,44 +53,42 @@ if (isset($_GET['idPaciente'])) {
 <body>
     <?php include "menu_dentista.php"; ?>
     <?php
+if (isset($consultas) && !empty($consultas)) {
     $nome_paciente = $consultas[0]['nome_paciente'];
     // Exibe o título com o nome do paciente
     echo "<h1 class=\"titulo\">Histórico de $nome_paciente</h1>";
-    ?>
+?>
+<div class="container-wrapper">
+    <div class="container">
+        <?php
+        foreach ($consultas as $consulta) {
+        ?>
+        <div class="card">
+            <p><strong><i class="fas fa-id-card"></i> ID Consulta:</strong> <?php echo $consulta['id']; ?></p>
+            <p><strong><i class="fas fa-calendar-alt"></i> Data da Consulta:</strong> <?php echo date('d/m/Y H:i', strtotime($consulta['data_consulta'])); ?></p>
+            <p><strong><i class="fas fa-user"></i> Nome do Paciente:</strong> <?php echo $consulta['nome_paciente']; ?></p>
+            <p><strong><i class="fas fa-user-md"></i> Serviço Realizado:</strong> <?php echo $consulta['servico']; ?></p>
+            <p><strong><i class="fas fa-sticky-note"></i> Observações:</strong> <?php echo $consulta['observacoes']; ?></p>
+            <p><strong><i class="fas fa-info-circle"></i> Status:</strong><span class="<?php echo strtolower($consulta['status']); ?>"><?php echo $consulta['status']; ?>
+                <?php if (strtolower($consulta['status']) == 'concluída') : ?>
+                    <i class="fas fa-check-circle"></i>
+                <?php endif; ?>
+            </span>
+            </p>
+            <p><strong><i class="fab fa-whatsapp" style="color: green;"></i></strong><a href="https://api.whatsapp.com/send?phone=<?php echo $consulta['numero_paciente']; ?>" target="_blank" style="color: green;"> Clique e Fale com o paciente </a></p>
+        </div>
+        <?php
+        }
+        ?>
+    </div>
+</div>
+<?php
+} else {
 
-    <div class="container-wrapper">
+        echo "<h2 class ='info-out'>Nenhuma consulta encontrada.</h2>";
+}
+?>
 
-
-        <div class="container">
-            <?php
-
-            // Verifique se há consultas para exibir
-            if (!empty($consultas)) {
-
-                foreach ($consultas as $consulta) {
-
-            ?>
-                    <div class="card">
-                        <p><strong class="info"><i class="fas fa-id-card"></i> ID Consulta:</strong> <?php echo $consulta['id']; ?></p>
-                        <p><strong class="info"><i class="fas fa-calendar-alt"></i> Data da Consulta:</strong> <?php echo date('d/m/Y H:i', strtotime($consulta['data_consulta'])); ?></p>
-                        <p><strong class="info"><i class="fas fa-user"></i> Nome do Paciente:</strong> <?php echo $consulta['nome_paciente']; ?></p>
-                        <p><strong class="info"><i class="fas fa-user-md"></i> Serviço Realizado:</strong> <?php echo $consulta['servico']; ?></p>
-                        <p><strong class="info"><i class="fas fa-sticky-note"></i> Observações:</strong> <?php echo $consulta['observacoes']; ?></p>
-                        <p><strong class="info"><i class="fas fa-info-circle"></i> Status: </strong><span class="<?php echo strtolower($consulta['status']); ?>"><?php echo $consulta['status']; ?>
-                                <?php if (strtolower($consulta['status']) == 'concluída') : ?>
-                                    <i class="fas fa-check-circle"></i>
-                                <?php endif; ?>
-                            </span>
-                        </p>
-                        <p><strong><i class="fab fa-whatsapp" style="color: green;"></i></strong><a href="https://api.whatsapp.com/send?phone=<?php echo $consulta['numero_paciente']; ?>" target="_blank" style="color: green;"> Clique e Fale com o paciente </a></p>
-
-                    </div>
-            <?php
-                }
-            } else {
-                echo "<p>Nenhuma consulta encontrada.</p>";
-            }
-            ?>
         </div>
     </div>
 </body>
