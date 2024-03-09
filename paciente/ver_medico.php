@@ -94,7 +94,9 @@ if ($resultado_medico->num_rows > 0) {
 <body class="w3-light-grey">
 <?php     include "menu_paciente.php";?>
 
-
+<div class="navigation-buttons">
+    <a href="pagina_paciente.php" class="back-button">Voltar para a Tela Anterior</a>
+</div>
   <!-- Page Container -->
   <div class="w3-content w3-margin-top" style="max-width:1500px;">
 

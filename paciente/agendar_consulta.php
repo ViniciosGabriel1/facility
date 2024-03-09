@@ -63,6 +63,10 @@ $conn->close();
 
 <body>
 <?php include "menu_paciente.php"; ?>
+
+<div class="navigation-buttons">
+    <a href="pagina_paciente.php" class="back-button">Voltar para a Tela Anterior</a>
+</div>
 <h1 class="pergunta">Quanto mais rápido melhor.</h1>
     <div class="container-wrapper">
     <!-- Início da imagem -->

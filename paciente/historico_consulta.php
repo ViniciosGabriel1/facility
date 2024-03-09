@@ -10,8 +10,14 @@
 </head>
 
 <body>
+    
     <?php
-    include "menu_paciente.php";
+    include "menu_paciente.php";?>
+    <div class="navigation-buttons">
+    <a href="pagina_paciente.php" class="back-button">Voltar para a Tela Anterior</a>
+</div>
+    
+    <?php
     session_start();
     include "../back/conexao.php";
 

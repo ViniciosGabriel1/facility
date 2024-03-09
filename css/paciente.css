@@ -169,14 +169,14 @@ h1 {
         opacity: 1; /* Termina com opacidade 1 (totalmente visível) */
     }
 }
-.container {
-    margin-bottom: 130px;
 
+.container {
+    /* margin-bottom: 130px; */
     display: flex;
-    flex-direction: column; /* Empilha os elementos verticalmente */
-    align-items: center; /* Alinha os elementos horizontalmente */
-    justify-content: center; /* Alinha os elementos verticalmente */
-    text-align: center; /* Alinha o texto no centro */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .procura {
@@ -230,6 +230,25 @@ select {z-index: 1000;
     outline: none;
     background-color: #f0f0f0;
 }
+
+.filtro-especializacao {
+    margin-top: 10px;
+}
+
+.filtro-btn {
+    /* margin-right: 10px; */
+    padding: 12px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+
+.filtro-btn:hover {
+    background-color: #2980b9;
+}
+
 
 
 

@@ -1,16 +1,14 @@
 $(document).ready(function() {
     // Função para atualizar o carrossel com base no filtro de especialização
-    function updateCarousel() {
-        var especializacaoSelecionada = $('#filtro-especializacao').val();
+    function updateCarousel(especializacaoSelecionada) {
         console.log(especializacaoSelecionada);
         var numMedicos = 0;
-        console.log($(this).find('.profession').text());
+
         // Iterar sobre cada slide do carrossel
         $('.swiper-slide').each(function() {
-            
             var especializacaoMedico = $(this).find('.profession').text();
             console.log(especializacaoMedico);
-            
+
             // Verificar se a especialização do médico corresponde à opção selecionada ou se é 'todos'
             if (especializacaoSelecionada === 'todos' || especializacaoSelecionada === especializacaoMedico) {
                 numMedicos++;
@@ -19,12 +17,18 @@ $(document).ready(function() {
                 $(this).hide(); // Ocultar o slide
             }
         });
+
+        // Após atualizar o carrossel, rolar até ele com uma animação suave
+        var targetPosition = $('#carrossel').offset().top;
+        $('html, body').animate({
+            scrollTop: targetPosition
+        }, 200); // 1000 é a duração da animação em milissegundos
     }
 
-    // Atualizar o carrossel quando o filtro de especialização for alterado
-    $('#filtro-especializacao').change(function() {
-        updateCarousel();
-        
+    // Atualizar o carrossel quando um botão de filtro é clicado
+    $('.filtro-btn').click(function() {
+        var especializacaoSelecionada = $(this).attr('data-especializacao');
+        updateCarousel(especializacaoSelecionada);
     });
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -48,6 +52,4 @@ $(document).ready(function() {
             }
         });
     });
-
-
 });
