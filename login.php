@@ -18,7 +18,7 @@
 <div id="show">
     
     <!-- Adição da imagem centralizada -->
-    <img class="img" src="img/login.svg" alt="Sua Imagem" width="400" height="400" style="margin-top: 12%;">
+    <img class="img" src="img/login2.svg" alt="Sua Imagem" width="400" height="400" style="margin-top: 12%;">
 
     <form class = "form" action="back/processa_login.php" method="POST">
 
@@ -38,7 +38,23 @@
         <p class="signup-link">Não tem uma conta? <a href="cadastro.php">Cadastre-se como Paciente</a> ou <a href="cadastro_medico.php">Cadastre-se como Médico</a></p>
     </form>
     </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+  // Aguardar o carregamento do DOM antes de executar
 
+  // Adicionar classe para mostrar a introdução suavemente
+  document.getElementById('intro').classList.add('show-intro');
+
+  // Rolar até o final da tela após a conclusão da animação
+  setTimeout(function() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  }, 1000); // Ajuste o tempo conforme necessário
+});
+
+</script>
 </body>
 
 </html>

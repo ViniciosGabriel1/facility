@@ -95,12 +95,11 @@
 
                             consultasHtml += '</div>'; // fechamento da div "consulta-info"
                             consultasHtml += '<div class="botoes-container">';
-                            consultasHtml += '<form class="status-form" action="../back/processa_status.php" method="post">';
                             consultasHtml += '<input type="hidden" name="id_consulta" value="' + consulta.id + '">';
                             consultasHtml += '<button type="button" class="reagendar-btn" onclick="redirecionarParaReagendar(' + consulta.id + ', ' + consulta.id_paciente + ')">Reagendar <i class="fas fa-calendar-alt"></i> </button>';
-                            consultasHtml += '<button type="submit" class="concluir-btn" name="acao" value="concluir">Concluir <i class="fas fa-check"></i></button>';
-                            consultasHtml += '<button type="button" class="historico-btn" onclick="redirecionarParaHistorico('+ consulta.id_paciente + ')">Histórico <i class="fas fa-calendar-alt"></i></button>';
-                            consultasHtml += '</form>';
+                            consultasHtml += '<button type="submit" class="concluir-btn" onclick="redirecionarParaConclusao(' + consulta.id + ', ' + consulta.id_paciente + ')">Concluir <i class="fas fa-check"></i></button>';
+                            consultasHtml += '<button type="button" class="historico-btn" onclick="redirecionarParaHistorico(' + consulta.id_paciente + ')">Histórico <i class="fas fa-calendar-alt"></i></button>';
+
                             consultasHtml += '</div>'; // fechamento da div "botoes-container"
                             consultasHtml += '</div>'; // fechamento da div "consulta"
 
@@ -147,7 +146,7 @@
 
 
 
-        
+
         function redirecionarParaReagendar(idConsulta, idPaciente) {
             // Redirecionar o navegador para a página reagendar.php, passando o ID da consulta como parâmetro
             window.location.href = '../dentista/reagendar_dentista.php?idConsulta=' + idConsulta + '&idPaciente=' + idPaciente;
@@ -157,7 +156,13 @@
             // Redirecionar o navegador para a página reagendar.php, passando o ID da consulta como parâmetro
             window.location.href = '../dentista/historico_dentista.php?idPaciente=' + idPaciente;
         }
+
+        function redirecionarParaConclusao(idConsulta, idPaciente) {
+            // Redirecionar o navegador para a página de conclusão de consulta, passando o ID da consulta e o ID do paciente como parâmetros
+            window.location.href = '../dentista/pagina_conclusao.php?idConsulta=' + idConsulta + '&idPaciente=' + idPaciente;
+        }
     </script>
+
 
 </body>
 
