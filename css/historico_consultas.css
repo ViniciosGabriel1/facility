@@ -39,6 +39,8 @@ h3 {
 }
 
 .consulta-info {
+    font-weight: bold;
+    font-size: 18px;
     margin: 0;
     color: #ffffff;
 }
@@ -64,6 +66,7 @@ h3 {
     border-radius: 5px;
     margin-right: 5px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 .btn-reagendar {
@@ -98,10 +101,27 @@ h3 {
     }
 
     .consulta-info {
-        font-size: 14px;
+        font-size: 18px;
     }
 
     .consulta-botoes {
         font-size: 14px;
     }
 }
+
+.btn-avaliar {
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: rgb(232, 252, 53);
+    color: rgb(129, 128, 128);
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-avaliar:hover {
+    background-color: rgb(226, 240, 37);
+}
+

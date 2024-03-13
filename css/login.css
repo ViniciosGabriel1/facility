@@ -114,3 +114,25 @@ h2,label,p{
 .show-intro #intro {
   opacity: 1;
 }
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Aplica a animação à mensagem de logout */
+.fade-out {
+  animation: fadeOut 1s ease-in-out forwards;
+}
+
+#logoutMessage{  /* margin-bottom: 29px; */
+    padding-bottom: 100px;
+    color: green;
+    margin-top: -10px;
+    padding: 10px;
+    background-color: #1fc91f;
+    color: white;
+    text-align: center;
+    z-index: 100;
+    width: 100%;
+}

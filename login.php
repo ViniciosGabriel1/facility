@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,13 +14,24 @@
 
 <body>
     <?php include "menu_login.php"; ?>
+    <?php
+
+session_start();
+
+// Verificar se o parâmetro 'logout' está presente na URL e se é igual a 1
+if(isset($_GET['logout']) && $_GET['logout'] == 1) {
+    // Exibir a mensagem de logout
+    echo '<p id="logoutMessage">Você foi desconectado com sucesso!</p>';
+}
+?>
+
 
 <h2>Obtenha seu exame e tratamento odontológico completo</h2>
 
 <div id="show">
-    
     <!-- Adição da imagem centralizada -->
     <img class="img" src="img/login2.svg" alt="Sua Imagem" width="400" height="400" style="margin-top: 12%;">
+    
 
     <form class = "form" action="back/processa_login.php" method="POST">
 
@@ -38,23 +51,23 @@
         <p class="signup-link">Não tem uma conta? <a href="cadastro.php">Cadastre-se como Paciente</a> ou <a href="cadastro_medico.php">Cadastre-se como Médico</a></p>
     </form>
     </div>
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-  // Aguardar o carregamento do DOM antes de executar
 
-  // Adicionar classe para mostrar a introdução suavemente
-  document.getElementById('intro').classList.add('show-intro');
+    <script>
+// Esperar 3 segundos e, em seguida, ocultar suavemente a mensagem de logout
+setTimeout(function(){
+    var logoutMessage = document.getElementById('logoutMessage');
+    if(logoutMessage) {
+        logoutMessage.classList.add('fade-out'); // Adiciona a classe para iniciar a animação
 
-  // Rolar até o final da tela após a conclusão da animação
-  setTimeout(function() {
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: 'smooth'
-    });
-  }, 1000); // Ajuste o tempo conforme necessário
-});
-
+        // Após a animação, remove a mensagem
+        setTimeout(function(){
+            logoutMessage.style.display = 'none';
+        }, 1000); // Ajuste o tempo para corresponder à duração da animação CSS
+    }
+}, 3000); // 3000 milissegundos = 3 segundos
 </script>
+
+
 </body>
 
 </html>

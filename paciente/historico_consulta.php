@@ -10,13 +10,13 @@
 </head>
 
 <body>
-    
+
     <?php
-    include "menu_paciente.php";?>
+    include "menu_paciente.php"; ?>
     <div class="navigation-buttons">
-    <a href="pagina_paciente.php" class="back-button">Voltar para a Tela Anterior</a>
-</div>
-    
+        <a href="pagina_paciente.php" class="back-button">Voltar para a Tela Anterior</a>
+    </div>
+
     <?php
     session_start();
     include "../back/conexao.php";
@@ -110,6 +110,10 @@
                 <strong><i class="fa fa-info-circle fa-fw"></i> Status:</strong>
                 <span class="<?php echo strtolower($status); ?>"><?php echo $status; ?></span>
             </p>
+            <?php if ($status == 'Concluída') { ?>
+                <button class="btn-avaliar"><i class="fa fa-star fa-fw" style="color: orange;"></i> Avaliar</button>
+            <?php } ?>
+
             <div class="consulta-botoes">
                 <?php if ($status == 'Agendada' || $status == 'Reagendada') { ?>
                     <div class="whats">

@@ -1,8 +1,5 @@
 <?php
-
-
 include "conexao.php";
-
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obter dados do formulário
@@ -55,19 +52,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // Redirecionar para a página apropriada
             if ($usertype === "dentista") {
-                header("Location: ../dentista/pagina_dentista.php");
+                header("Location: ../dentista/pagina_dentista.php?login=success");
                 exit();
             } elseif ($usertype === "paciente") {
-                header("Location: ../paciente/pagina_paciente.php");
+                header("Location: ../paciente/pagina_paciente.php?login=success");
+                exit();
+            } else {
+                // Exibir mensagem de erro se o tipo de usuário for inválido
+                echo "Tipo de usuário inválido.";
                 exit();
             }
         } else {
             // Exibir mensagem de erro se a senha estiver incorreta
             echo "Usuário ou senha incorretos.";
+            exit();
         }
     } else {
         // Exibir mensagem de erro se o usuário não for encontrado
         echo "Usuário ou senha incorretos.";
+        exit();
     }
 
     // Fechar a conexão com o banco de dados
@@ -77,3 +80,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Método de requisição inválido.";
     exit();
 }
+?>

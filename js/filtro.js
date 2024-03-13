@@ -32,7 +32,7 @@ $(document).ready(function() {
     });
 
     document.addEventListener("DOMContentLoaded", function() {
-        var link = document.getElementById('scroll-link');
+        var link = document.getElementById('filtro-btn');
         link.addEventListener('click', function(e) {
             e.preventDefault(); // Evita o comportamento padrão do link
 

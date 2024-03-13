@@ -43,7 +43,7 @@
                     <a href="perfil_dentista.php"><i class="fa fa-user"></i> <strong>Perfil</strong></a>
                 </li>
                 <li>
-                    <a href="../back/logout_dentista.php"><i class="fa fa-sign-out"></i> <strong>Logout</strong></a>
+                    <a href="../back/logout.php"><i class="fa fa-sign-out"></i> <strong>Logout</strong></a>
                 </li>
             </ul>
         </nav>
