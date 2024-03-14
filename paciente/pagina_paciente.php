@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/carrossel.css">
     <link rel="stylesheet" href="../css/paciente.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../js/filtro.js"></script>
 </head>
@@ -32,8 +33,13 @@
             $id_paciente = $_SESSION["id_usuario"];
 
             // Consulta SQL para obter a lista de dentistas
-            $sql_dentistas = "SELECT id, nome, especializacao, telefone, foto, link_localizacao FROM medicos";
-            $result_dentistas = $conn->query($sql_dentistas);
+            $sql_dentistas = "SELECT m.id, m.nome, m.especializacao, m.telefone, m.foto, m.link_localizacao, AVG(a.estrelas) AS media_avaliacao 
+            FROM medicos m
+            LEFT JOIN avaliacoes a ON m.id = a.id_medico
+            GROUP BY m.id
+            ORDER BY media_avaliacao DESC";
+
+$result_dentistas = $conn->query($sql_dentistas);
 
             // Consulta SQL para contar o número de consultas do usuário logado com status "Agendada" ou "Reagendada"
             $sql_consultas = "SELECT COUNT(*) AS total_consultas FROM consultas WHERE id_paciente = ? AND (status = 'Agendada' OR status = 'Reagendada')";
@@ -45,9 +51,6 @@
 
             // Definir o limite máximo de consultas
             $limite_consultas = 2;
-
-            // Fechar a conexão com o banco de dados
-            $conn->close();
 
             // Verificar se o usuário ultrapassou o limite de consultas
             if ($total_consultas >= $limite_consultas) {
@@ -88,12 +91,40 @@
             <?php
             if ($result_dentistas->num_rows > 0) {
                 while ($row = $result_dentistas->fetch_assoc()) {
-            ?>
+                    // ID do médico
+                    $id_medico = $row['id'];
+
+                    // Consulta SQL para obter a média das avaliações para este médico
+                    $sql_avaliacoes = "SELECT AVG(estrelas) AS media_avaliacao FROM avaliacoes WHERE id_medico = ?";
+                    $stmt_avaliacoes = $conn->prepare($sql_avaliacoes);
+                    $stmt_avaliacoes->bind_param("i", $id_medico);
+                    $stmt_avaliacoes->execute();
+                    $result_avaliacoes = $stmt_avaliacoes->get_result();
+                    $media_avaliacao = $result_avaliacoes->fetch_assoc()["media_avaliacao"];
+
+                    // Exibir os cards dos médicos
+                    ?>
                     <div class="swiper-slide card <?= $row['especializacao'] ?>">
+                   
                         <img src="../uploads/<?= $row['foto'] ?>" alt="Foto do Médico" />
+                        <div class="rating">
+                                <?php
+                                // Exibir as estrelas com base na média das avaliações
+                                for ($i = 1; $i <= 5; $i++) {
+                                    if ($i <= $media_avaliacao) {
+                                        echo "<i class='fas fa-star star-filled' style = 'color: yellow;'></i>"; // Estrela preenchida
+                                    } else {
+                                        echo "<i class='far fa-star'></i>"; // Estrela vazia
+                                    }
+                                }
+                                ?>
+                            </div>
+
                         <div class="card-content">
+                        
                             <div class="name">Dr. <?= $row['nome'] ?></div>
                             <div class="profession"><?= $row['especializacao'] ?></div>
+                            
                             <div class="button">
                                 <?php if ($total_consultas < $limite_consultas) : ?>
                                     <button onclick="agendarConsulta(<?= $row['id'] ?>)">Agendar</button><br><br>
@@ -106,9 +137,15 @@
                     </div>
             <?php
                 }
+
+                // Fechar a consulta de avaliações
+                $stmt_avaliacoes->close();
             } else {
                 echo "<p>Nenhum dentista cadastrado no momento.</p>";
             }
+
+            // Fechar a consulta de dentistas
+            $result_dentistas->close();
             ?>
         </div>
     </section>
@@ -142,7 +179,7 @@
                     message.style.display = 'none';
                 }, 1000); // Ajuste o tempo para corresponder à duração da animação CSS
             }
-        }, 4000); // 3000 milissegundos = 3 segundos
+        }, 4000); // 4000 milissegundos = 4 segundos
     </script>
 
 </body>
