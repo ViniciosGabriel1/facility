@@ -17,7 +17,7 @@ body {
 h2 {
     text-align: center;
     margin-bottom: 20px;
-    color: #333;
+    color: #ffffff;
 }
 
 h3 {
@@ -123,5 +123,119 @@ h3 {
 
 .btn-avaliar:hover {
     background-color: rgb(226, 240, 37);
+
 }
+/* Estilos para o modal */
+/* Estilos para o modal */
+.modal {
+    display: none; /* Oculta o modal por padrão */
+    position: fixed; /* Mantém o modal no mesmo local na página */
+    z-index: 1; /* Define a ordem de empilhamento do modal */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Adiciona rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto semi-transparente */
+}
+/* Estilos para o conteúdo do modal */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(199, 86%, 78%, 0.966);
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 40%;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    position: relative; /* Para posicionar absolutamente o botão */
+}
+
+/* Estilos para o botão de fechar */
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+}
+
+/* Estilos para as estrelas */
+.rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.rating input {
+    display: none; /* Oculta as entradas de rádio padrão */
+}
+
+.rating label {
+    font-size: 30px; /* Tamanho da fonte dos ícones */
+    color: #bdbdbd; /* Cor das estrelas não selecionadas */
+    cursor: pointer; /* Altera o cursor para indicar que as estrelas são clicáveis */
+}
+
+.rating label:hover,
+.rating label:hover ~ label,
+.rating input:checked ~ label {
+    color: #ffeb3b; /* Altera a cor das estrelas ao passar o mouse ou quando selecionadas */
+}
+
+/* Estilos para o textarea */
+.modal-content textarea {
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Permite redimensionamento vertical */
+}
+
+/* Estilos para o botão de enviar avaliação */
+.modal-content button[type="submit"] {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+@media screen and (max-width: 768px) {
+    .modal-content {
+        margin-top: 40%;
+        width: 90%;
+        /* margin: 10% auto; */
+    }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+  
+  /* Aplica a animação à mensagem de logout */
+  .fade-out {
+    animation: fadeOut 1s ease-in-out forwards;
+  }
+
 

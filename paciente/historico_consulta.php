@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/historico_consultas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous" />
+
     <title>Histórico de Consultas</title>
 </head>
 
 <body>
 
-    <?php
-    include "menu_paciente.php"; ?>
+    <?php include "menu_paciente.php"; ?>
     <div class="navigation-buttons">
         <a href="pagina_paciente.php" class="back-button">Voltar para a Tela Anterior</a>
     </div>
@@ -20,6 +21,20 @@
     <?php
     session_start();
     include "../back/conexao.php";
+
+
+    // Verificar se houve um erro ao avaliar o médico
+    if (isset($_GET['error']) && $_GET['error'] == 1) {
+        echo "<p id='duplicate' style=' width: 100%;
+        position: fixed;
+        text-align: center;
+        /* align-items: center; */
+        padding: 10px;
+        color: #000000;
+        background: yellow;
+        border-radius: 12px;'>Você já avaliou esta consulta .</p>";
+    }
+
 
     // Verificar se o paciente está autenticado
     if (!isset($_SESSION["id_usuario"])) {
@@ -64,13 +79,13 @@
                         echo "<h3 class='consultas-pendentes'>Consultas Pendentes</h3>";
                         $consultas_pendentes_exibidas = true;
                     }
-                    includeConsultCard($data_consulta, $nome_medico, $servico, $observacoes, $status, $telefone_medico);
+                    includeConsultCard($id_consulta, $data_consulta, $id_medico, $nome_medico, $servico, $observacoes, $status, $telefone_medico);
                 } elseif ($status == 'Concluída') {
                     if (!$consultas_concluidas_exibidas) {
                         echo "<h3 class='consultas-concluidas'>Consultas Concluídas</h3>";
                         $consultas_concluidas_exibidas = true;
                     }
-                    includeConsultCard($data_consulta, $nome_medico, $servico, $observacoes, $status, $telefone_medico);
+                    includeConsultCard($id_consulta, $data_consulta, $id_medico, $nome_medico, $servico, $observacoes, $status, $telefone_medico);
                 }
             } else {
                 echo "<p>Nome do médico não encontrado.</p>";
@@ -90,7 +105,7 @@
     $conn->close();
 
     // Função para incluir o card de consulta
-    function includeConsultCard($data_consulta, $nome_medico, $servico, $observacoes, $status, $telefone_medico)
+    function includeConsultCard($id_consulta, $data_consulta, $id_medico, $nome_medico, $servico, $observacoes, $status, $telefone_medico)
     {
     ?>
         <div class="consulta-card">
@@ -111,7 +126,7 @@
                 <span class="<?php echo strtolower($status); ?>"><?php echo $status; ?></span>
             </p>
             <?php if ($status == 'Concluída') { ?>
-                <button class="btn-avaliar"><i class="fa fa-star fa-fw" style="color: orange;"></i> Avaliar</button>
+                <button class="btn-avaliar" onclick="openModal(<?php echo $id_consulta; ?>, <?php echo $id_medico; ?>, '<?php echo $nome_medico; ?>')"><i class="fa fa-star fa-fw" style="color: orange;"></i> Avaliar</button>
             <?php } ?>
 
             <div class="consulta-botoes">
@@ -132,6 +147,74 @@
     <?php
     }
     ?>
+<!-- Modal para avaliação -->
+<div id="avaliacaoModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle"></h2>
+        <form action="../back/processa_avaliacao.php" method="post">
+            <!-- Input hidden para o ID da consulta -->
+            <input type="hidden" id="id_consulta" name="id_consulta" value="">
+            <!-- Input hidden para o ID do médico -->
+            <input type="hidden" id="id_medico" name="id_medico" value="">
+            
+            <!-- Seleção de estrelas -->
+            <div class="rating">
+                <input type="radio" id="star5" name="rating" value="5" required /><label for="star5"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star4" name="rating" value="4" required /><label for="star4"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star3" name="rating" value="3" required /><label for="star3"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star2" name="rating" value="2" required /><label for="star2"><i class="fas fa-star"></i></label>
+                <input type="radio" id="star1" name="rating" value="1" required /><label for="star1"><i class="fas fa-star"></i></label>
+            </div>
+            
+            <!-- Comentário -->
+            <textarea required name="comment" id="comment" cols="30" rows="10" placeholder="Digite seu comentário..."></textarea>
+            
+            <!-- Botão de enviar avaliação -->
+            <button class="btn-modal" type="submit">Enviar Avaliação</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function openModal(idConsulta, idMedico, nomeMedico) {
+        var modal = document.getElementById("avaliacaoModal");
+        modal.style.display = "block";
+        // Atribuir dinamicamente o valor do id_consulta ao input hidden
+        document.getElementById("id_consulta").value = idConsulta;
+        // Atribuir dinamicamente o valor do id_medico ao input hidden
+        document.getElementById("id_medico").value = idMedico;
+        // Definir dinamicamente o título do modal
+        document.getElementById("modalTitle").innerText = "Avaliar Consulta do Médico " + nomeMedico;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("avaliacaoModal");
+        modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        var modal = document.getElementById("avaliacaoModal");
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+
+<script>
+// Esperar 3 segundos e, em seguida, ocultar suavemente a mensagem de logout
+setTimeout(function(){
+    var logoutMessage = document.getElementById('duplicate');
+    if(logoutMessage) {
+        logoutMessage.classList.add('fade-out'); // Adiciona a classe para iniciar a animação
+
+        // Após a animação, remove a mensagem
+        setTimeout(function(){
+            logoutMessage.style.display = 'none';
+        }, 1000); // Ajuste o tempo para corresponder à duração da animação CSS
+    }
+}, 3000); // 3000 milissegundos = 3 segundos
+</script>
 </body>
 
 </html>
