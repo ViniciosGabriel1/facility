@@ -42,9 +42,10 @@ if ($result_verificar->num_rows > 0) {
 
 
 // Se não existir, inserir a nova avaliação no banco de dados
-$sql_inserir = "INSERT INTO avaliacoes (id_paciente, id_consulta, id_medico, estrelas, comentario) VALUES (?, ?, ?, ?, ?)";
+$sql_inserir = "INSERT INTO avaliacoes (id_paciente, id_consulta, id_medico, estrelas, comentario, data_avaliacao) VALUES (?, ?, ?, ?, ?, NOW())";
 $stmt_inserir = $conn->prepare($sql_inserir);
 $stmt_inserir->bind_param("iiiss", $id_paciente, $consulta_id, $medico_id, $rating, $comment);
+
 
 if ($stmt_inserir->execute()) {
     // Avaliação inserida com sucesso

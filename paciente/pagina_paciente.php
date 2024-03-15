@@ -32,14 +32,14 @@
             // O ID do paciente está disponível em $_SESSION["id_paciente"]
             $id_paciente = $_SESSION["id_usuario"];
 
-            // Consulta SQL para obter a lista de dentistas
-            $sql_dentistas = "SELECT m.id, m.nome, m.especializacao, m.telefone, m.foto, m.link_localizacao, AVG(a.estrelas) AS media_avaliacao 
-            FROM medicos m
-            LEFT JOIN avaliacoes a ON m.id = a.id_medico
-            GROUP BY m.id
-            ORDER BY media_avaliacao DESC";
+            // Consulta SQL para obter a lista de dentistas com a quantidade de avaliações
+            $sql_dentistas = "SELECT m.id, m.nome, m.especializacao, m.telefone, m.foto, m.link_localizacao, AVG(a.estrelas) AS media_avaliacao, COUNT(a.id_avaliacao) AS total_avaliacoes 
+                              FROM medicos m
+                              LEFT JOIN avaliacoes a ON m.id = a.id_medico
+                              GROUP BY m.id
+                              ORDER BY media_avaliacao DESC";
 
-$result_dentistas = $conn->query($sql_dentistas);
+            $result_dentistas = $conn->query($sql_dentistas);
 
             // Consulta SQL para contar o número de consultas do usuário logado com status "Agendada" ou "Reagendada"
             $sql_consultas = "SELECT COUNT(*) AS total_consultas FROM consultas WHERE id_paciente = ? AND (status = 'Agendada' OR status = 'Reagendada')";
@@ -91,40 +91,28 @@ $result_dentistas = $conn->query($sql_dentistas);
             <?php
             if ($result_dentistas->num_rows > 0) {
                 while ($row = $result_dentistas->fetch_assoc()) {
-                    // ID do médico
-                    $id_medico = $row['id'];
-
-                    // Consulta SQL para obter a média das avaliações para este médico
-                    $sql_avaliacoes = "SELECT AVG(estrelas) AS media_avaliacao FROM avaliacoes WHERE id_medico = ?";
-                    $stmt_avaliacoes = $conn->prepare($sql_avaliacoes);
-                    $stmt_avaliacoes->bind_param("i", $id_medico);
-                    $stmt_avaliacoes->execute();
-                    $result_avaliacoes = $stmt_avaliacoes->get_result();
-                    $media_avaliacao = $result_avaliacoes->fetch_assoc()["media_avaliacao"];
-
                     // Exibir os cards dos médicos
-                    ?>
+            ?>
                     <div class="swiper-slide card <?= $row['especializacao'] ?>">
-                   
                         <img src="../uploads/<?= $row['foto'] ?>" alt="Foto do Médico" />
-                        <div class="rating">
-                                <?php
-                                // Exibir as estrelas com base na média das avaliações
-                                for ($i = 1; $i <= 5; $i++) {
-                                    if ($i <= $media_avaliacao) {
-                                        echo "<i class='fas fa-star star-filled' style = 'color: yellow;'></i>"; // Estrela preenchida
-                                    } else {
-                                        echo "<i class='far fa-star'></i>"; // Estrela vazia
-                                    }
+                        <div class="rating" style='display: flex;
+    align-items: center;'>
+                            <?php
+                            // Exibir as estrelas com base na média das avaliações
+                            for ($i = 1; $i <= 5; $i++) {
+                                if ($i <= $row['media_avaliacao']) {
+                                    echo "<i class='fas fa-star star-filled' style='color: yellow;'></i>"; // Estrela preenchida
+                                } else {
+                                    echo "<i class='far fa-star'></i>"; // Estrela vazia
                                 }
-                                ?>
-                            </div>
+                            }
+                            ?>
+                            <a href="#" id="openModal" data-id-medico="<?php echo $row['id']; ?>" data-modal="modal-avaliacoes"><?= $row['total_avaliacoes'] ?> avaliações</a>
 
+                        </div>
                         <div class="card-content">
-                        
                             <div class="name">Dr. <?= $row['nome'] ?></div>
                             <div class="profession"><?= $row['especializacao'] ?></div>
-                            
                             <div class="button">
                                 <?php if ($total_consultas < $limite_consultas) : ?>
                                     <button onclick="agendarConsulta(<?= $row['id'] ?>)">Agendar</button><br><br>
@@ -137,9 +125,6 @@ $result_dentistas = $conn->query($sql_dentistas);
                     </div>
             <?php
                 }
-
-                // Fechar a consulta de avaliações
-                $stmt_avaliacoes->close();
             } else {
                 echo "<p>Nenhum dentista cadastrado no momento.</p>";
             }
@@ -149,6 +134,57 @@ $result_dentistas = $conn->query($sql_dentistas);
             ?>
         </div>
     </section>
+    <div id="modal-avaliacoes" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Avaliações do Médico</h3>
+            <div id="avaliacoes-conteudo">
+                <!-- Aqui serão exibidas as avaliações do médico -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Evento de clique nos links "avaliações"
+        document.querySelectorAll('#carrossel .rating a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var modalId = this.getAttribute('data-modal');
+                var idMedico = this.getAttribute('data-id-medico'); // Obter o ID do médico
+                var modal = document.getElementById(modalId);
+                if (modal) {
+                    modal.style.display = 'block';
+
+                    // Enviar uma solicitação AJAX para buscar as avaliações do médico
+                    $.ajax({
+                        type: 'POST',
+                        url: '../back/buscar_avaliacoes.php',
+                        data: {
+                            id_medico: idMedico
+                        },
+                        success: function(response) {
+                            // Exibir as avaliações no modal
+                            document.getElementById('avaliacoes-conteudo').innerHTML = response;
+                        },
+                        error: function(xhr, status, error) {
+                            console.error(xhr.responseText);
+                        }
+                    });
+                }
+            });
+        });
+
+        // Evento de clique no botão de fechar do modal
+        document.querySelectorAll('.close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                var modal = this.parentElement.parentElement;
+                if (modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+
 
     <script>
         function agendarConsulta(idDentista) {
