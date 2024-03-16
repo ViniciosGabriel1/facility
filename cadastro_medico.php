@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
-   
+
     <title>Cadastro de Médico</title>
 </head>
 
@@ -33,7 +33,12 @@
         <input type="tel" id="telefone" name="telefone" required>
 
         <label for="especializacao">Especialização:</label>
-        <input type="text" id="especializacao" name="especializacao" required>
+        <select id="especializacao" name="especializacao" required>
+            <option value="Clinico Geral">Clínico Geral</option>
+            <option value="Dentista">Dentista</option>
+            <option value="Buco Maxilo">Buco Maxilo</option>
+            <option value="Cirurgiao">Cirurgião</option>
+        </select>
 
         <label for="foto">Foto:</label>
         <input type="file" id="foto" name="foto" accept="image/*" required>
@@ -43,15 +48,16 @@
         <div id="servicosContainer">
             <!-- Conteúdo dinâmico será adicionado aqui -->
         </div>
-<br>
+        <br>
         <!-- <button type="button" onclick="adicionarServico()">Adicionar Serviço</button> -->
         <br>
         <button type="submit">Cadastrar Médico</button>
 
-        <br><p>Já tem uma conta? <a href="login.php">Faça login</a></p>
+        <br>
+        <p>Já tem uma conta? <a href="login.php">Faça login</a></p>
 
     </form>
- <!--
+    <!--
     <script>
         // Função para adicionar dinamicamente campos de serviço
         function adicionarServico() {
