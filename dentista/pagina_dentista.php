@@ -33,6 +33,31 @@
 
     <!-- Script jQuery para fazer a requisição Ajax -->
     <script>
+        function verificarAnamneseDisponivel(idPaciente) {
+            // Fazer uma requisição Ajax para verificar se existe uma anamnese para o paciente
+            $.ajax({
+                url: '../back/buscar_anamnese.php',
+                type: 'GET',
+                data: {
+                    idPaciente: idPaciente
+                },
+                success: function(response) {
+                    // Se uma anamnese estiver disponível, mostrar o botão "Exibir Anamnese"
+                    if (response.anamneseDisponivel) {
+                        $('#exibir-anamnese-btn').show();
+                    } else {
+                        $('#exibir-anamnese-btn').hide();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Tratar erros
+                    console.error('Erro na requisição Ajax:', status, error);
+                }
+            });
+        }
+        function redirecionarParaExibirAnamnese(idPaciente) {
+    window.location.href = '../exibir_anamnese.php?idPaciente=' + idPaciente;
+}
         // Função para atualizar as consultas com base na data selecionada
         function atualizarConsultas(data) {
             $.ajax({
@@ -96,12 +121,15 @@
                             consultasHtml += '</div>'; // fechamento da div "consulta-info"
                             consultasHtml += '<div class="botoes-container">';
                             consultasHtml += '<input type="hidden" name="id_consulta" value="' + consulta.id + '">';
+                            consultasHtml += '<button type="button" class="anamnese-btn" onclick="redirecionarParaAnamnese(' + consulta.id + ', ' + consulta.id_paciente + ')">Preencher Anamnese <i class="fas fa-notes-medical"></i></button>';
                             consultasHtml += '<button type="button" class="reagendar-btn" onclick="redirecionarParaReagendar(' + consulta.id + ', ' + consulta.id_paciente + ')">Reagendar <i class="fas fa-calendar-alt"></i> </button>';
                             consultasHtml += '<button type="submit" class="concluir-btn" onclick="redirecionarParaConclusao(' + consulta.id + ', ' + consulta.id_paciente + ')">Concluir <i class="fas fa-check"></i></button>';
                             consultasHtml += '<button type="button" class="historico-btn" onclick="redirecionarParaHistorico(' + consulta.id_paciente + ')">Histórico <i class="fas fa-calendar-alt"></i></button>';
 
                             consultasHtml += '</div>'; // fechamento da div "botoes-container"
                             consultasHtml += '</div>'; // fechamento da div "consulta"
+
+                            verificarAnamneseDisponivel(consulta.id_paciente);
 
 
                         });
@@ -146,7 +174,6 @@
 
 
 
-
         function redirecionarParaReagendar(idConsulta, idPaciente) {
             // Redirecionar o navegador para a página reagendar.php, passando o ID da consulta como parâmetro
             window.location.href = '../dentista/reagendar_dentista.php?idConsulta=' + idConsulta + '&idPaciente=' + idPaciente;
@@ -160,6 +187,11 @@
         function redirecionarParaConclusao(idConsulta, idPaciente) {
             // Redirecionar o navegador para a página de conclusão de consulta, passando o ID da consulta e o ID do paciente como parâmetros
             window.location.href = '../dentista/pagina_conclusao.php?idConsulta=' + idConsulta + '&idPaciente=' + idPaciente;
+        }
+
+        function redirecionarParaAnamnese(idConsulta, idPaciente) {
+            // Redirecionar para a página do formulário de anamnese com o ID da consulta e o ID do paciente como parâmetros
+            window.location.href = 'formulario_anamnese.php?idConsulta=' + idConsulta + '&idPaciente=' + idPaciente;
         }
     </script>
 

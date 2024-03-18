@@ -5,9 +5,12 @@ $(document).ready(function() {
         var email = $('#email').val();
         var senha = $('#senha').val();
         var confirmaSenha = $('#confirma_senha').val();
+        var rg = $('#rg').val();
+
+        console.log(rg);
 
         // Limpar mensagens de erro
-        $('#emailErro, #senhaErro, #confirmaSenhaErro, #mensagemAviso').text('');
+        $('#emailErro, #senhaErro, #confirmaSenhaErro, #rgErro, #mensagemAviso').text('');
 
         // Validar e-mail
         if (!isValidEmail(email)) {
@@ -27,6 +30,12 @@ $(document).ready(function() {
             return;
         }
 
+        // Validar RG
+        if (!isValidRG(rg)) {
+            $('#rgErro').text('Por favor, insira um RG válido.');
+            return;
+        }
+
         // Enviar os dados via AJAX
         $.ajax({
             type: 'POST',
@@ -36,7 +45,8 @@ $(document).ready(function() {
                 telefone: telefone,
                 email: email,
                 senha: senha,
-                confirma_senha: confirmaSenha
+                confirma_senha: confirmaSenha,
+                rg: rg
             },
             success: function(response) {
                 if (response.trim() === 'success') {
@@ -56,5 +66,11 @@ $(document).ready(function() {
 
     function isValidPassword(password) {
         return password.length >= 6;
+    }
+
+    function isValidRG(rg) {
+        // Expressão regular para validar o RG no formato XX.XXX.XXX-X
+        var rgRegex = /^[0-9]{2}\.[0-9]{3}\.[0-9]{3}-[0-9A-Za-z]{1}$/;
+        return rgRegex.test(rg);
     }
 });
