@@ -78,10 +78,8 @@
 
                             consultasHtml += '<div class="consulta">';
                             consultasHtml += '<div class="consulta-info">';
-                            consultasHtml += '<p class="consulta-id"><strong><i class="fas fa-user"></i> ID Paciente:</strong> ' + consulta.id_paciente + '</p>';
 
-                            consultasHtml += '<p class="consulta-id"><strong><i class="fas fa-user"></i> ID:</strong> ' + consulta.id + '</p>';
-                            consultasHtml += '<img src="../uploads/' + consulta.foto_paciente + '" alt="Paciente sem Foto" style="height: 150px; float: left; margin-right: 10px; border-radius: 20px;">';
+                            consultasHtml += '<img src="../uploads/' + consulta.foto_paciente + '" alt="Paciente sem Foto" style="height: 300px; float: left; margin-right: 10px; border-radius: 20px;">';
                             consultasHtml += '<br><br><p><strong>Paciente:</strong>  ' + consulta.nome_paciente + '</p>';
                             consultasHtml += '<p class="info"><strong> <i class="far fa-calendar-alt"></i> Data:</strong> ' + new Date(consulta.data_consulta).toLocaleString('pt-BR') + '</p>';
                             consultasHtml += '<p><strong><i class="fas fa-wrench"></i> Serviço:</strong> ' + consulta.servico + '</p>';

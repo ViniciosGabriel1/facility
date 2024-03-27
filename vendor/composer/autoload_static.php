@@ -12,6 +12,10 @@ class ComposerStaticInit7c2abc1e1b0f348160eb65a9bc21787f
             'Svg\\' => 4,
             'Sabberworm\\CSS\\' => 15,
         ),
+        'M' => 
+        array (
+            'Masterminds\\' => 12,
+        ),
         'F' => 
         array (
             'FontLib\\' => 8,
@@ -31,6 +35,10 @@ class ComposerStaticInit7c2abc1e1b0f348160eb65a9bc21787f
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
         ),
+        'Masterminds\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/masterminds/html5/src',
+        ),
         'FontLib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phenx/php-font-lib/src/FontLib',
@@ -44,11 +52,6 @@ class ComposerStaticInit7c2abc1e1b0f348160eb65a9bc21787f
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Dompdf\\Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
-        'HTML5_Data' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Data.php',
-        'HTML5_InputStream' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/InputStream.php',
-        'HTML5_Parser' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Parser.php',
-        'HTML5_Tokenizer' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
-        'HTML5_TreeBuilder' => __DIR__ . '/..' . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

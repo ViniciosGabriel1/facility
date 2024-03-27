@@ -1,4 +1,3 @@
-User
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,7 +12,7 @@ User
 </head>
 
 <body>
-
+   
     <?php include "menu_paciente.php"; ?>
     <div class="navigation-buttons">
         <a href="pagina_paciente.php" class="back-button">Voltar para a Tela Anterior</a>
