@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = limpar_entrada($_POST['email']);
     $senha = limpar_entrada($_POST['senha']);
     $confirmaSenha = limpar_entrada($_POST['confirma_senha']);
-    $rg = limpar_entrada($_POST['rg']); // Adicione esta linha para capturar o RG
+    // $rg = limpar_entrada($_POST['rg']); // Adicione esta linha para capturar o RG
 
     // Validar o e-mail
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -48,9 +48,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
 
                 // Preparar a consulta SQL com a senha criptografada e RG
-                $sql_insert = "INSERT INTO pacientes (nome, telefone, email, senha, rg) VALUES (?, ?, ?, ?, ?)";
+                $sql_insert = "INSERT INTO pacientes (nome, telefone, email, senha) VALUES (?, ?, ?, ?)";
                 $stmt_insert = $conn->prepare($sql_insert);
-                $stmt_insert->bind_param("sssss", $nome, $telefone, $email, $senhaCriptografada, $rg);
+                $stmt_insert->bind_param("ssss", $nome, $telefone, $email, $senhaCriptografada);
 
                 if ($stmt_insert->execute()) {
                     echo "success";

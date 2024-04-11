@@ -13,7 +13,29 @@ body {
     background: linear-gradient(to bottom, #01559B,  #ffffff); /* Adicione essa linha para o degradê */
     color: #333;
 }
+.img {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    max-width: 100%;
+    height: auto;
+  }
+#show {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 100px;
+  }
 
+  @media (max-width: 768px) {
+    #show {
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        margin: 20px auto; /* Margem centralizada */
+        padding: 0 20px; /* Espaçamento interno */
+    }
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -22,8 +44,9 @@ body {
 
 /* Estilos para cabeçalhos */
 h1, h2, h3, h4, h5, h6 {
-    color: #333;
+    color: #ffffff;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 /* Estilos para links */
@@ -57,12 +80,13 @@ form {
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
+
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
+    color: #ffffff;
 }
 
 input, textarea {
@@ -84,19 +108,19 @@ input, textarea {
 
 /* Estilos para seção de cadastro/login */
 .signup-section {
-    background-color: #fff;
+    background-color: hsl(199deg 86% 78%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-top: 20px;
 }
 
 /* Novos estilos adicionados */
-body {
+/* body {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
-}
+} */
 
 .signup-section {
     padding: 10px;

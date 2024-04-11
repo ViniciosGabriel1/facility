@@ -53,7 +53,7 @@ if ($resultado_medico->num_rows > 0) {
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <style>
     html,
     body,
@@ -87,16 +87,37 @@ if ($resultado_medico->num_rows > 0) {
     color: #000 !important;
     background-color: dodgerblue !important;
 }
+/* Estilos para a classe do botão */
+.botao-voltar {
+            margin-top: 12px;
+            margin-left: 30px;
+            padding: 10px 20px;
+            background-color: hsl(199deg 86% 78%);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
+        .botao-voltar:hover {
+            background-color: #0056b3;
+        }
   </style>
+
+<script>
+  
+  function goBack() {
+          window.history.back();
+      }
+  </script>
 </head>
 
 <body class="w3-light-grey">
 <?php     include "menu_paciente.php";?>
 
-<div class="navigation-buttons">
-    <a href="pagina_paciente.php" class="back-button">Voltar para a Tela Anterior</a>
-</div>
+<button class="botao-voltar" onclick="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
+
   <!-- Page Container -->
   <div class="w3-content w3-margin-top" style="max-width:1500px;">
 
@@ -174,5 +195,8 @@ if ($resultado_medico->num_rows > 0) {
 </footer> 
 
 </body>
+
+
+
 
 </html>

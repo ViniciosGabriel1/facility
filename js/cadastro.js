@@ -30,11 +30,11 @@ $(document).ready(function() {
             return;
         }
 
-        // Validar RG
-        if (!isValidRG(rg)) {
-            $('#rgErro').text('Por favor, insira um RG válido.');
-            return;
-        }
+        // // Validar RG
+        // if (!isValidRG(rg)) {
+        //     $('#rgErro').text('Por favor, insira um RG válido.');
+        //     return;
+        // }
 
         // Enviar os dados via AJAX
         $.ajax({
