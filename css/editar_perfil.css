@@ -2,16 +2,18 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to bottom, #01559B, #ffffff) no-repeat;
-    display: flex;
+    /* display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; */
     height: 100vh;
 }
 
 .form-container {
-    max-width: 400px;
-    margin: 20px;
+    margin-top: 6%;
+    margin-left: 40%;
+    /* width: auto; */
+    max-width: 600px;
+    /* margin: 20px; */
     padding: 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -82,4 +84,12 @@ body {
 
 .erro {
     color: red;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .form-container {
+        margin-left: 0;
+        margin-top: 10%;
+    }
 }

@@ -113,7 +113,6 @@ a:hover {
 }
 
 
-
 @media (max-width: 450px) {
     #scroll-button {
         /* padding: 8vw 16vw; */    
@@ -169,16 +168,18 @@ a:hover {
 }
 
 @keyframes changeBackground {
-    0%, 100% {
-        background-image: url('../img/dente8.jpg');
+    0%, 30% {
+        background-image: url('../img/banner11.webp');
     }
-    33% {
+    43.33%, 60.33% {
         background-image: url('../img/banner1.webp');
     }
-    66% {
+    66.66%, 99.99% {
         background-image: url('../img/banner6.jpg');
     }
 }
+
+
 
 .inf {
     position: relative;
@@ -191,10 +192,6 @@ a:hover {
 
     margin-top: 100px;
 }
-
-
-
-
 
 h1 {
     position: absolute; /* Adiciona posição absoluta ao h1 */
@@ -367,6 +364,8 @@ select {z-index: 1000;
     padding: 20px;
     border: 1px solid #888;
     max-width: 600px; /* Largura máxima */
+    max-height: 80vh; /* Defina a altura máxima do modal */
+    overflow-y: auto; /* Adicione uma barra de rolagem vertical quando necessário */
 }
 
 /* Estilos para o botão de fechar */

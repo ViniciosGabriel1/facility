@@ -1,26 +1,3 @@
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/procura_medico.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Pesquisar Médicos</title>
-</head>
-<?php
-session_start();
-include "../back/conexao.php";
-
-// Verificar se o médico está autenticado
-if (!isset($_SESSION['id_usuario'])) {
-    http_response_code(403); // Proibido
-    exit();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +13,19 @@ if (!isset($_SESSION['id_usuario'])) {
 <body>
 
     <?php
-    include "menu_paciente.php";
+    session_start();
+    include "../back/conexao.php";
+
+    // Verificar se o médico está autenticado
+    if (!isset($_SESSION['id_usuario'])) {
+        http_response_code(403); // Proibido
+        exit();
+    }
+    ?>
+
+    <?php include "menu_paciente.php"; ?>
+
+    <?php
     $numDoctors = 0;
     $showResults = false;
 
@@ -60,35 +49,29 @@ if (!isset($_SESSION['id_usuario'])) {
     ?>
 
     <div class="container">
-        <h2>Resultados da pesquisa : <?= $numDoctors ?> </h2>
+        <h2>Resultados da pesquisa: <?= $numDoctors ?></h2>
         <form class="search-form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
             <label for="search">Pesquisar por Nome ou Especialização:</label>
             <br><input type="text" id="search" name="search" required><br>
             <button type="submit">Pesquisar</button>
         </form>
 
-        <?php
-        if ($showResults) {
-        ?>
+        <?php if ($showResults) : ?>
             <div class="results-container">
-                <?php
-                while ($row = $result->fetch_assoc()) {
-                ?>
+                <?php while ($row = $result->fetch_assoc()) : ?>
                     <div class="result-card">
                         <img src="../uploads/<?= $row['foto'] ?>" alt="Foto do Médico">
                         <h3><?= $row["nome"] ?></h3>
                         <p>Especialização: <?= $row["especializacao"] ?></p>
                         <p>Telefone: <?= $row["telefone"] ?></p>
                         <a href="agendar_consulta.php?id_dentista=<?= $row['id'] ?>">Marcar Consulta</a>
+                        <button onclick="window.location.href='ver_medico.php?id_dentista=<?= $row['id'] ?>'">Sobre Mim</button>
+
                     </div>
-                <?php
-                }
-                $stmt->close();
-                ?>
+                <?php endwhile; ?>
             </div>
-        <?php
-        }
-        ?>
+        <?php endif; ?>
+
     </div>
 
 </body>

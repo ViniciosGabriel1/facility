@@ -172,8 +172,10 @@ if ($resultado_medico->num_rows > 0) {
         while ($row = $resultado_formacoes->fetch_assoc()) {
           echo '<div class="w3-container">';
           echo '<h5 class="w3-opacity"><b>' . $row['nome_formacao'] . '</b></h5>';
-          echo '<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>' . $row['data_inicio'] . ' - ' . $row['data_termino'] . '</h6>';
-          // Se houver mais informações sobre a formação, você pode exibi-las aqui
+          echo '<h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>' . 
+          date('d/m/Y', strtotime($row['data_inicio'])) . ' - ' . 
+          date('d/m/Y', strtotime($row['data_termino'])) . '</h6>';
+                // Se houver mais informações sobre a formação, você pode exibi-las aqui
           echo '<hr>';
           echo '</div>';
         }

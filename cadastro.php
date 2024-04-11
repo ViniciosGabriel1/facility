@@ -12,13 +12,13 @@
 <body>
     <?php include "menu_login.php"; ?>
     <br><h2>Cadastre-se Já.</h2>
-    <button onclick="goBack()">Voltar</button>
+        <button onclick="goBack()">Voltar</button>
 
-<script>
-    function goBack() {
-        window.history.back();
-    }
-</script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <div id="show">
     <img class="img" src="img/cadastro.svg" alt="Sua Imagem" width="400" height="400" style="margin-top: 12%;">
 
@@ -26,25 +26,25 @@
 
         <h2>Cadastro</h2>
         <form id="cadastroForm" action="back/processa_cadastro.php" method="post">
-            <!-- <label for="nome">Nome:</label> -->
-            <input type="text" id="nome" name="nome" placeholder="Seu Nome"required><br>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
 
-            <!-- <label for="telefone">Telefone:</label> -->
-            <input type="tel" id="telefone" name="telefone" placeholder="Telefone"required><br>
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
 
             <p id="mensagemAviso" style="color: red;"></p>
-            <!-- <label for="email">Email:</label> -->
-            <input type="email" id="email" name="email" placeholder="E-mail"required><br>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email"     required>
             <div id="emailErro" style="color: red;"></div>
 
-            <!-- <label for="senha">Senha:</label> -->
-            <input type="password" id="senha" name="senha" placeholder="Senha"    required><br>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
             <div id="senhaErro" style="color: red;"></div>
 
-            <!-- <label for="confirma_senha">Confirme a Senha:</label> -->
-            <input type="password" id="confirma_senha" name="confirma_senha" placeholder="Confirme Senha"required><br>
+            <label for="confirma_senha">Confirme a Senha:</label>
+            <input type="password" id="confirma_senha" name="confirma_senha" required>
             <div id="confirmaSenhaErro" style="color: red;"></div>
-
+<br>
             <!-- <div class="form-group">
                 <label for="rg">RG:</label>
                 <input type="text" id="rg" name="rg" required>

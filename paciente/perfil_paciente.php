@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -26,8 +26,7 @@
     }
 
     $id_paciente = $_SESSION["id_usuario"];
-    echo "ID do Paciente: $id_paciente";
-
+    // echo "ID do Paciente: $id_paciente";
 
     // Consulta SQL para obter as informações do paciente
     $sql = "SELECT nome, telefone, email, foto FROM pacientes WHERE id = ?";
