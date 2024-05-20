@@ -11,8 +11,8 @@
     <title>Histórico de Consultas</title>
 
     <style>
-    /* Estilos para a classe do botão */
-.botao-voltar {
+        /* Estilos para a classe do botão */
+        .botao-voltar {
             margin-top: 12px;
             margin-left: 30px;
             padding: 10px 20px;
@@ -27,18 +27,17 @@
         .botao-voltar:hover {
             background-color: #0056b3;
         }
-  </style>
+    </style>
 
-<script>
-  
-  function goBack() {
-          window.history.back();
-      }
-  </script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
 </head>
 
 <body>
-   
+
     <?php include "menu_paciente.php"; ?>
     <button class="botao-voltar" onclick="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
 
@@ -155,7 +154,8 @@
             <?php } ?>
 
             <div class="consulta-botoes">
-                <?php if ($status == 'Agendada' || $status == 'Reagendada') { ?>
+                <?php if ($status == 'Agendada' || $status == 'Reagendada') {
+                    $id_paciente = $_SESSION["id_usuario"]; ?>
                     <div class="whats">
                         <p class="consulta-info">
                             <a target="_blank" style="color: green;" href="https://api.whatsapp.com/send?phone=<?php echo $telefone_medico; ?>">
@@ -164,82 +164,85 @@
                         </p>
                     </div>
                     <br>
-                    <button class="btn-cancelar"><i class="fa fa-times-circle fa-fw" style="color: red;"></i> Cancelar</button>
-                    <button class="btn-reagendar"><i class="fa fa-calendar-plus-o fa-fw" style="color: blue;"></i> Reagendar</button>
+                    <?php   ?>
+                    <a href="cancelar_consulta.php?id_consulta=<?php echo $id_consulta; ?>&id_paciente=<?php echo $id_paciente; ?>&id_medico=<?php echo $id_medico; ?>" class="btn-cancelar"><i class="fa fa-times-circle fa-fw" style="color: red;"></i> Cancelar</a>
+                    <a href="reagendar_paciente.php?id_consulta=<?php echo $id_consulta; ?>&id_paciente=<?php echo $id_paciente; ?>&id_medico=<?php echo $id_medico; ?>a" class="btn-reagendar"><i class="fa fa-calendar-plus-o fa-fw" style="color: blue;"></i> Reagendar</a>
+
+
                 <?php } ?>
             </div>
         </div>
     <?php
     }
     ?>
-<!-- Modal para avaliação -->
-<div id="avaliacaoModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <form action="../back/processa_avaliacao.php" method="post">
-            <!-- Input hidden para o ID da consulta -->
-            <input type="hidden" id="id_consulta" name="id_consulta" value="">
-            <!-- Input hidden para o ID do médico -->
-            <input type="hidden" id="id_medico" name="id_medico" value="">
-            
-            <!-- Seleção de estrelas -->
-            <div class="rating">
-                <input type="radio" id="star5" name="rating" value="5" required /><label for="star5"><i class="fas fa-star"></i></label>
-                <input type="radio" id="star4" name="rating" value="4" required /><label for="star4"><i class="fas fa-star"></i></label>
-                <input type="radio" id="star3" name="rating" value="3" required /><label for="star3"><i class="fas fa-star"></i></label>
-                <input type="radio" id="star2" name="rating" value="2" required /><label for="star2"><i class="fas fa-star"></i></label>
-                <input type="radio" id="star1" name="rating" value="1" required /><label for="star1"><i class="fas fa-star"></i></label>
-            </div>
-            
-            <!-- Comentário -->
-            <textarea required name="comment" id="comment" cols="30" rows="10" placeholder="Digite seu comentário..."></textarea>
-            
-            <!-- Botão de enviar avaliação -->
-            <button class="btn-modal" type="submit">Enviar Avaliação</button>
-        </form>
+    <!-- Modal para avaliação -->
+    <div id="avaliacaoModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <form action="../back/processa_avaliacao.php" method="post">
+                <!-- Input hidden para o ID da consulta -->
+                <input type="hidden" id="id_consulta" name="id_consulta" value="">
+                <!-- Input hidden para o ID do médico -->
+                <input type="hidden" id="id_medico" name="id_medico" value="">
+
+                <!-- Seleção de estrelas -->
+                <div class="rating">
+                    <input type="radio" id="star5" name="rating" value="5" required /><label for="star5"><i class="fas fa-star"></i></label>
+                    <input type="radio" id="star4" name="rating" value="4" required /><label for="star4"><i class="fas fa-star"></i></label>
+                    <input type="radio" id="star3" name="rating" value="3" required /><label for="star3"><i class="fas fa-star"></i></label>
+                    <input type="radio" id="star2" name="rating" value="2" required /><label for="star2"><i class="fas fa-star"></i></label>
+                    <input type="radio" id="star1" name="rating" value="1" required /><label for="star1"><i class="fas fa-star"></i></label>
+                </div>
+
+                <!-- Comentário -->
+                <textarea required name="comment" id="comment" cols="30" rows="10" placeholder="Digite seu comentário..."></textarea>
+
+                <!-- Botão de enviar avaliação -->
+                <button class="btn-modal" type="submit">Enviar Avaliação</button>
+            </form>
+        </div>
     </div>
-</div>
 
-<script>
-    function openModal(idConsulta, idMedico, nomeMedico) {
-        var modal = document.getElementById("avaliacaoModal");
-        modal.style.display = "block";
-        // Atribuir dinamicamente o valor do id_consulta ao input hidden
-        document.getElementById("id_consulta").value = idConsulta;
-        // Atribuir dinamicamente o valor do id_medico ao input hidden
-        document.getElementById("id_medico").value = idMedico;
-        // Definir dinamicamente o título do modal
-        document.getElementById("modalTitle").innerText = "Avaliar Consulta do Médico " + nomeMedico;
-    }
+    <script>
+        function openModal(idConsulta, idMedico, nomeMedico) {
+            var modal = document.getElementById("avaliacaoModal");
+            modal.style.display = "block";
+            // Atribuir dinamicamente o valor do id_consulta ao input hidden
+            document.getElementById("id_consulta").value = idConsulta;
+            // Atribuir dinamicamente o valor do id_medico ao input hidden
+            document.getElementById("id_medico").value = idMedico;
+            // Definir dinamicamente o título do modal
+            document.getElementById("modalTitle").innerText = "Avaliar Consulta do Médico " + nomeMedico;
+        }
 
-    function closeModal() {
-        var modal = document.getElementById("avaliacaoModal");
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        var modal = document.getElementById("avaliacaoModal");
-        if (event.target == modal) {
+        function closeModal() {
+            var modal = document.getElementById("avaliacaoModal");
             modal.style.display = "none";
         }
-    }
-</script>
 
-<script>
-// Esperar 3 segundos e, em seguida, ocultar suavemente a mensagem de logout
-setTimeout(function(){
-    var logoutMessage = document.getElementById('duplicate');
-    if(logoutMessage) {
-        logoutMessage.classList.add('fade-out'); // Adiciona a classe para iniciar a animação
+        window.onclick = function(event) {
+            var modal = document.getElementById("avaliacaoModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 
-        // Após a animação, remove a mensagem
-        setTimeout(function(){
-            logoutMessage.style.display = 'none';
-        }, 1000); // Ajuste o tempo para corresponder à duração da animação CSS
-    }
-}, 3000); // 3000 milissegundos = 3 segundos
-</script>
+    <script>
+        // Esperar 3 segundos e, em seguida, ocultar suavemente a mensagem de logout
+        setTimeout(function() {
+            var logoutMessage = document.getElementById('duplicate');
+            if (logoutMessage) {
+                logoutMessage.classList.add('fade-out'); // Adiciona a classe para iniciar a animação
+
+                // Após a animação, remove a mensagem
+                setTimeout(function() {
+                    logoutMessage.style.display = 'none';
+                }, 1000); // Ajuste o tempo para corresponder à duração da animação CSS
+            }
+        }, 3000); // 3000 milissegundos = 3 segundos
+    </script>
 </body>
 
 </html>

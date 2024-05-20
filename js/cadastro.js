@@ -73,4 +73,8 @@ $(document).ready(function() {
         var rgRegex = /^[0-9]{2}\.[0-9]{3}\.[0-9]{3}-[0-9A-Za-z]{1}$/;
         return rgRegex.test(rg);
     }
+
+    
 });
+
+

@@ -29,7 +29,7 @@ if (isset($_POST['id_medico'])) {
     // Verificar se a média das avaliações foi obtida com sucesso
     if ($media_avaliacoes !== null) {
         // Exibir a média das avaliações
-        echo "<p><strong>Média das Avaliações: " . number_format($media_avaliacoes, 1) . " estrelas </strong> </p>";
+        echo "<h5><strong>Média das Avaliações: " . number_format($media_avaliacoes, 1) . " estrelas </strong> </h5>";
     } else {
         echo "<p>Nenhuma avaliação encontrada para este médico.</p>";
     }
@@ -44,7 +44,7 @@ if (isset($_POST['id_medico'])) {
         // Formatando a data da avaliação
         $data_avaliacao_formatada = date('d/m/Y', strtotime($avaliacao['data_avaliacao']));
         // Adicionando a avaliação ao HTML
-        $avaliacoes_html .= "<li style=' padding: 12px; border-radius: 12px; background-color: dodgerblue; margin-bottom: 24px; '>";
+        $avaliacoes_html .= "<li class='avaliacao-item'>";
         $avaliacoes_html .= "<img src='" . $avaliacao['foto_paciente'] . "' alt='Foto do Paciente' class='foto-paciente'>";
         $avaliacoes_html .= "<p><strong>Paciente:</strong> " . $avaliacao['nome_paciente'] . "</p>";
         $avaliacoes_html .= "<p><strong>Data da Avaliação:</strong> " . $data_avaliacao_formatada . "</p>";
@@ -57,11 +57,12 @@ if (isset($_POST['id_medico'])) {
             }
         }
         $avaliacoes_html .= "</p>";
-        $avaliacoes_html .= "<p><strong>Comentário:</strong> " . $avaliacao['comentario'] . "</p>";
-
+        $avaliacoes_html .= "<p class = 'coment'><strong>Comentário:</strong> " . $avaliacao['comentario'] . "</p>";
+    
         $avaliacoes_html .= "</li>";
     }
     $avaliacoes_html .= "</ul>";
+    
 
     // Enviar as avaliações como resposta
     echo $avaliacoes_html;
