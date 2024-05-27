@@ -8,6 +8,6 @@ $_SESSION['logout_message'] = "Você foi desconectado com sucesso!";
 session_destroy();
 
 // Redirecionar para a página de login com o parâmetro 'logout=1' na URL
-header("Location: ../login.php?logout=1");
+header("Location: ../index.php?logout=1");
 exit();
 ?>

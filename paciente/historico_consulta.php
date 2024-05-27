@@ -46,24 +46,52 @@
     session_start();
     include "../back/conexao.php";
 
-
-    // Verificar se houve um erro ao avaliar o médico
-    if (isset($_GET['error']) && $_GET['error'] == 1) {
-        echo "<p id='duplicate' style=' width: 100%;
+        if(isset($_GET['error_avaliation']) && $_GET['error_avaliation'] == 1){
+            echo "<p id='duplicate' style=' width: 100%;
         position: fixed;
         text-align: center;
         /* align-items: center; */
         padding: 10px;
-        color: #000000;
+        color: white;
         background: yellow;
         border-radius: 12px;'>Você já avaliou esta consulta .</p>";
-    }
+        }elseif(isset($_GET['success_cancel']) && $_GET['success_cancel'] == 1 ){
+            echo "<p id='duplicate' style=' width: 100%;
+        position: fixed;
+        text-align: center;
+        /* align-items: center; */
+        padding: 10px;
+        color: white;
+        background: green;
+        border-radius: 12px;'>Consulta Cancelada com sucesso .</p>";
+        }
+        elseif(isset($_GET['success_scheduling']) && $_GET['success_scheduling'] == 1){
+            echo "<p id='duplicate' style=' width: 100%;
+        position: fixed;
+        text-align: center;
+        /* align-items: center; */
+        padding: 10px;
+        color: white;
+        background: orange;
+        border-radius: 12px;'>Consulta Reagendada com sucesso .</p>";
+        }
+    // Verificar se houve um erro ao avaliar o médico
+    // if (isset($_GET['error']) && $_GET['error'] == 1) {
+    //     echo "<p id='duplicate' style=' width: 100%;
+    //     position: fixed;
+    //     text-align: center;
+    //     /* align-items: center; */
+    //     padding: 10px;
+    //     color: #000000;
+    //     background: yellow;
+    //     border-radius: 12px;'>Você já avaliou esta consulta .</p>";
+    // }
 
 
     // Verificar se o paciente está autenticado
     if (!isset($_SESSION["id_usuario"])) {
         // Redirecionar para a página de login se não estiver autenticado
-        header("Location: login.php");
+        header("Location: index.php");
         exit();
     }
 

@@ -8,12 +8,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <?php include "menu_login.php"; ?>
+<header>
+    <a href="index.php"><div class="logo"><strong>FacilityOdonto</strong></div></a><input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="active"><i class="fa fa-home"></i> <strong>Home</strong></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-search"></i> <strong>Sobre o Sistema</strong></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-calendar"></i> <strong>Contatos</strong></a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+
     <?php
 
 session_start();

@@ -21,7 +21,7 @@
     // Verificar se o paciente está autenticado
     if (!isset($_SESSION["id_usuario"])) {
         // Redirecionar para a página de login se não estiver autenticado
-        header("Location: login.php");
+        header("Location: index.php");
         exit();
     }
 

@@ -35,7 +35,7 @@ $result_verificar = $stmt_verificar->get_result();
 
 if ($result_verificar->num_rows > 0) {
     // Já existe uma avaliação para esta consulta e paciente
-    header("Location: ../paciente/historico_consulta.php?error=1");
+    header("Location: ../paciente/historico_consulta.php?error_avaliation=1");
     exit();
 }
 

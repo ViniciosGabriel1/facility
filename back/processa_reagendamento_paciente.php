@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_SESSION["id_usuario"])) {
         // Limpeza e validação dos dados do formulário
         $id_consulta = $_POST["id_consulta"];
-        $id_medico = $_SESSION["id_usuario"];
-        $id_paciente = $_POST["id_paciente"];
+        $id_medico = $_POST["id_medico"];
+        $id_paciente = $_SESSION["id_usuario"];
         $data_consulta = $_POST["data"]; 
         $servico = $_POST["servico"];
         $observacoes = $_POST["observacoes"];
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt_agendamento->execute()) {
             echo "Consulta Reagendada com sucesso!";
-            header("refresh: 3;url=../dentista/pagina_dentista.php");
+            header("refresh: 3;url=../paciente/historico_consulta.php?success_scheduling=1");
             exit();
         } else {
             echo "Erro ao reagendar consulta. Tente novamente.";

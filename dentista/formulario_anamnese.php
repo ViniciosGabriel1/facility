@@ -12,7 +12,7 @@ function isUserIdSet()
 
 // Redireciona para a página de login se não houver uma sessão com id_usuario
 if (!isUserIdSet()) {
-    header("Location: login.php");
+    header("Location: index.php");
     exit;
 }
 

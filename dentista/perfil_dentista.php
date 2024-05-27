@@ -6,7 +6,7 @@ session_start();
 
 // Verifique se o usuário está logado, redirecione para a página de login se não estiver
 if (!isset($_SESSION['id_usuario'])) {
-    header("Location: login.php");
+    header("Location: index.php");
     exit();
 }
 

@@ -359,6 +359,8 @@ select {z-index: 1000;
 
 /* Estilos para o conteúdo do modal */
 .modal-content {
+    position: relative;
+    top: 100px;
     border-radius: 20px;
     color: white;
     background-color: hsla(199, 86%, 78%, 0.925); /* Fundo branco */

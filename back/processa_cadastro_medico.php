@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         echo "Médico cadastrado com sucesso!";
-        header("refresh: 3;url=../login.php"); // Redirecionar para a página inicial após o cadastro
+        header("refresh: 3;url=../index.php"); // Redirecionar para a página inicial após o cadastro
     } else {
         echo "Erro ao cadastrar médico. Tente novamente.";
     }

@@ -97,7 +97,7 @@ $conn->close();
     <span id="instrucao" class="instrucao" style="display: none;">Clique fora do calendário para fechar.</span>
 
     <!-- Dentro do seu formulário HTML -->
-<form id="form-formacao" action="../back/processa_reagendamento.php" method="post">
+<form id="form-formacao" action="../back/processa_reagendamento_paciente.php" method="post">
     <div class="form-group">
     <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
     <input type="hidden" name="id_paciente" value="<?php echo $id_paciente; ?>">
