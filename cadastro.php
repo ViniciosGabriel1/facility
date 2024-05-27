@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Cadastro</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -42,15 +43,30 @@
             display: none;
         }
     </style>
-    <?php include "menu_login.php"; ?>
-<<<<<<< HEAD
+<header>
+    <a href="index.php"><div class="logo"><strong>FacilityOdonto</strong></div></a><input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="active"><i class="fa fa-home"></i> <strong>Home</strong></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-search"></i> <strong>Sobre o Sistema</strong></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-calendar"></i> <strong>Contatos</strong></a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
     <br>
     <h2>Cadastre-se Já.</h2>
     <button onclick="goBack()">Voltar</button>
-=======
-    <br><h2>Cadastre-se Já.</h2>
-        <button onclick="goBack()">Voltar</button>
->>>>>>> 8d2c739e618cdbe9398d178ddc333cbffa5ccb66
 
     <script>
         function goBack() {

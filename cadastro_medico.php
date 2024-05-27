@@ -5,13 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <title>Cadastro de Médico</title>
 </head>
 
 <body>
-    <?php include "menu_login.php"; ?>
-
+<header>
+    <a href="index.php"><div class="logo"><strong>FacilityOdonto</strong></div></a><input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="active"><i class="fa fa-home"></i> <strong>Home</strong></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-search"></i> <strong>Sobre o Sistema</strong></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-calendar"></i> <strong>Contatos</strong></a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
     <div id="show">
         <img class="img" src="img/login.svg" alt="Sua Imagem" width="400" height="400" style="margin-top: 12%;">
 
