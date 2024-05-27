@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
@@ -44,7 +46,7 @@
         }
     </style>
 <header>
-    <a href="index.php"><div class="logo"><strong>FacilityOdonto</strong></div></a><input type="checkbox" id="nav_check" hidden>
+    <a href="index.php"><div class="logo"><strong>FacilityOdonto<i class="fa fa-tooth"></i></strong></div></a><input type="checkbox" id="nav_check" hidden>
         <nav>
             <ul>
                 <li>

@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/cadastro.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 
     <title>Cadastro de Médico</title>
 </head>
 
 <body>
 <header>
-    <a href="index.php"><div class="logo"><strong>FacilityOdonto</strong></div></a><input type="checkbox" id="nav_check" hidden>
+    <a href="index.php"><div class="logo"><strong>FacilityOdonto    <i class="fas fa-tooth"></i>
+</strong></div></a><input type="checkbox" id="nav_check" hidden>
         <nav>
             <ul>
                 <li>
