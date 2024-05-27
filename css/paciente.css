@@ -366,6 +366,8 @@ select {z-index: 1000;
     padding: 20px;
     border: 1px solid #888;
     max-width: 600px; /* Largura máxima */
+    max-height: 80vh; /* Defina a altura máxima do modal */
+    overflow-y: auto; /* Adicione uma barra de rolagem vertical quando necessário */
 }
 
 

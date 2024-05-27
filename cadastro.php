@@ -43,9 +43,14 @@
         }
     </style>
     <?php include "menu_login.php"; ?>
+<<<<<<< HEAD
     <br>
     <h2>Cadastre-se Já.</h2>
     <button onclick="goBack()">Voltar</button>
+=======
+    <br><h2>Cadastre-se Já.</h2>
+        <button onclick="goBack()">Voltar</button>
+>>>>>>> 8d2c739e618cdbe9398d178ddc333cbffa5ccb66
 
     <script>
         function goBack() {
@@ -61,6 +66,7 @@
             <h2>Regulamento da LGPD</h2>
             <p><strong>Art. 1º</strong> Este regulamento tem por objetivo regulamentar a aplicação da Lei nº 13.709, de 14 de agosto de 2018, Lei Geral de Proteção de Dados Pessoais (LGPD), para agentes de tratamento de pequeno porte, com base nas competências previstas no art. 55-J, inciso XVIII, da referida Lei.</p>
 
+<<<<<<< HEAD
             <p><strong>Parágrafo único.</strong> Este regulamento não se aplica ao tratamento de dados pessoais realizado por pessoa natural para fins exclusivamente particulares e não econômicos, bem como nas demais hipóteses previstas no art. 4º da LGPD.</p>
 
             <h2>CAPÍTULO II</h2>
@@ -228,6 +234,30 @@
                 <div id="confirmaSenhaErro" style="color: red;"></div>
                 <br>
                 <!-- <div class="form-group">
+=======
+        <h2>Cadastro</h2>
+        <form id="cadastroForm" action="back/processa_cadastro.php" method="post">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+
+            <label for="telefone">Telefone:</label>
+            <input type="tel" id="telefone" name="telefone" required>
+
+            <p id="mensagemAviso" style="color: red;"></p>
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email"     required>
+            <div id="emailErro" style="color: red;"></div>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <div id="senhaErro" style="color: red;"></div>
+
+            <label for="confirma_senha">Confirme a Senha:</label>
+            <input type="password" id="confirma_senha" name="confirma_senha" required>
+            <div id="confirmaSenhaErro" style="color: red;"></div>
+<br>
+            <!-- <div class="form-group">
+>>>>>>> 8d2c739e618cdbe9398d178ddc333cbffa5ccb66
                 <label for="rg">RG:</label>
                 <input type="text" id="rg" name="rg" required>
                 <div id="rgErro" style="color: red;"></div>
