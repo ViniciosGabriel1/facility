@@ -195,7 +195,16 @@ if ($resultado_medico->num_rows > 0) {
 
   <p>Powered by <a href="https://www.linkedin.com/in/vin%C3%ADciosgabriel-dev12/" target="_blank">Vinicinho</a></p>
 </footer> 
-
+<div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 </body>
 
 

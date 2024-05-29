@@ -81,75 +81,83 @@ $conn->close();
 </head>
 
 <body>
-<?php include "menu_paciente.php"; ?>
+    <?php include "menu_paciente.php"; ?>
 
-<button class="botao-voltar" onclick="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
+    <button class="botao-voltar" onclick="goBack()"><i class="fas fa-arrow-left"></i> Voltar</button>
 
 
-<h1 class="pergunta">Quanto mais rápido melhor.</h1>
+    <h1 class="pergunta">Quanto mais rápido melhor.</h1>
     <div class="container-wrapper">
-    <!-- Início da imagem -->
-    <img src="../img/agenda.svg" alt="Descrição da imagem" class="background-image">
-    <!-- Fim da imagem -->
+        <!-- Início da imagem -->
+        <img src="../img/agenda.svg" alt="Descrição da imagem" class="background-image">
+        <!-- Fim da imagem -->
 
-    <div class="container">
+        <div class="container">
 
-    <h2>Agende Aqui</h2>
-    <span id="instrucao" class="instrucao" style="display: none;">Clique fora do calendário para fechar.</span>
+            <h2>Agende Aqui</h2>
+            <span id="instrucao" class="instrucao" style="display: none;">Clique fora do calendário para fechar.</span>
 
-    <form id="form-formacao" action="../back/processar_agendamento.php" method="post">
-    <div class="form-group">
-        <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
-        <label for="data">Escolha uma Data e Hora:</label>
-        <input type="datetime-local" id="data" name="data" min="<?php echo $currentDate; ?>" max="<?php echo $limitDate; ?>" required>
-        
-        </div>
-        <div class="form-group">
+            <form id="form-formacao" action="../back/processar_agendamento.php" method="post">
+                <div class="form-group">
+                    <input type="hidden" name="id_medico" value="<?php echo $id_medico; ?>">
+                    <label for="data">Escolha uma Data e Hora:</label>
+                    <input type="datetime-local" id="data" name="data" min="<?php echo $currentDate; ?>" max="<?php echo $limitDate; ?>" required>
 
-        <label for="servico">Escolha um Serviço:</label>
-        <select id="servico" name="servico" required>
-            <?php
-            // Exibir os serviços disponíveis do médico no menu suspenso
-            while ($row_servico = $result_servicos->fetch_assoc()) {
-                echo "<option value='{$row_servico['servico']}'>{$row_servico['servico']}</option>";
-            }
-            ?>
-        </select>
-        </div>
-        <div class="form-group">
+                </div>
+                <div class="form-group">
 
-        <label for="observacoes">Observações:</label>
-        <textarea id="observacoes" name="observacoes" rows="4" placeholder="Adicione observações, se necessário"></textarea>
-        </div>
-        <button type="submit">Agendar</button>
-        
-    </form>
+                    <label for="servico">Escolha um Serviço:</label>
+                    <select id="servico" name="servico" required>
+                        <?php
+                        // Exibir os serviços disponíveis do médico no menu suspenso
+                        while ($row_servico = $result_servicos->fetch_assoc()) {
+                            echo "<option value='{$row_servico['servico']}'>{$row_servico['servico']}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
 
-    
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var inputField = document.getElementById('data');
-    var instrucao = document.getElementById('instrucao');
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes" name="observacoes" rows="4" placeholder="Adicione observações, se necessário"></textarea>
+                </div>
+                <button type="submit">Agendar</button>
 
-    inputField.addEventListener('click', function() {
-        instrucao.style.display = 'block';
-    });
+            </form>
+            <div vw class="enabled">
+                <div vw-access-button class="active"></div>
+                <div vw-plugin-wrapper>
+                    <div class="vw-plugin-top-wrapper"></div>
+                </div>
+            </div>
+            <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+            <script>
+                new window.VLibras.Widget('https://vlibras.gov.br/app');
+            </script>
 
-    // Adiciona um ouvinte de evento para cliques em qualquer lugar da página
-    document.addEventListener('click', function(event) {
-        // Verifica se o clique não foi dentro do inputField
-        if (event.target !== inputField) {
-            // Oculta o texto de instruções
-            instrucao.style.display = 'none';
-        }
-    });
-});
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var inputField = document.getElementById('data');
+                    var instrucao = document.getElementById('instrucao');
 
-    function goBack() {
-        window.history.back();
-    }
+                    inputField.addEventListener('click', function() {
+                        instrucao.style.display = 'block';
+                    });
 
-</script>
+                    // Adiciona um ouvinte de evento para cliques em qualquer lugar da página
+                    document.addEventListener('click', function(event) {
+                        // Verifica se o clique não foi dentro do inputField
+                        if (event.target !== inputField) {
+                            // Oculta o texto de instruções
+                            instrucao.style.display = 'none';
+                        }
+                    });
+                });
+
+                function goBack() {
+                    window.history.back();
+                }
+            </script>
 </body>
 
 </html>

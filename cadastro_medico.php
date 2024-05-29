@@ -74,7 +74,7 @@
                 <button type="submit" class="cadastro-button">Cadastrar Médico</button>
 
                 <br>
-                <p class="cadastro-link">Já tem uma conta? <a href="login.php">Faça login</a></p>
+                <p class="cadastro-link">Já tem uma conta? <a href="index.php">Faça login</a></p>
             </form>
         </section>
     </div>
@@ -103,6 +103,16 @@
     </script>
     
 -->
+<div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
     <script src="js/validaEmail.js"></script>
     <script src="js/validaSenha.js"></script>
 

@@ -282,7 +282,7 @@
             </div> -->
 
                 <a class="abrirM" id="btnAbrirModal">Cadastrar</a><br>
-                <p class="signup-link">Já tem uma conta? <a href="login.php">Entre aqui!</a></p>
+                <p class="signup-link">Já tem uma conta? <a href="index.php">Entre aqui!</a></p>
 
 
             </form>
@@ -317,6 +317,16 @@
         }
     }
 </script>
+<div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
     <script src="js/cadastro.js"></script>
 
 </body>
